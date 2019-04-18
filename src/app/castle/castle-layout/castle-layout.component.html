@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="frame">
+    <ngx-widget-grid [rows]="numOfRows" [columns]="numOfCols"
+      [highlightNextPosition]="false"
+      [showGrid]="true"
+      (widgetPositionChange)="onWidgetChange($event)">
+      <ngx-widget *ngFor="let room of rooms"
+        [(position)]="room.position"
+        [movable]="isEditable"
+        [swapOnMove]="isEditable"
+        [resizable]="false">
+        <div class="widget-container">
+            <ng-template [widgetContainer]="room.component"></ng-template>
+        </div>
+      </ngx-widget>
+    </ngx-widget-grid>
+  </div>
+</div>
