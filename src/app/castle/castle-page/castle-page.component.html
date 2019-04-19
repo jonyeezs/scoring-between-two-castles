@@ -4,6 +4,18 @@
   </ion-card-header>
 
   <ion-card-content>
-    <app-castle-layout [rooms]="[]"></app-castle-layout>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <app-castle-layout *ngIf="rooms.length > 0;else notifyAddThrone" [rooms]="rooms"></app-castle-layout>
+    
+          <ng-template #notifyAddThrone>
+            <div class="ion-text-center ion-text-uppercase">
+              <h2>Every 🏰 needs a Throne room!</h2>
+            </div>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-card-content>
 </ion-card>

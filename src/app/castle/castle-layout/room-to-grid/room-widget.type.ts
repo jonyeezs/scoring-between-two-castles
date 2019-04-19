@@ -1,6 +1,6 @@
 import { Room } from 'src/app/castle/rooms/room/room.type';
-import { RoomToGridTransformer } from './room-to-grid-transformer';
-import { Widget, WidgetPosition } from '../../models/WidgetPosition';
+import { RoomToGridTransformer } from './room-to-grid-transformer/room-to-grid-transformer';
+import { Widget, WidgetPosition } from '../models/WidgetPosition';
 
 
 export class RoomWidget implements Widget {

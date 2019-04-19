@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
-import { Room } from '../rooms/room/room.type';
+import { RoomWidget } from './room-to-grid/room-widget.type';
 
 @Component({
   selector: 'app-castle-layout',
@@ -8,7 +8,7 @@ import { Room } from '../rooms/room/room.type';
   styleUrls: ['./castle-layout.component.scss']
 })
 export class CastleLayoutComponent implements OnInit, OnChanges {
-  @Input() rooms: Room[];
+  @Input() rooms: RoomWidget[];
   public isEditable: boolean;
   public numOfRows: number;
   public numOfCols: number;
@@ -21,12 +21,12 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.rooms && changes.rooms.currentValue.length > 0) {
       this.numOfCols = changes.rooms.currentValue
-        .reduce((highestValue: number, currTile: Room) =>
+        .reduce((highestValue: number, currTile: RoomWidget) =>
           highestValue > currTile.position.left ?
             highestValue : currTile.position.left,
           0);
       this.numOfRows = changes.rooms.currentValue
-        .reduce((highestValue: number, currTile: Room) =>
+        .reduce((highestValue: number, currTile: RoomWidget) =>
           highestValue > currTile.position.top ?
             highestValue : currTile.position.top,
           0);

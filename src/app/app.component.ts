@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router, ActivationEnd } from '@angular/router';
-import { filter, tap } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',

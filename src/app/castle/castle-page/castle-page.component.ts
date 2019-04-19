@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CastlePageComponent implements OnInit {
   public name: string;
+  public rooms = [];
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
