@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FabbyConnectorService } from '../../components/fabby/fabby-connector.service';
 
 @Component({
   selector: 'app-castle-page',
@@ -9,10 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 export class CastlePageComponent implements OnInit {
   public name: string;
   public rooms = [];
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private fabby: FabbyConnectorService) { }
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
+
+    if (this.rooms.length === 0) {
+      this.fabby.hide();
+    } else {
+      this.fabby.show();
+    }
   }
 
 }

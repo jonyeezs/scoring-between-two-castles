@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, UrlSegment } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { FabbyConnectorService } from './fabby-connector.service';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-fabby',
   templateUrl: './fabby.component.html',
   styleUrls: ['./fabby.component.scss'],
 })
 export class FabbyComponent implements OnInit {
-  public isCastlePage: boolean;
+  public canShow$: Observable<boolean>;
 
-  constructor(private router: ActivatedRoute) { }
+  constructor(private fabbyConnector: FabbyConnectorService) {}
 
   ngOnInit() {
-    this.router.url.pipe(map(segments => segments.join('')))
-    .subscribe((url) => {
-      this.isCastlePage = url === 'castles';
-    });
+    this.canShow$ = this.fabbyConnector.showFabby$;
   }
-
 }

@@ -1,10 +1,5 @@
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+<ion-fab *ngIf="canShow$ | async" vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button>
     <ion-icon name="add"></ion-icon>
-
-      <ion-fab-list side="top">
-      <ion-fab-button *ngIf="isCastlePage">Room</ion-fab-button>
-      <!-- not supported yet<ion-fab-button>Castle</ion-fab-button> -->
-    </ion-fab-list>
   </ion-fab-button>
 </ion-fab>

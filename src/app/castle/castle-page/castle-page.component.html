@@ -3,19 +3,30 @@
     <ion-card-title>{{ name }}</ion-card-title>
   </ion-card-header>
 
+  <ion-card-subtitle *ngIf="rooms.length === 0">
+    <h2 class="ion-padding ion-text-center ion-text-uppercase" color="warning">
+      Every 🏰 needs a Throne room!</h2>
+  </ion-card-subtitle>
+
   <ion-card-content>
     <ion-grid>
       <ion-row>
         <ion-col>
-          <app-castle-layout *ngIf="rooms.length > 0;else notifyAddThrone" [rooms]="rooms"></app-castle-layout>
-    
-          <ng-template #notifyAddThrone>
-            <div class="ion-text-center ion-text-uppercase">
-              <h2>Every 🏰 needs a Throne room!</h2>
-            </div>
-          </ng-template>
+          <app-castle-layout *ngIf="rooms.length > 0" [rooms]="rooms"></app-castle-layout>
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card-content>
 </ion-card>
+
+<ion-grid class="bottom-button">
+  <ion-row *ngIf="rooms.length === 0"
+    align-items-end justify-content-end>
+    <ion-col align-self-end>
+      <ion-button color="primary" expand="block" size="large">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Add Throne Room
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
