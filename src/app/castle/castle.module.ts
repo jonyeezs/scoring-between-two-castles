@@ -14,13 +14,16 @@ import { RoomsModule } from './rooms/rooms.module';
     FormsModule,
     IonicModule,
     RouterModule.forChild([{
-      path: '',
+      path: ':name',
       component: CastlePageComponent,
       data: {
         title: 'Castle'
-      }
+      },
     }, {
-      path: ':name',
+      path: ':name/add',
+      loadChildren: './add-rooms/add-rooms.module#AddRoomsModule'
+    }, {
+      path: '',
       component: CastlePageComponent,
       data: {
         title: 'Castle'

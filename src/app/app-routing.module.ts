@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'castle', pathMatch: 'full' },
   { path: 'castle', loadChildren: './castle/castle.module#CastleModule' },
+  { path: '', redirectTo: '/castle/default', pathMatch: 'full' },
 ];
 
 @NgModule({

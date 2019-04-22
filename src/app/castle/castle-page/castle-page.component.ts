@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FabbyConnectorService } from '../../components/fabby/fabby-connector.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-castle-page',
@@ -10,7 +11,8 @@ import { FabbyConnectorService } from '../../components/fabby/fabby-connector.se
 export class CastlePageComponent implements OnInit {
   public name: string;
   public rooms = [];
-  constructor(private route: ActivatedRoute, private fabby: FabbyConnectorService) { }
+  constructor(private route: ActivatedRoute,
+    private fabby: FabbyConnectorService, private navCtrl: NavController) { }
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
@@ -22,4 +24,7 @@ export class CastlePageComponent implements OnInit {
     }
   }
 
+  goToAddThrone() {
+    this.navCtrl.navigateForward(['add' , 'throne'], { relativeTo: this.route });
+  }
 }
