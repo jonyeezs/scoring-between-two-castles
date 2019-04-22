@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CastlePageComponent } from './castle-page/castle-page.component';
 import { CastleLayoutModule } from './castle-layout/castle-layout.module';
 import { RoomsModule } from './rooms/rooms.module';
+import { FabbyComponent } from '../components/fabby/fabby.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,6 @@ import { RoomsModule } from './rooms/rooms.module';
     CastleLayoutModule,
     RoomsModule
   ],
-  declarations: [CastlePageComponent]
+  declarations: [CastlePageComponent, FabbyComponent]
 })
 export class CastleModule {}
