@@ -1,5 +1,5 @@
-import { Room } from '../../../rooms/room/room.type';
 import { WidgetPosition } from '../../models/WidgetPosition';
+import { Room } from 'src/app/models/rooms/room.type';
 
 export class RoomToGridTransformer {
   private topConst: number;

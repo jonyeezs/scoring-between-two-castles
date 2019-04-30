@@ -1,6 +1,6 @@
 import { RoomToGridTransformer } from './room-to-grid-transformer';
 import { rooms as testCaseRooms, expectedConversion } from './room-to-grid-transformer.test-case.spec';
-import { Room } from '../../../rooms/room/room.type';
+import { Room } from '../../../../models/rooms/room.type';
 
 describe('RoomToGridTransformer', () => {
   let subject: RoomToGridTransformer;

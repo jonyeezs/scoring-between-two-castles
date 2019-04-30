@@ -1,6 +1,6 @@
 import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { Component } from '@angular/core';
-import { Room } from '../rooms/room/room.type';
+import { Room } from '../../models/rooms/room.type';
 import { CastleLayoutModule } from './castle-layout.module';
 
 const recommendedRoomBaseStyling = 'height:100%;';
@@ -31,10 +31,10 @@ storiesOf('Castle layout', module)
   template: `<app-castle-layout [rooms]="rooms"></app-castle-layout>`,
   props: {
     rooms: [
-      new Room(1, {x: 1, y: 2}, Test2Component),
-      new Room(2, {x: 1, y: 1}, Test1Component),
-      new Room(1, {x: 2, y: 2}, Test4Component),
-      new Room(1, {x: 3, y: 2}, Test3Component)]
+      new Room(1, '', { description: '' }, {x: 1, y: 2}),
+      new Room(2, '', { description: '' }, {x: 1, y: 1}),
+      new Room(1, '', { description: '' }, {x: 2, y: 2}),
+      new Room(1, '', { description: '' }, {x: 3, y: 2})]
   },
   moduleMetadata: {
     declarations: [Test1Component, Test2Component, Test3Component, Test4Component],

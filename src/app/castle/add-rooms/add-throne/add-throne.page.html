@@ -1,18 +1,42 @@
   <ion-header>
   <ion-toolbar>
     <ion-title>
-      Add Throne Room
+      Add Throne Room for {{ castleName }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>
-  <ion-row>
-    <ion-col>
-      Tada!
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-  </ion-content>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="5" class="ion-align-self-center">
+        <app-room [name]="selectedThrone.name" [icon]="selectedThrone.icon"></app-room>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-align-self-stretch">
+        <form>
+         <ion-list>
+           <ion-radio-group ngModel (ngModelChange)="onSelect($event)" name="type">
+             <ion-list-header>
+               <ion-label>Type</ion-label>
+             </ion-list-header>
+             <ion-item *ngFor="let throne of thrones">
+               <ion-label>{{ throne.ruleDescription }}</ion-label>
+               <ion-radio slot="end" value="{{ throne.name }}"></ion-radio>
+             </ion-item>
+           </ion-radio-group>
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-end justify-content-end>
+      <ion-col align-self-end>
+        <ion-button (click)="onSubmit()" color="primary" expand="block" size="large" class="bottom-button">
+          <ion-icon slot="start" name="save"></ion-icon>
+          Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+</ion-content>

@@ -9,7 +9,7 @@
   <ion-content>
 <ion-card>
   <ion-card-header>
-    <ion-card-title>{{ name }}</ion-card-title>
+    <ion-card-title><h1>{{ name }}</h1></ion-card-title>
   </ion-card-header>
 
   <ion-card-subtitle *ngIf="rooms.length === 0">
@@ -18,11 +18,9 @@
   </ion-card-subtitle>
 
   <ion-card-content>
+    <app-castle-layout *ngIf="rooms.length > 0" [rooms]="rooms"></app-castle-layout>
     <ion-grid>
       <ion-row>
-        <ion-col>
-          <app-castle-layout *ngIf="rooms.length > 0" [rooms]="rooms"></app-castle-layout>
-        </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card-content>

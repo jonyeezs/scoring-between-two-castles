@@ -6,14 +6,15 @@ import { Component, Input, OnInit } from '@angular/core';
   <!-- edit -->
   <!-- del -->
     <article> <!-- to be a card -->
-     <h1>{{ name }}</h1> <!-- name should be editable -->
+     <h1>{{ icon }}</h1>
+     <h2>{{ name }}</h2>
     </article>
   `,
-  styles: ['article { height:100%; }']
+  styleUrls: ['./room.component.scss']
 })
 export class RoomComponent implements OnInit {
+  @Input() icon: string;
   @Input() name: string;
-  @Input() rule: () => void;
 
   constructor() { }
 
