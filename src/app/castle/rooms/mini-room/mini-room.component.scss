@@ -1,5 +1,10 @@
-.mini-size {
+:host {
     height: inherit;
+    width: 95%;
+    margin: auto 2.5%;
+}
+.mini-size {
+    text-align: center;
     padding: 0.5rem;
     border-radius: 8px;
     border: 1px solid;
