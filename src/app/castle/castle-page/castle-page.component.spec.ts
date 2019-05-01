@@ -4,6 +4,8 @@ import { CastlePageComponent } from './castle-page.component';
 import { CastleLayoutModule } from '../castle-layout/castle-layout.module';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('CastlePageComponent', () => {
   let component: CastlePageComponent;
@@ -11,9 +13,10 @@ describe('CastlePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [CastleLayoutModule],
+      imports: [CastleLayoutModule, RouterTestingModule.withRoutes([])],
       declarations: [ CastlePageComponent ],
-      providers: [{ provide: ActivatedRoute,  useValue: { snapshot: { paramMap: { get: (name) => of(name) } }}}]
+      providers: [{ provide: ActivatedRoute,  useValue: { snapshot: { paramMap: { get: (name) => of(name) } }}}],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -22,9 +25,5 @@ describe('CastlePageComponent', () => {
     fixture = TestBed.createComponent(CastlePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });
