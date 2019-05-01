@@ -11,6 +11,17 @@ describe('RoomToGridTransformer', () => {
   });
 
   describe('transform', () => {
+    it('should center a lone throne room on a 3 x 4 grid', () => {
+      const singleThroneTransfomerSubject = new RoomToGridTransformer(
+        [{location: { x: 0, y: 0 }}]);
+
+      const result = singleThroneTransfomerSubject.getTransformer();
+      const converted = result({realEstate: { height: 1, width: 2 }, location: { x: 0, y: 0 } });
+
+      expect(converted.left).toBe(3);
+      expect(converted.top).toBe(2);
+    });
+
     it('should return a function to do the transformation', () => {
       const result = subject.getTransformer();
       rooms.forEach((room: Partial<Room>, i: number) => {
