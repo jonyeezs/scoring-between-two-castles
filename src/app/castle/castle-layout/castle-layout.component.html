@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="frame">
+  <div class="frame" [appDynamicHeight]="rooms.length">
     <ngx-widget-grid [rows]="numOfRows" [columns]="numOfCols"
       [highlightNextPosition]="false"
       [showGrid]="true"

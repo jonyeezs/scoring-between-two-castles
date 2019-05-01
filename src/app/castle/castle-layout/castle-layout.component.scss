@@ -10,14 +10,20 @@
   display: flex;
   flex: 1 1 100%;
   flex-flow: column nowrap;
+  justify-items: center;
+  justify-content: center;
 
    /deep/ .frame {
      flex: 1 1 auto;
+     position: relative;
+     margin: 1rem;
+
    }
 }
 
 .widget-container {
   display: flex;
+  justify-content: center;
   position: relative;
   height: 100%;
   width: 100%;
