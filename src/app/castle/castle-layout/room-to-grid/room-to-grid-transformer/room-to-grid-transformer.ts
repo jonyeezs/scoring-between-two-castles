@@ -14,9 +14,9 @@ export class RoomToGridTransformer {
 
   public getTransformer(): (room: Partial<Room>) => WidgetPosition {
 // tslint:disable-next-line: only-arrow-functions
-    return (room) => { return {
-      top: Math.abs(room.location.y - this.topConst),
-      left: Math.abs(room.location.x - this.leftConst) }; };
+    return (room) => ({
+      top: this.rooms.length > 1 ? Math.abs(room.location.y - this.topConst) : 2,
+      left: this.rooms.length > 1 ? Math.abs(room.location.x - this.leftConst) : 3 });
   }
 
   private findTopest(rooms: Partial<Room>[]) {
