@@ -39,7 +39,9 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
         return this.findNextLinkableNodes(node);
     }
 
-
+    get(position: {x: number, y: number}): GridNode<GridNodeType> | undefined {
+       return this.grid.find(n => n.equals(position as GridNodeType));
+    }
 
     private findLinkableNodes(target: GridNodeType): GridNode<GridNodeType>[] {
         return this.grid.filter(n => {
