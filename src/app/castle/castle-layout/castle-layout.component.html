@@ -2,12 +2,10 @@
   <div class="frame" [appDynamicHeight]="numOfRows">
     <ngx-widget-grid [rows]="numOfRows" [columns]="numOfCols"
       [highlightNextPosition]="false"
-      [showGrid]="true"
+      [showGrid]="isEditable"
       (widgetPositionChange)="onWidgetChange($event)">
       <ngx-widget *ngFor="let room of rooms"
         [(position)]="room.position"
-        [movable]="isEditable"
-        [swapOnMove]="isEditable"
         [resizable]="false">
         <div class="widget-container">
             <ng-template [widgetContainer]="room.componentRef"></ng-template>

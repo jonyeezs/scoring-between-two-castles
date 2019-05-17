@@ -57,9 +57,9 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
                        {x: target.x + 1, y: target.y},
                        {x: target.x, y: target.y - 1},
                        {x: target.x, y: target.y + 1}];
-        
-        return links.filter(l => 
-            !this.grid.some(n => 
+
+        return links.filter(l =>
+            !this.grid.some(n =>
                 n.equals(l as GridNodeType)
             )
         );

@@ -1,4 +1,4 @@
-  <ion-header>
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Castle
@@ -6,36 +6,36 @@
   </ion-toolbar>
 </ion-header>
 
-  <ion-content>
-<ion-card>
-  <ion-card-header>
-    <ion-card-title><h1>{{ name }}</h1></ion-card-title>
-  </ion-card-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title><h1>{{ name }}</h1></ion-card-title>
+    </ion-card-header>
 
-  <ion-card-subtitle *ngIf="rooms.length === 0">
-    <h2 class="ion-padding ion-text-center ion-text-uppercase" color="warning">
-      Every 🏰 needs a Throne room!</h2>
-  </ion-card-subtitle>
+    <ion-card-subtitle *ngIf="rooms.length === 0">
+      <h2 class="ion-padding ion-text-center ion-text-uppercase" color="warning">
+        Every 🏰 needs a Throne room!</h2>
+    </ion-card-subtitle>
 
-  <ion-card-content>
-    <app-castle-layout *ngIf="rooms.length > 0" [rooms]="rooms"></app-castle-layout>
-    <ion-grid>
-      <ion-row>
-      </ion-row>
-    </ion-grid>
-  </ion-card-content>
-</ion-card>
+    <ion-card-content>
+      <app-castle-layout *ngIf="rooms.length > 0" [rooms]="rooms"></app-castle-layout>
+      <ion-grid>
+        <ion-row>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
-<ion-grid class="bottom-button">
-  <ion-row *ngIf="rooms.length === 0"
-    align-items-end justify-content-end>
-    <ion-col align-self-end>
-      <ion-button (click)="goToAddThrone()" color="primary" expand="block" size="large">
-        <ion-icon slot="start" name="add"></ion-icon>
-        Add Throne Room
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-    <app-fabby></app-fabby>
-  </ion-content>
+  <ion-grid class="bottom-button">
+    <ion-row *ngIf="rooms.length === 0"
+      align-items-end justify-content-end>
+      <ion-col align-self-end>
+        <ion-button (click)="goToAddThrone()" color="primary" expand="block" size="large">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Add Throne Room
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-fabby></app-fabby>
+</ion-content>

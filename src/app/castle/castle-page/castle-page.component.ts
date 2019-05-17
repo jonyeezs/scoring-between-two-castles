@@ -7,7 +7,6 @@ import { RoomRepositoryService } from 'src/app/core/room-repository.service';
 import { RoomWidget } from '../castle-layout/room-to-grid/room-widget.type';
 import { MiniRoomComponent } from '../rooms/mini-room/mini-room.component';
 import { RoomGridFactoryService } from '../castle-layout/room-to-grid/room-grid-factory/room-grid-factory.service';
-import { RoomToGridTransformer } from '../castle-layout/room-to-grid/room-to-grid-transformer/room-to-grid-transformer';
 import { Room } from 'src/app/models/rooms/room.type';
 
 @Component({
@@ -25,6 +24,7 @@ export class CastlePageComponent implements OnInit {
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
+    this.fabby.currentCastle = this.name;
   }
 
   ionViewWillEnter() {

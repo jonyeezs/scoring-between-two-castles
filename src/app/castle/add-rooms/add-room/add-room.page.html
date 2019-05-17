@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button icon="arrow-back"></ion-back-button> 
+      </ion-buttons>
+    <ion-title>
+     Add Room for {{ castleName }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+       <app-castle-layout [rooms]="rooms" [isEditable]="true"></app-castle-layout>
+    </ion-row>
+  </ion-grid>  
+</ion-content>

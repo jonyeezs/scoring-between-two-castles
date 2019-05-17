@@ -9,16 +9,18 @@ import { RoomWidget } from './room-to-grid/room-widget.type';
 })
 export class CastleLayoutComponent implements OnInit, OnChanges {
   @Input() rooms: RoomWidget<any>[];
-  public isEditable: boolean;
+  @Input() isEditable: boolean;
   public numOfRows: number;
   public numOfCols: number;
   constructor() {}
 
-  ngOnInit() {
-    this.isEditable = false;
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
+    if (!changes.isEditable) {
+      this.isEditable = false;
+    }
+
     if (changes.rooms && changes.rooms.currentValue.length > 0) {
       this.numOfCols = changes.rooms.currentValue
         .reduce((highestValue: number, currTile: RoomWidget<any>) =>

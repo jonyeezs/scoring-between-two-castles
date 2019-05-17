@@ -6,7 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AddThronePage } from './add-throne/add-throne.page';
+import { AddRoomPage } from './add-room/add-room.page';
 import { RoomsModule } from '../rooms/rooms.module';
+import { CastleLayoutModule } from '../castle-layout/castle-layout.module';
 
 const routes: Routes = [
   {
@@ -15,6 +17,9 @@ const routes: Routes = [
     data: {
         title: 'Add Throne'
       }
+  }, {
+    path: 'room',
+    component: AddRoomPage
   }
 ];
 
@@ -24,8 +29,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    RoomsModule
+    RoomsModule,
+    CastleLayoutModule,
   ],
-  declarations: [AddThronePage]
+  declarations: [AddThronePage, AddRoomPage]
 })
 export class AddRoomsModule { }
