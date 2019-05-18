@@ -21,7 +21,7 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
       this.isEditable = false;
     }
 
-    if (changes.rooms && changes.rooms.currentValue.length > 0) {
+    if (changes.rooms && changes.rooms.currentValue && changes.rooms.currentValue.length > 0) {
       this.numOfCols = changes.rooms.currentValue
         .reduce((highestValue: number, currTile: RoomWidget<any>) =>
           highestValue > currTile.position.left ?

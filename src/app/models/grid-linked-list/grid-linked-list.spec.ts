@@ -9,7 +9,7 @@ describe('GridLinkedList', () => {
     let initialNodeLinks = null;
 
     beforeEach(() => {
-            subject = new GridLinkedList<TestGridNode>((a, b) => a.x === b.x && a.y === b.y);
+            subject = new GridLinkedList<TestGridNode>();
 
             initialNodeLinks = subject.add(new TestGridNode(3, 3)); // add an initial link
         });

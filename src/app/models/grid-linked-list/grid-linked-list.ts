@@ -9,8 +9,10 @@ export interface GridableGridNodeType {
 export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
     private grid: GridNode<GridNodeType>[];
     private currentTravel: GridNodeTraverser<GridNodeType>;
+    private equalifier: (nodeA: GridNodeType, nodeB: GridNodeType) => boolean =
+        function(nodeA, nodeB) { return nodeA.x === nodeB.x && nodeA.y === nodeB.y; };
 
-    constructor(private equalifier: (nodeA: GridNodeType, nodeB: GridNodeType) => boolean) {
+    constructor() {
         this.currentTravel = null;
         this.grid = [];
     }
@@ -41,6 +43,13 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
 
     get(position: {x: number, y: number}): GridNode<GridNodeType> | undefined {
        return this.grid.find(n => n.equals(position as GridNodeType));
+    }
+
+    getAll() {
+        return this.grid;
+    }
+    getAllAvailableLinks() {
+
     }
 
     private findLinkableNodes(target: GridNodeType): GridNode<GridNodeType>[] {
