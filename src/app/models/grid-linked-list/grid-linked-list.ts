@@ -9,12 +9,15 @@ export interface GridableGridNodeType {
 export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
     private grid: GridNode<GridNodeType>[];
     private currentTravel: GridNodeTraverser<GridNodeType>;
+    private availableGridSpace: Set<string>;
     private equalifier: (nodeA: GridNodeType, nodeB: GridNodeType) => boolean =
         function(nodeA, nodeB) { return nodeA.x === nodeB.x && nodeA.y === nodeB.y; };
+    // Set is save as string of a concatenation of x y.
 
     constructor() {
         this.currentTravel = null;
         this.grid = [];
+        this.availableGridSpace = new Set();
     }
 
     /**
@@ -37,10 +40,14 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
         linkableNodes.forEach(ln => {
             ln.links.push(newNode);
         });
+        
+        const availableNodes = this.findAvailableNodes(node);
 
-        return this.findNextLinkableNodes(node);
+        this.updateGridAvailability(newNode, availableNodes)
+
+        return availableNodes;
     }
-
+    
     get(position: {x: number, y: number}): GridNode<GridNodeType> | undefined {
        return this.grid.find(n => n.equals(position as GridNodeType));
     }
@@ -48,8 +55,22 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
     getAll() {
         return this.grid;
     }
-    getAllAvailableLinks() {
 
+    getAllAvailableSpace(): GridableGridNodeType[] {
+        return Array.from(this.availableGridSpace.values())
+            .map(v => {
+                const [x, y] = v.split(' ');
+                return { x: parseInt(x, 10), y: parseInt(y, 10) };
+            });
+    }
+
+    updateGridAvailability(newNode: GridNode<GridNodeType>, availableNodes: GridableGridNodeType[]) {
+        this.availableGridSpace.delete(`${newNode.data.x} ${newNode.data.y}`);
+        this.storeAvailableNodes(availableNodes);
+    }
+    storeAvailableNodes(availableNodes: GridableGridNodeType[]) {
+        availableNodes.map(n => `${n.x} ${n.y}`)
+        .forEach(s => this.availableGridSpace.add(s));
     }
 
     private findLinkableNodes(target: GridNodeType): GridNode<GridNodeType>[] {
@@ -61,7 +82,7 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
         });
     }
 
-    private findNextLinkableNodes(target: GridNodeType): GridableGridNodeType[] {
+    private findAvailableNodes(target: GridNodeType): GridableGridNodeType[] {
         const links = [{x: target.x - 1, y: target.y},
                        {x: target.x + 1, y: target.y},
                        {x: target.x, y: target.y - 1},
@@ -76,6 +97,11 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
 
     private addAsLoner(node: GridNodeType): GridableGridNodeType[] {
         this.grid.push(new GridNode(node, this.equalifier));
+        const nodes = [{x: node.x - 1, y: node.y},
+                {x: node.x + 1, y: node.y},
+                {x: node.x, y: node.y - 1},
+                {x: node.x, y: node.y + 1}];
+        this.updateGridAvailability(new GridNode(node, this.equalifier), nodes);
         return [{x: node.x - 1, y: node.y},
                 {x: node.x + 1, y: node.y},
                 {x: node.x, y: node.y - 1},

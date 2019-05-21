@@ -8,9 +8,9 @@ export class GridRoom extends Room implements GridableGridNodeType {
   get y() { return this.location.y; }
 
   constructor(room: Room) {
-    super(room.name, room.icon, 
-      { description: room.ruleDescription }, 
-      room.realEstate.width, 
+    super(room.name, room.icon,
+      { description: room.ruleDescription },
+      room.realEstate.width,
       { x: room.location.x, y: room.location.y });
   }
 }
@@ -29,7 +29,12 @@ export class RoomRepositoryService {
     this.gridRooms.add(new GridRoom(room));
   }
 
-  getAll(): Room[] {
+  getAllOccupied(): Room[] {
     return _cloneDeep(this.gridRooms.getAll().map(g => g.data as Room));
+  }
+
+  getAllFreeSpace(): Room[] {
+    return _cloneDeep(this.gridRooms.getAllAvailableSpace())
+      .map(location => new Room('available', '', {description: ''}, 1, location));
   }
 }

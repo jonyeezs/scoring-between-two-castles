@@ -23,18 +23,23 @@ export class AddRoomPage implements OnInit {
   ngOnInit() {
     this.castleName = this.router.snapshot.paramMap.get('castleName');
 
-    const rooms = this.roomRepo.getAll();
-    this.roomGridFactory.buildTransformer(rooms);
+    const _occupiedRooms = this.roomRepo.getAllOccupied();
+    const _availableRooms = this.roomRepo.getAllFreeSpace();
+    this.roomGridFactory.buildTransformer([..._occupiedRooms, ..._availableRooms]);
 
-    // const availableRooms = rooms.map(r => ({ x: r.location.x, y: r.location.y}))
-    //   .
-
-
-    const occupiedRooms = rooms.map((r: Room) => {
+    const occupiedRooms = _occupiedRooms.map((r: Room) => {
       const roomWidget = this.roomGridFactory.createRoomWidget(r, MiniRoomComponent);
       roomWidget.componentRef.instance.icon = r.icon;
       return roomWidget;
     });
+
+    const availableRooms = _availableRooms.map((r: Room) => {
+      const roomWidget = this.roomGridFactory.createRoomWidget(r, MiniRoomComponent);
+      roomWidget.componentRef.instance.icon = `${r.location.x} ${r.location.y}`;
+      return roomWidget;
+    });
+
+    this.rooms = occupiedRooms.concat(availableRooms);
   }
 
   onSelect(roomName: string) {

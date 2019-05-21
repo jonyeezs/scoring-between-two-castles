@@ -27,3 +27,19 @@ export const expectedConversion: {top: number, left: number}[] = [
   { left: 1, top: 6 },
   { left: 2, top: 5 }
 ];
+
+export const startupRooms: {x: number, y: number}[] = [
+  { x: 0, y: 0 },     //           [0,1]
+  { x: 0, y: 1 },     //     [-1,0][0,0][1,0]
+  { x: -1, y: 0 },     //          [0,-1]
+  { x: 0, y: -1 },
+  { x: 1, y: 0 }
+];
+
+export const expectedStartupConversion: {top: number, left: number}[] = [
+  { left: 2, top: 2 },     //         [2,1]
+  { left: 2, top: 1 },     //    [1,2][2,2][3,2]
+  { left: 1, top: 2 },     //         [2,3]
+  { left: 2, top: 3 },     //
+  { left: 3, top: 2 }
+];

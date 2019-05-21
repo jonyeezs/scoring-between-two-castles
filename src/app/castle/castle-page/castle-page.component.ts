@@ -28,7 +28,7 @@ export class CastlePageComponent implements OnInit {
   }
 
   ionViewWillEnter() {
-    const rooms = this.roomRepo.getAll();
+    const rooms = this.roomRepo.getAllOccupied();
     this.roomGridFactory.buildTransformer(rooms);
     this.rooms = rooms.map((r: Room) => {
       const roomWidget = this.roomGridFactory.createRoomWidget(r, MiniRoomComponent);
