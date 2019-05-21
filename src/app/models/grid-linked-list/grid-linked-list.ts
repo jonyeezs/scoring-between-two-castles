@@ -68,7 +68,7 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
         this.availableGridSpace.delete(`${newNode.data.x} ${newNode.data.y}`);
         this.storeAvailableNodes(availableNodes);
     }
-    storeAvailableNodes(availableNodes: GridableGridNodeType[]) {
+    private storeAvailableNodes(availableNodes: GridableGridNodeType[]) {
         availableNodes.map(n => `${n.x} ${n.y}`)
         .forEach(s => this.availableGridSpace.add(s));
     }

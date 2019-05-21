@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Room } from '../models/rooms/room.type';
+import { Room, RoomDefinition } from '../models/rooms/room.type';
 import * as _cloneDeep from 'lodash.clonedeep';
 import { GridLinkedList, GridableGridNodeType } from '../models/grid-linked-list/grid-linked-list';
 
-export class GridRoom extends Room implements GridableGridNodeType {
-  get x() { return this.location.x; }
-  get y() { return this.location.y; }
-
-  constructor(room: Room) {
-    super(room.name, room.icon,
-      { description: room.ruleDescription },
-      room.realEstate.width,
-      { x: room.location.x, y: room.location.y });
-  }
+export class GridRoom implements RoomDefinition, GridableGridNodeType {
+  constructor(public name: string,
+    public x: number,
+    public y: number,
+    public icon: string,
+    public ruleDescription: string) {}
 }
 
 @Injectable({
@@ -21,16 +17,21 @@ export class GridRoom extends Room implements GridableGridNodeType {
 export class RoomRepositoryService {
 
   private readonly gridRooms: GridLinkedList<GridRoom>;
+  private rooms: Room[];
+
   constructor() {
     this.gridRooms = new GridLinkedList();
   }
 
   add(room: Room) {
-    this.gridRooms.add(new GridRoom(room));
+    this.rooms.push(room);
+    room.sections.forEach(s => {
+      this.gridRooms.add(new GridRoom(room.name, s.x, s.y, room.icon, room.ruleDescription));
+    });
   }
 
   getAllOccupied(): Room[] {
-    return _cloneDeep(this.gridRooms.getAll().map(g => g.data as Room));
+    return _cloneDeep(this.rooms);
   }
 
   getAllFreeSpace(): Room[] {
