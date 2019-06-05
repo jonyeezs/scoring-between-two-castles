@@ -1,11 +1,14 @@
 export interface WidgetSize {
-    height: number;
-    width: number;
+  height: number;
+  width: number;
 }
 export interface WidgetPosition {
-    left: number;
-    top: number;
-  }
+  left: number;
+  top: number;
+}
+
+export interface WidgetPosSize extends WidgetSize, WidgetPosition {}
+
 export interface Widget {
-  position: WidgetSize | WidgetPosition;
+  position: WidgetPosSize;
 }

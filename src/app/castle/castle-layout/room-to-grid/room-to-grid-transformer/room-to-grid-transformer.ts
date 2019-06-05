@@ -1,38 +1,54 @@
-import { WidgetPosition } from '../../models/WidgetPosition';
-import { Room } from 'src/app/models/rooms/room.type';
+import { Widget } from "../../models/WidgetPosition";
+import { Room } from "src/app/models/rooms/room.type";
+import * as flatMap from "lodash.flatmap";
 
 export class RoomToGridTransformer {
   private topConst: number;
   private leftConst: number;
 
-
   constructor(private rooms: Partial<Room>[]) {
-    this.topConst = this.findTopest(this.rooms) + 1;
-    this.leftConst = this.findLeftest(this.rooms) - 1;
-
-   }
-
-  public getTransformer(): (room: Partial<Room>) => WidgetPosition {
-// tslint:disable-next-line: only-arrow-functions
-    return (room) => ({
-      top: this.rooms.length > 1 ? Math.abs(room.location.y - this.topConst) : 2,
-      left: this.rooms.length > 1 ? Math.abs(room.location.x - this.leftConst) : 3 });
+    const sections = flatMap(rooms, room => room.sections);
+    this.topConst = this.findTopest(sections) + 1;
+    this.leftConst = this.findLeftest(sections) - 1;
   }
 
-  private findTopest(rooms: Partial<Room>[]) {
-    return rooms.reduce((topest: number, curr: Room) =>
-          topest > curr.location.y ?
-            topest : curr.location.y,
-          0);
+  public getTransformer(): (room: Room) => Widget {
+    // tslint:disable-next-line: only-arrow-functions
+    return room => ({
+      position: {
+        top:
+          this.rooms.length > 1
+            ? Math.abs(this.findTopest(room.sections) - this.topConst)
+            : 2,
+        left:
+          this.rooms.length > 1
+            ? Math.abs(this.findLeftest(room.sections) - this.leftConst)
+            : 3,
+        height: room.height,
+        width: room.width
+      }
+    });
   }
 
-  private findLeftest(rooms: Partial<Room>[]) {
-    return rooms.reduce((leftest: number, curr: Room) =>
-          leftest < curr.location.x ?
-            leftest : curr.location.x,
-          0);
+  private findTopest(sections: { x: number; y: number }[]) {
+    return sections.reduce(
+      (topest: number, curr) => (topest > curr.y ? topest : curr.y),
+      0
+    );
   }
 
-  get top_marker() { return this.topConst; }
-  get left_marker() { return this.leftConst; }
+  private findLeftest(sections: { x: number; y: number }[]) {
+    return sections.reduce(
+      (leftest: number, curr: { x: number; y: number }) =>
+        leftest < curr.x ? leftest : curr.x,
+      0
+    );
+  }
+
+  get top_marker() {
+    return this.topConst;
+  }
+  get left_marker() {
+    return this.leftConst;
+  }
 }

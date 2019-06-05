@@ -30,6 +30,7 @@
     "@ionic/angular": "^4.1.0",
     "core-js": "^2.5.4",
     "lodash.clonedeep": "^4.5.0",
+    "lodash.flatmap": "^4.5.0",
     "ngx-pipes": "^2.4.6",
     "ngx-widget-grid": "^6.0.2",
     "rxjs": "~6.3.3",

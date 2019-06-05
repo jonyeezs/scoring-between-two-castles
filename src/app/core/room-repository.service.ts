@@ -36,6 +36,6 @@ export class RoomRepositoryService {
 
   getAllFreeSpace(): Room[] {
     return _cloneDeep(this.gridRooms.getAllAvailableSpace())
-      .map(location => new Room('available', '', {description: ''}, 1, location));
+      .map(location => new Room('available', '', [location], {description: ''}));
   }
 }
