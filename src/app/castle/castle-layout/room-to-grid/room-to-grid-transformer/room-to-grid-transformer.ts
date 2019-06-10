@@ -14,34 +14,39 @@ export class RoomToGridTransformer {
 
   public getTransformer(): (room: Room) => Widget {
     // tslint:disable-next-line: only-arrow-functions
-    return room => ({
-      position: {
-        top:
-          this.rooms.length > 1
-            ? Math.abs(this.findTopest(room.sections) - this.topConst)
-            : 2,
-        left:
-          this.rooms.length > 1
-            ? Math.abs(this.findLeftest(room.sections) - this.leftConst)
-            : 3,
-        height: room.height,
-        width: room.width
-      }
-    });
+    return room => {
+      const topest = this.findTopest(room.sections);
+      const leftest = this.findLeftest(room.sections);
+      const result = {
+        position: {
+          top: this.rooms.length > 1 ? Math.abs(topest - this.topConst) : 2,
+          left: this.rooms.length > 1 ? Math.abs(leftest - this.leftConst) : 3,
+          height: room.height,
+          width: room.width
+        }
+      };
+      return result;
+    };
   }
 
   private findTopest(sections: { x: number; y: number }[]) {
-    return sections.reduce(
-      (topest: number, curr) => (topest > curr.y ? topest : curr.y),
-      0
-    );
+    return sections.reduce((topest: number, curr) => {
+      if (topest == null) {
+        return curr.y;
+      }
+      return topest > curr.y ? topest : curr.y;
+    }, null);
   }
 
   private findLeftest(sections: { x: number; y: number }[]) {
     return sections.reduce(
-      (leftest: number, curr: { x: number; y: number }) =>
-        leftest < curr.x ? leftest : curr.x,
-      0
+      (leftest: number, curr: { x: number; y: number }) => {
+        if (leftest == null) {
+          return curr.x;
+        }
+        return leftest < curr.x ? leftest : curr.x;
+      },
+      null
     );
   }
 

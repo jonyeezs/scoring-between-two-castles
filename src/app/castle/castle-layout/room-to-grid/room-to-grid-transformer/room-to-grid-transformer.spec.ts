@@ -14,10 +14,8 @@ describe("RoomToGridTransformer", () => {
       { case: startupRooms, expected: expectedStartupConversion }
     ].forEach(test => {
       let subject: RoomToGridTransformer;
-      let rooms;
       beforeEach(() => {
-        rooms = test.case.map(r => ({ location: r }));
-        subject = new RoomToGridTransformer(rooms);
+        subject = new RoomToGridTransformer(test.case);
       });
 
       it("should center a lone throne room on a 3 x 4 grid", () => {
@@ -40,11 +38,13 @@ describe("RoomToGridTransformer", () => {
 
       it("should return a function to do the transformation", () => {
         const result = subject.getTransformer();
-        rooms.forEach((room: Room, i: number) => {
+        test.case.forEach((room: Room, i: number) => {
           // tslint:disable-next-line: max-line-length
-          const scenario = `room [${room.sections.x},${
-            room.sections.y
-          }] -> widget [${test.expected[i].position.left},${test.expected[i].position.top}]`;
+          const scenario = `room [${room.sections
+            .map(s => `{x: ${s.x}, y: ${s.y}}`)
+            .join(",")}] -> widget [l: ${test.expected[i].position.left}, t: ${
+            test.expected[i].position.top
+          }]`;
 
           const { position: converted } = result(room);
           expect(converted.top).toBe(
