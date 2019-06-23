@@ -15,12 +15,13 @@ const routes: Routes = [
     path: 'throne',
     component: AddThronePage,
     data: {
-        title: 'Add Throne'
-      }
-  }, {
+      title: 'Add Throne',
+    },
+  },
+  {
     path: 'room',
-    component: AddRoomPage
-  }
+    component: AddRoomPage,
+  },
 ];
 
 @NgModule({
@@ -32,6 +33,6 @@ const routes: Routes = [
     RoomsModule,
     CastleLayoutModule,
   ],
-  declarations: [AddThronePage, AddRoomPage]
+  declarations: [AddThronePage, AddRoomPage],
 })
-export class AddRoomsModule { }
+export class AddRoomsModule {}

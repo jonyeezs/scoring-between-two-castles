@@ -10,8 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MiniRoomComponent implements OnInit {
   @Input() icon: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

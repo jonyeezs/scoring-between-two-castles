@@ -7,13 +7,13 @@ import { RoomGridFactoryService } from './room-to-grid/room-grid-factory/room-gr
 import { DynamicHeightDirective } from './layout-frame-height/dynamic-height.directive';
 
 @NgModule({
-  declarations: [CastleLayoutComponent,
-    WidgetComponentDirective, DynamicHeightDirective],
-  imports: [
-    CommonModule,
-    NgxWidgetGridModule
+  declarations: [
+    CastleLayoutComponent,
+    WidgetComponentDirective,
+    DynamicHeightDirective,
   ],
+  imports: [CommonModule, NgxWidgetGridModule],
   providers: [RoomGridFactoryService],
-  exports: [CastleLayoutComponent]
+  exports: [CastleLayoutComponent],
 })
-export class CastleLayoutModule { }
+export class CastleLayoutModule {}

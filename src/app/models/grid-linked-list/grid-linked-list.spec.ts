@@ -1,10 +1,10 @@
-import { GridableGridNodeType, GridLinkedList } from "./grid-linked-list";
+import { GridableGridNodeType, GridLinkedList } from './grid-linked-list';
 
 export class TestGridNode implements GridableGridNodeType {
   constructor(public x: number, public y: number) {}
 }
 
-describe("GridLinkedList", () => {
+describe('GridLinkedList', () => {
   let subject: GridLinkedList<TestGridNode>;
   let initialNodeLinks = null;
 
@@ -14,8 +14,8 @@ describe("GridLinkedList", () => {
     initialNodeLinks = subject.add(new TestGridNode(3, 3)); // add an initial link
   });
 
-  describe("add", () => {
-    it("should allow to add an initial node without links", () => {
+  describe('add', () => {
+    it('should allow to add an initial node without links', () => {
       expect(initialNodeLinks.length).toBe(4);
       expect(initialNodeLinks).toContain(
         jasmine.objectContaining({ x: 4, y: 3 })
@@ -31,19 +31,19 @@ describe("GridLinkedList", () => {
       );
     });
 
-    it("should throw error if the node already exist", () => {
+    it('should throw error if the node already exist', () => {
       expect(() => {
         subject.add(new TestGridNode(3, 3));
       }).toThrowError();
     });
 
-    it("should throw error if there are no nodes in the grid that are linkable", () => {
+    it('should throw error if there are no nodes in the grid that are linkable', () => {
       expect(() => {
         subject.add(new TestGridNode(5, 2));
       }).toThrowError();
     });
 
-    it("should add when it is a linkable nodes", () => {
+    it('should add when it is a linkable nodes', () => {
       const newLinks = subject.add(new TestGridNode(2, 3));
       expect(newLinks.length).toBe(3);
       expect(newLinks).toContain(jasmine.objectContaining({ x: 2, y: 4 }));
@@ -52,8 +52,8 @@ describe("GridLinkedList", () => {
     });
   });
 
-  describe("links", () => {
-    it("should link only its neighbours", () => {
+  describe('links', () => {
+    it('should link only its neighbours', () => {
       subject.add(new TestGridNode(2, 3));
       subject.add(new TestGridNode(4, 3));
       subject.add(new TestGridNode(2, 2));
@@ -93,8 +93,8 @@ describe("GridLinkedList", () => {
     });
   });
 
-  describe("get", () => {
-    it("should return undefined if node does not exist", () => {
+  describe('get', () => {
+    it('should return undefined if node does not exist', () => {
       const result = subject.get({ x: 4, y: 3 });
       expect(result).toBeUndefined();
     });

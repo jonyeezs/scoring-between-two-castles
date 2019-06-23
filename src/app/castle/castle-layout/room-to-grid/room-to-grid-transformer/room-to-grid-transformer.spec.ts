@@ -1,34 +1,34 @@
-import { RoomToGridTransformer } from "./room-to-grid-transformer";
+import { RoomToGridTransformer } from './room-to-grid-transformer';
 import {
   rooms as testCaseRooms,
   expectedConversion,
   startupRooms,
-  expectedStartupConversion
-} from "./room-to-grid-transformer.test-case.spec";
-import { Room } from "../../../../models/rooms/room.type";
+  expectedStartupConversion,
+} from './room-to-grid-transformer.test-case.spec';
+import { Room } from '../../../../models/rooms/room.type';
 
-describe("RoomToGridTransformer", () => {
-  describe("transform", () => {
+describe('RoomToGridTransformer', () => {
+  describe('transform', () => {
     [
       { case: testCaseRooms, expected: expectedConversion },
-      { case: startupRooms, expected: expectedStartupConversion }
+      { case: startupRooms, expected: expectedStartupConversion },
     ].forEach(test => {
       let subject: RoomToGridTransformer;
       beforeEach(() => {
         subject = new RoomToGridTransformer(test.case);
       });
 
-      it("should center a lone throne room on a 3 x 4 grid", () => {
+      it('should center a lone throne room on a 3 x 4 grid', () => {
         const singleThroneTransfomerSubject = new RoomToGridTransformer([
-          new Room("n", "i", [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
-            description: ""
-          })
+          new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
+            description: '',
+          }),
         ]);
 
         const result = singleThroneTransfomerSubject.getTransformer();
         const converted = result(
-          new Room("n", "i", [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
-            description: ""
+          new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
+            description: '',
           })
         );
 
@@ -36,13 +36,13 @@ describe("RoomToGridTransformer", () => {
         expect(converted.position.top).toBe(2);
       });
 
-      it("should return a function to do the transformation", () => {
+      it('should return a function to do the transformation', () => {
         const result = subject.getTransformer();
         test.case.forEach((room: Room, i: number) => {
           // tslint:disable-next-line: max-line-length
           const scenario = `room [${room.sections
             .map(s => `{x: ${s.x}, y: ${s.y}}`)
-            .join(",")}] -> widget [l: ${test.expected[i].position.left}, t: ${
+            .join(',')}] -> widget [l: ${test.expected[i].position.left}, t: ${
             test.expected[i].position.top
           }]`;
 

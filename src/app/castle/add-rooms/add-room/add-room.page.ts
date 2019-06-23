@@ -15,26 +15,38 @@ import { MiniRoomComponent } from '../../rooms/mini-room/mini-room.component';
 export class AddRoomPage implements OnInit {
   public castleName: string;
   public rooms: RoomWidget<any>[];
-  
-  constructor(private router: ActivatedRoute,  private navCtrl: NavController,
+
+  constructor(
+    private router: ActivatedRoute,
+    private navCtrl: NavController,
     private roomRepo: RoomRepositoryService,
-    private roomGridFactory: RoomGridFactoryService) { }
+    private roomGridFactory: RoomGridFactoryService
+  ) {}
 
   ngOnInit() {
     this.castleName = this.router.snapshot.paramMap.get('castleName');
 
     const _occupiedRooms = this.roomRepo.getAllOccupied();
     const _availableRooms = this.roomRepo.getAllFreeSpace();
-    this.roomGridFactory.buildTransformer([..._occupiedRooms, ..._availableRooms]);
+    this.roomGridFactory.buildTransformer([
+      ..._occupiedRooms,
+      ..._availableRooms,
+    ]);
 
     const occupiedRooms = _occupiedRooms.map((r: Room) => {
-      const roomWidget = this.roomGridFactory.createRoomWidget(r, MiniRoomComponent);
+      const roomWidget = this.roomGridFactory.createRoomWidget(
+        r,
+        MiniRoomComponent
+      );
       roomWidget.componentRef.instance.icon = r.icon;
       return roomWidget;
     });
 
     const availableRooms = _availableRooms.map((r: Room) => {
-      const roomWidget = this.roomGridFactory.createRoomWidget(r, MiniRoomComponent);
+      const roomWidget = this.roomGridFactory.createRoomWidget(
+        r,
+        MiniRoomComponent
+      );
       roomWidget.componentRef.instance.icon = `${r.location.x} ${r.location.y}`;
       return roomWidget;
     });
@@ -42,8 +54,7 @@ export class AddRoomPage implements OnInit {
     this.rooms = occupiedRooms.concat(availableRooms);
   }
 
-  onSelect(roomName: string) {
-  }
+  onSelect(roomName: string) {}
 
   onSubmit() {
     // this.roomRepo.add();

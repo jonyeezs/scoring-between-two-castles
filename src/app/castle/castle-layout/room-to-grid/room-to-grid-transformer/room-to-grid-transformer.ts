@@ -1,6 +1,6 @@
-import { Widget } from "../../models/WidgetPosition";
-import { Room } from "src/app/models/rooms/room.type";
-import * as flatMap from "lodash.flatmap";
+import { Widget } from '../../models/WidgetPosition';
+import { Room } from 'src/app/models/rooms/room.type';
+import * as flatMap from 'lodash.flatmap';
 
 export class RoomToGridTransformer {
   private topConst: number;
@@ -22,8 +22,8 @@ export class RoomToGridTransformer {
           top: this.rooms.length > 1 ? Math.abs(topest - this.topConst) : 2,
           left: this.rooms.length > 1 ? Math.abs(leftest - this.leftConst) : 3,
           height: room.height,
-          width: room.width
-        }
+          width: room.width,
+        },
       };
       return result;
     };

@@ -1,4 +1,4 @@
-import { Type } from "@angular/core";
+import { Type } from '@angular/core';
 
 export interface RoomDefinition {
   name: string;
@@ -19,7 +19,7 @@ export class Room implements RoomDefinition {
         target[property] = value;
         room.calculateRealEstate(target);
         return true;
-      }
+      },
     };
     return new Proxy(this._sections, arrayChangeHandler);
   }
@@ -71,7 +71,7 @@ export class Room implements RoomDefinition {
           xs: values.xs < curr.x ? curr.x : values.xs,
           xl: values.xl >= curr.x ? curr.x : values.xl,
           ys: values.ys < curr.y ? curr.y : values.ys,
-          yl: values.yl >= curr.y ? curr.y : values.yl
+          yl: values.yl >= curr.y ? curr.y : values.yl,
         };
       },
       { xs: 0, xl: 0, ys: 0, yl: 0 }
@@ -79,7 +79,7 @@ export class Room implements RoomDefinition {
 
     this._realEstate = {
       width: sectionsValues.xl - sectionsValues.xs,
-      height: sectionsValues.yl - sectionsValues.ys
+      height: sectionsValues.yl - sectionsValues.ys,
     };
   }
 }

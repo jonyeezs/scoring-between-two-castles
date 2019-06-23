@@ -5,10 +5,8 @@ import { MiniRoomComponent } from './mini-room/mini-room.component';
 
 @NgModule({
   declarations: [RoomComponent, MiniRoomComponent],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [RoomComponent, MiniRoomComponent],
-  entryComponents: [RoomComponent, MiniRoomComponent]
+  entryComponents: [RoomComponent, MiniRoomComponent],
 })
-export class RoomsModule { }
+export class RoomsModule {}

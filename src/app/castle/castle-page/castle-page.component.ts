@@ -12,15 +12,18 @@ import { Room } from 'src/app/models/rooms/room.type';
 @Component({
   selector: 'app-castle-page',
   templateUrl: './castle-page.component.html',
-  styleUrls: ['./castle-page.component.scss']
+  styleUrls: ['./castle-page.component.scss'],
 })
 export class CastlePageComponent implements OnInit {
   public name: string;
   public rooms: RoomWidget<any>[] = [];
-  constructor(private route: ActivatedRoute,
-    private fabby: FabbyConnectorService, private navCtrl: NavController,
+  constructor(
+    private route: ActivatedRoute,
+    private fabby: FabbyConnectorService,
+    private navCtrl: NavController,
     private roomRepo: RoomRepositoryService,
-    private roomGridFactory: RoomGridFactoryService) { }
+    private roomGridFactory: RoomGridFactoryService
+  ) {}
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get('name');
@@ -31,7 +34,10 @@ export class CastlePageComponent implements OnInit {
     const rooms = this.roomRepo.getAllOccupied();
     this.roomGridFactory.buildTransformer(rooms);
     this.rooms = rooms.map((r: Room) => {
-      const roomWidget = this.roomGridFactory.createRoomWidget(r, MiniRoomComponent);
+      const roomWidget = this.roomGridFactory.createRoomWidget(
+        r,
+        MiniRoomComponent
+      );
       roomWidget.componentRef.instance.icon = r.icon;
       return roomWidget;
     });
@@ -43,6 +49,8 @@ export class CastlePageComponent implements OnInit {
   }
 
   goToAddThrone() {
-    this.navCtrl.navigateForward(['add' , 'throne', { castleName: this.name }], { relativeTo: this.route });
+    this.navCtrl.navigateForward(['add', 'throne', { castleName: this.name }], {
+      relativeTo: this.route,
+    });
   }
 }

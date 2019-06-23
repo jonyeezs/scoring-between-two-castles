@@ -14,25 +14,29 @@ import { FabbyComponent } from '../components/fabby/fabby.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{
-      path: ':name',
-      component: CastlePageComponent,
-      data: {
-        title: 'Castle'
+    RouterModule.forChild([
+      {
+        path: ':name',
+        component: CastlePageComponent,
+        data: {
+          title: 'Castle',
+        },
       },
-    }, {
-      path: ':name/add',
-      loadChildren: './add-rooms/add-rooms.module#AddRoomsModule'
-    }, {
-      path: '',
-      component: CastlePageComponent,
-      data: {
-        title: 'Castle'
-      }
-    }]),
+      {
+        path: ':name/add',
+        loadChildren: './add-rooms/add-rooms.module#AddRoomsModule',
+      },
+      {
+        path: '',
+        component: CastlePageComponent,
+        data: {
+          title: 'Castle',
+        },
+      },
+    ]),
     CastleLayoutModule,
-    RoomsModule
+    RoomsModule,
   ],
-  declarations: [CastlePageComponent, FabbyComponent]
+  declarations: [CastlePageComponent, FabbyComponent],
 })
 export class CastleModule {}

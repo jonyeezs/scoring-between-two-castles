@@ -50,6 +50,7 @@
     "@storybook/addon-actions": "^5.0.10",
     "@storybook/addon-links": "^5.0.10",
     "@storybook/addon-notes": "^5.0.10",
+    "@storybook/addon-viewport": "^5.1.9",
     "@storybook/addons": "^5.0.10",
     "@storybook/angular": "^5.0.10",
     "@types/jasmine": "~2.8.8",
@@ -73,6 +74,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.2.4"
   }
 }

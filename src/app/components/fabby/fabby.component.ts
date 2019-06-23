@@ -13,7 +13,11 @@ export class FabbyComponent implements OnInit {
   public canShow$: Observable<boolean>;
   public name: string;
 
-  constructor(private route: ActivatedRoute, private fabbyConnector: FabbyConnectorService, private navCtrl: NavController) {}
+  constructor(
+    private route: ActivatedRoute,
+    private fabbyConnector: FabbyConnectorService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
     this.canShow$ = this.fabbyConnector.showFabby$;
@@ -21,6 +25,8 @@ export class FabbyComponent implements OnInit {
   }
 
   public navigateToAddRoom() {
-    this.navCtrl.navigateForward(['add' , 'room', { castleName: this.name }], { relativeTo: this.route });
+    this.navCtrl.navigateForward(['add', 'room', { castleName: this.name }], {
+      relativeTo: this.route,
+    });
   }
 }

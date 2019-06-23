@@ -13,7 +13,11 @@ export class AddThronePage implements OnInit {
   public castleName: string;
   public selectedThrone: Partial<Room>;
   public thrones = thrones;
-  constructor(private router: ActivatedRoute, private roomRepo: RoomRepositoryService, private navCtrl: NavController) { }
+  constructor(
+    private router: ActivatedRoute,
+    private roomRepo: RoomRepositoryService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
     this.castleName = this.router.snapshot.paramMap.get('castleName');
