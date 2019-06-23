@@ -25,6 +25,7 @@ export class RoomRepositoryService {
 
   constructor() {
     this.gridRooms = new GridLinkedList();
+    this.rooms = [];
   }
 
   add(room: Room) {
@@ -42,7 +43,7 @@ export class RoomRepositoryService {
 
   getAllFreeSpace(): Room[] {
     return _cloneDeep(this.gridRooms.getAllAvailableSpace()).map(
-      location => new Room('available', '', [location], { description: '' })
+      location => new Room('available', '🤷', [location], { description: '' })
     );
   }
 }

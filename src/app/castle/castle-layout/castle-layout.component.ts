@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 
 import { RoomWidget } from './room-to-grid/room-widget.type';
+import { Room } from 'src/app/models/rooms/room.type';
+import { RoomGridFactoryService } from './room-to-grid/room-grid-factory/room-grid-factory.service';
+import { MiniRoomComponent } from '../rooms/mini-room/mini-room.component';
 
 @Component({
   selector: 'app-castle-layout',
@@ -14,11 +17,12 @@ import { RoomWidget } from './room-to-grid/room-widget.type';
   styleUrls: ['./castle-layout.component.scss'],
 })
 export class CastleLayoutComponent implements OnInit, OnChanges {
-  @Input() rooms: RoomWidget<any>[];
+  @Input() rooms: Room[];
   @Input() isEditable: boolean;
   public numOfRows: number;
   public numOfCols: number;
-  constructor() {}
+  public widgetRooms: RoomWidget<any>[];
+  constructor(private roomGridFactory: RoomGridFactoryService) {}
 
   ngOnInit() {}
 
@@ -32,14 +36,25 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
       changes.rooms.currentValue &&
       changes.rooms.currentValue.length > 0
     ) {
-      this.numOfCols = changes.rooms.currentValue.reduce(
+      this.roomGridFactory.buildTransformer(changes.rooms.currentValue);
+
+      this.widgetRooms = changes.rooms.currentValue.map((r: Room) => {
+        const roomWidget = this.roomGridFactory.createRoomWidget(
+          r,
+          MiniRoomComponent
+        );
+        roomWidget.componentRef.instance.icon = r.icon;
+        return roomWidget;
+      });
+
+      this.numOfCols = this.widgetRooms.reduce(
         (highestValue: number, currTile: RoomWidget<any>) =>
           highestValue > currTile.position.left
             ? highestValue
             : currTile.position.left,
         0
       );
-      this.numOfRows = changes.rooms.currentValue.reduce(
+      this.numOfRows = this.widgetRooms.reduce(
         (highestValue: number, currTile: RoomWidget<any>) =>
           highestValue > currTile.position.top
             ? highestValue

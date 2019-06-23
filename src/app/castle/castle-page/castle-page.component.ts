@@ -4,9 +4,6 @@ import { FabbyConnectorService } from '../../components/fabby/fabby-connector.se
 import { NavController } from '@ionic/angular';
 import { RoomRepositoryService } from 'src/app/core/room-repository.service';
 
-import { RoomWidget } from '../castle-layout/room-to-grid/room-widget.type';
-import { MiniRoomComponent } from '../rooms/mini-room/mini-room.component';
-import { RoomGridFactoryService } from '../castle-layout/room-to-grid/room-grid-factory/room-grid-factory.service';
 import { Room } from 'src/app/models/rooms/room.type';
 
 @Component({
@@ -16,13 +13,12 @@ import { Room } from 'src/app/models/rooms/room.type';
 })
 export class CastlePageComponent implements OnInit {
   public name: string;
-  public rooms: RoomWidget<any>[] = [];
+  public rooms: Room[] = [];
   constructor(
     private route: ActivatedRoute,
     private fabby: FabbyConnectorService,
     private navCtrl: NavController,
-    private roomRepo: RoomRepositoryService,
-    private roomGridFactory: RoomGridFactoryService
+    private roomRepo: RoomRepositoryService
   ) {}
 
   ngOnInit() {
@@ -31,16 +27,8 @@ export class CastlePageComponent implements OnInit {
   }
 
   ionViewWillEnter() {
-    const rooms = this.roomRepo.getAllOccupied();
-    this.roomGridFactory.buildTransformer(rooms);
-    this.rooms = rooms.map((r: Room) => {
-      const roomWidget = this.roomGridFactory.createRoomWidget(
-        r,
-        MiniRoomComponent
-      );
-      roomWidget.componentRef.instance.icon = r.icon;
-      return roomWidget;
-    });
+    this.rooms = this.roomRepo.getAllOccupied();
+
     if (this.rooms.length === 0) {
       this.fabby.hide();
     } else {

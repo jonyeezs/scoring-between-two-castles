@@ -2,45 +2,15 @@ import { storiesOf, moduleMetadata } from '@storybook/angular';
 import { Component } from '@angular/core';
 import { Room } from '../../models/rooms/room.type';
 import { CastleLayoutModule } from './castle-layout.module';
+import { RoomsModule } from '../rooms/rooms.module';
 
 const recommendedRoomBaseStyling = 'height:100%;';
-@Component({
-  template: `
-    <div style="background: #FF851B; ${recommendedRoomBaseStyling}">
-      {{ '{' }}x: 1, y: 1{{ '}' }}
-    </div>
-  `,
-})
-export class Test1Component {}
-@Component({
-  template: `
-    <div style="background: #85144b; ${recommendedRoomBaseStyling}">
-      {{ '{' }}x: 1, y: 2{{ '}' }}
-    </div>
-  `,
-})
-export class Test2Component {}
-@Component({
-  template: `
-    <div style="background: #F012BE; ${recommendedRoomBaseStyling}">
-      {{ '{' }}x: 3, y: 2{{ '}' }}
-    </div>
-  `,
-})
-export class Test3Component {}
-@Component({
-  template: `
-    <div style="background: #39CCCC; ${recommendedRoomBaseStyling}">
-      {{ '{' }}x: 2, y: 2{{ '}' }}
-    </div>
-  `,
-})
 export class Test4Component {}
 
 storiesOf('Castle layout', module)
   .addDecorator(
     moduleMetadata({
-      imports: [CastleLayoutModule],
+      imports: [CastleLayoutModule, RoomsModule],
     })
   )
   .add('with no rooms', () => ({
@@ -55,26 +25,12 @@ storiesOf('Castle layout', module)
       template: `<app-castle-layout [rooms]="rooms"></app-castle-layout>`,
       props: {
         rooms: [
-          new Room(1, '', { description: '' }, { x: 1, y: 2 }),
-          new Room(2, '', { description: '' }, { x: 1, y: 1 }),
-          new Room(1, '', { description: '' }, { x: 2, y: 2 }),
-          new Room(1, '', { description: '' }, { x: 3, y: 2 }),
+          new Room('1', '', [{ x: 1, y: 2 }], { description: '' }),
+          new Room('2', '', [{ x: 1, y: 1 }], { description: '' }),
+          new Room('1', '', [{ x: 2, y: 2 }], { description: '' }),
+          new Room('1', '', [{ x: 3, y: 2 }], { description: '' }),
         ],
-      },
-      moduleMetadata: {
-        declarations: [
-          Test1Component,
-          Test2Component,
-          Test3Component,
-          Test4Component,
-        ],
-        entryComponents: [
-          Test1Component,
-          Test2Component,
-          Test3Component,
-          Test4Component,
-        ],
-      },
+      }
     }),
     {
       notes: `
