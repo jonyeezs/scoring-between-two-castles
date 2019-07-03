@@ -44,6 +44,7 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
           MiniRoomComponent
         );
         roomWidget.componentRef.instance.icon = r.icon;
+        roomWidget.componentRef.instance.description = r.name;
         return roomWidget;
       });
 
