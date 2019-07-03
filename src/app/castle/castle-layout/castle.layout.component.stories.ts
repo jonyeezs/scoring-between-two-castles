@@ -1,5 +1,4 @@
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { Component } from '@angular/core';
 import { Room } from '../../models/rooms/room.type';
 import { CastleLayoutModule } from './castle-layout.module';
 import { RoomsModule } from '../rooms/rooms.module';
@@ -25,12 +24,14 @@ storiesOf('Castle layout', module)
       template: `<app-castle-layout [rooms]="rooms"></app-castle-layout>`,
       props: {
         rooms: [
-          new Room('1', '', [{ x: 1, y: 2 }], { description: '' }),
-          new Room('2', '', [{ x: 1, y: 1 }], { description: '' }),
-          new Room('1', '', [{ x: 2, y: 2 }], { description: '' }),
-          new Room('1', '', [{ x: 3, y: 2 }], { description: '' }),
+          new Room('Throne Room', '👑', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
+            description: '',
+          }),
+          new Room('Room to left', '↪', [{ x: -1, y: 0 }], { description: '' }),
+          new Room('Room to right', '↩', [{ x: 2, y: 0 }], { description: '' }),
+          new Room('Basement', '🦇', [{ x: 0, y: -1 }], { description: '' }),
         ],
-      }
+      },
     }),
     {
       notes: `

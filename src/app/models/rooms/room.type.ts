@@ -65,21 +65,15 @@ export class Room implements RoomDefinition {
   }
 
   private calculateRealEstate(sections: { x: number; y: number }[]) {
-    const sectionsValues = sections.reduce(
-      (values, curr) => {
-        return {
-          xs: values.xs < curr.x ? curr.x : values.xs,
-          xl: values.xl >= curr.x ? curr.x : values.xl,
-          ys: values.ys < curr.y ? curr.y : values.ys,
-          yl: values.yl >= curr.y ? curr.y : values.yl,
-        };
+    const axises = sections.reduce(
+      (axis, curr) => {
+        axis.x.add(curr.x);
+        axis.y.add(curr.y);
+        return axis;
       },
-      { xs: 0, xl: 0, ys: 0, yl: 0 }
+      { x: new Set(), y: new Set() }
     );
 
-    this._realEstate = {
-      width: sectionsValues.xl - sectionsValues.xs,
-      height: sectionsValues.yl - sectionsValues.ys,
-    };
+    this._realEstate = { width: axises.x.size, height: axises.y.size };
   }
 }

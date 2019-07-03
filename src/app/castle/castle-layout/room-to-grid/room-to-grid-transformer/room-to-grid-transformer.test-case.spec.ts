@@ -32,7 +32,7 @@ export const expectedConversion: Widget[] = [
 export const startupRooms: Partial<Room>[] = [
   new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
     description: '',
-  }), //                        [0,1]
+  }), //                                                                                [0,1]
   new Room('n', 'i', [{ x: 0, y: 1 }], { description: '' }), //                   [-1,0][0,0|1,0][2,0]
   new Room('n', 'i', [{ x: -1, y: 0 }], { description: '' }), //                        [0,-1][1,-1]
   new Room('n', 'i', [{ x: 0, y: -1 }], { description: '' }),
