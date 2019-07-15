@@ -3,6 +3,7 @@ import {
   Injector,
   ComponentFactoryResolver,
   Type,
+  ComponentRef,
 } from '@angular/core';
 import { Room } from 'src/app/models/rooms/room.type';
 import { RoomToGridTransformer } from '../room-to-grid-transformer/room-to-grid-transformer';
@@ -21,7 +22,11 @@ export class RoomGridFactoryService {
     this.transformerBuilder = new RoomToGridTransformer(rooms);
   }
 
-  public createRoomWidget<C>(room: Room, component: Type<C>) {
+  public createRoomWidget<C>(
+    room: Room,
+    component: Type<C>,
+    roomToComponentMapper: (from: Room, to: ComponentRef<C>) => void
+  ) {
     if (!this.transformerBuilder) {
       throw new Error('Must buildTransformer fist!');
     }
@@ -31,7 +36,8 @@ export class RoomGridFactoryService {
       this.transformerBuilder,
       this.cfResolver,
       this.injector,
-      component
+      component,
+      roomToComponentMapper
     );
   }
 }

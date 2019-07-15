@@ -10,6 +10,7 @@ import { RoomWidget } from './room-to-grid/room-widget.type';
 import { Room } from 'src/app/models/rooms/room.type';
 import { RoomGridFactoryService } from './room-to-grid/room-grid-factory/room-grid-factory.service';
 import { MiniRoomComponent } from '../rooms/mini-room/mini-room.component';
+import { SelectableMiniRoomComponent } from '../rooms/selectable-mini-room/selectable-mini-room.component';
 
 @Component({
   selector: 'app-castle-layout',
@@ -39,12 +40,28 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
       this.roomGridFactory.buildTransformer(changes.rooms.currentValue);
 
       this.widgetRooms = changes.rooms.currentValue.map((r: Room) => {
-        const roomWidget = this.roomGridFactory.createRoomWidget(
+        const roomWidget = this.roomGridFactory.createRoomWidget<
+          SelectableMiniRoomComponent | MiniRoomComponent
+        >(
           r,
-          MiniRoomComponent
+          r.icon === '' || r.icon === ' '
+            ? SelectableMiniRoomComponent
+            : MiniRoomComponent,
+          function(
+            room: Room,
+            componentRef: {
+              instance: {
+                icon: string;
+                description: string;
+                coordinates: any[];
+              };
+            }
+          ) {
+            componentRef.instance.coordinates = room.sections;
+            componentRef.instance.icon = room.icon;
+            componentRef.instance.description = room.name;
+          }
         );
-        roomWidget.componentRef.instance.icon = r.icon;
-        roomWidget.componentRef.instance.description = r.name;
         return roomWidget;
       });
 

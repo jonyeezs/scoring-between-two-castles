@@ -11,6 +11,11 @@
     padding: 0.5rem;
     border-radius: 8px;
     border: 1px solid;
+
+    &#{&}--empty {
+      height: 100%;
+      background: lightgrey;
+    }
   }
 
   &__content {

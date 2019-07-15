@@ -17,11 +17,14 @@ export class RoomWidget<C> implements Widget {
     transformer: RoomToGridTransformer,
     cfResolver: ComponentFactoryResolver,
     private injector: Injector,
-    public component: Type<C>
+    public component: Type<C>,
+    mapper: (from: Room, to: ComponentRef<C>) => void
   ) {
     this.transformedPosition = transformer.getTransformer()(room).position;
     const factory = cfResolver.resolveComponentFactory(this.component);
     this.compRef = factory.create(this.injector);
+
+    mapper(this.room, this.compRef);
   }
   public get position() {
     return this.transformedPosition;

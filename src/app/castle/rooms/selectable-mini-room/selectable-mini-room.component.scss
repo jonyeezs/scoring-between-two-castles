@@ -1,0 +1,16 @@
+.mini-size {
+  &__container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+
+    border: 1px solid lightslategrey;
+  }
+
+  &__content {
+    text-align: center;
+  }
+}
