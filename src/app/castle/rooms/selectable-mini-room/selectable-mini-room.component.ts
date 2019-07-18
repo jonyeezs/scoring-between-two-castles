@@ -1,25 +1,26 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SelectRoomManagerService } from './services/select-room-manager.service';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 let emptyRoomId = 0;
 
 @Component({
   selector: 'app-empty-mini-room',
   template: `
-    <div class="mini-size__container" title="{{ description }}">
-      <div class="mini-size__content">
-        <label>
-          <input
-            #roomSelect
-            type="radio"
-            name="selectable-empty-space"
-            (change)="onChange($event)"
-            id="{{ id }}"
-          />
-          <span class="mini-select-label">Select to build room</span>
-        </label>
-      </div>
+    <div
+      class="mini-size__container"
+      title="{{ description }}"
+      [ngClass]="{ 'mini-size__container--checked': isSelected }"
+    >
+      <ion-radio
+        value="{{ id }}"
+        (ionSelect)="onChange($event)"
+        [checked]="isSelected"
+      ></ion-radio>
+      <ion-label class="mini-size__container__label"
+        >Select to build room on {{ coordinatesText }}
+      </ion-label>
     </div>
   `,
   styleUrls: ['./selectable-mini-room.component.scss'],
@@ -28,18 +29,28 @@ export class SelectableMiniRoomComponent implements OnInit {
   @Input() icon: string;
   @Input() description: string;
   @Input() coordinates: any;
-  @ViewChild('roomSelect') selectionInput: ElementRef;
   protected id = emptyRoomId++;
   protected isSelected = false;
   subscription: Subscription;
 
   constructor(private selectionState: SelectRoomManagerService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.subscription = this.selectionState.selectedChange
+      .pipe(filter(s => s.inputId !== this.id))
+      .subscribe(() => {
+        this.isSelected = false;
+      });
+  }
 
   onChange(event) {
     if (event.currentTarget.checked) {
-      this.selectionState.setSelected(this.coordinates);
+      this.isSelected = true;
+      this.selectionState.setSelected(this.id, this.coordinates);
     }
+  }
+
+  get coordinatesText() {
+    return this.coordinates.map(coord => `[${coord.x}, ${coord.y}]`).join(', ');
   }
 }

@@ -4,6 +4,7 @@ import {
   Input,
   OnChanges,
   SimpleChanges,
+  ComponentRef,
 } from '@angular/core';
 
 import { RoomWidget } from './room-to-grid/room-widget.type';
@@ -47,20 +48,19 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
           r.icon === '' || r.icon === ' '
             ? SelectableMiniRoomComponent
             : MiniRoomComponent,
-          function(
-            room: Room,
-            componentRef: {
-              instance: {
-                icon: string;
-                description: string;
-                coordinates: any[];
-              };
-            }
-          ) {
-            componentRef.instance.coordinates = room.sections;
-            componentRef.instance.icon = room.icon;
-            componentRef.instance.description = room.name;
-          }
+          r.icon === '' || r.icon === ' '
+            ? function(
+                room,
+                componentRef: ComponentRef<SelectableMiniRoomComponent>
+              ) {
+                componentRef.instance.coordinates = room.sections;
+                componentRef.instance.icon = room.icon;
+                componentRef.instance.description = room.name;
+              }
+            : function(room, componentRef: ComponentRef<MiniRoomComponent>) {
+                componentRef.instance.icon = room.icon;
+                componentRef.instance.description = room.name;
+              }
         );
         return roomWidget;
       });

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
 export interface ChosenSelectableMiniRoom {
+  inputId: number;
   sections: { x: number; y: number }[];
 }
 
@@ -18,7 +19,7 @@ export class SelectRoomManagerService {
     return this.selectedState$.asObservable();
   }
 
-  setSelected(value: any) {
-    this.selectedState$.next({ sections: value });
+  setSelected(inputId: number, value: any) {
+    this.selectedState$.next({ inputId, sections: value });
   }
 }

@@ -47,6 +47,8 @@ export class AddRoomPage implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    // this.roomRepo.add();
+    this.roomRepo.add(
+      new Room('some room', '🎉', this.selectedSpace, { description: 'ok' })
+    );
   }
 }
