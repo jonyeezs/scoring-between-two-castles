@@ -1,0 +1,27 @@
+5pts
+
+1pts per any all below
+1pts per room type all above
+1pts per room type all above and all below
+2pts per room type all above and all below
+
+1pts per global room type
+
+4pts if all 6 types else 1
+
+1pts per connected room type
+ 
+1pts per any around
+1pt per room type / hanging around
+2pts per room type around except immediate below
+
+2pts per room type on left and right
+2pts per room type on above and below
+
+2pts per room type below immediate and its left and right
+
+2 per room type on 2 immediate below
+
+------------------------
+
+? laboratory | downstairs | swords | 2 per utility above

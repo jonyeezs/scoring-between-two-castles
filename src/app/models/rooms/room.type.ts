@@ -1,7 +1,15 @@
 import { Type } from '@angular/core';
 
+export type RoomType = 
+'throne outdoor' | 'downstairs' | 'living' 
+| 'sleeping' | 'food' | 'outdoor' | 'utility'; 
+
+export type RoomHanging = 'painting' | 'mirror' | 'torch' | 'swords' | 'none';
+
 export interface RoomDefinition {
   name: string;
+  type: RoomType;
+  hanging: RoomHanging;
   ruleDescription: string;
   icon: string;
 }
