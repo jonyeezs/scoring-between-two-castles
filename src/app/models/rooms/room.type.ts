@@ -1,8 +1,11 @@
-import { Type } from '@angular/core';
-
-export type RoomType = 
-'throne outdoor' | 'downstairs' | 'living' 
-| 'sleeping' | 'food' | 'outdoor' | 'utility'; 
+export type RoomType =
+  | 'throne outdoor'
+  | 'downstairs'
+  | 'living'
+  | 'sleeping'
+  | 'food'
+  | 'outdoor'
+  | 'utility';
 
 export type RoomHanging = 'painting' | 'mirror' | 'torch' | 'swords' | 'none';
 
@@ -10,7 +13,7 @@ export interface RoomDefinition {
   name: string;
   type: RoomType;
   hanging: RoomHanging;
-  ruleDescription: string;
+  rule: string;
   icon: string;
 }
 
@@ -49,7 +52,11 @@ export class Room implements RoomDefinition {
     return this._realEstate.height;
   }
 
-  public ruleDescription: string;
+  public type: RoomType;
+
+  public hanging: RoomHanging;
+
+  public rule: string;
 
   public name: string;
 
@@ -62,11 +69,11 @@ export class Room implements RoomDefinition {
     name: string,
     icon: string,
     sections: { x: number; y: number }[],
-    rule: { description: string }
+    rule: string
   ) {
     this.name = name;
     this.icon = icon;
-    this.ruleDescription = rule.description;
+    this.rule = rule;
     this.sections = sections;
 
     this.calculateRealEstate(sections);
