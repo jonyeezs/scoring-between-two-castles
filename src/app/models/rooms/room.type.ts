@@ -1,9 +1,10 @@
 export type RoomType =
-  | 'throne outdoor'
+  | 'outdoor special'
   | 'downstairs'
   | 'living'
   | 'sleeping'
   | 'food'
+  | 'corridor'
   | 'outdoor'
   | 'utility';
 
@@ -14,7 +15,6 @@ export interface RoomDefinition {
   type: RoomType;
   hanging: RoomHanging;
   rule: string;
-  icon: string;
 }
 
 export class Room implements RoomDefinition {
@@ -52,13 +52,9 @@ export class Room implements RoomDefinition {
     return this._realEstate.height;
   }
 
-  public type: RoomType;
-
   public hanging: RoomHanging;
 
   public rule: string;
-
-  public name: string;
 
   public icon: string;
 
@@ -66,17 +62,39 @@ export class Room implements RoomDefinition {
    *
    */
   constructor(
-    name: string,
-    icon: string,
+    public name: string,
+    public type: RoomType,
     sections: { x: number; y: number }[],
     rule: string
   ) {
-    this.name = name;
-    this.icon = icon;
+    this.icon = this.setIcon(type);
     this.rule = rule;
     this.sections = sections;
 
     this.calculateRealEstate(sections);
+  }
+
+  private setIcon(type: RoomType) {
+    switch (type) {
+      case 'outdoor special':
+        return '⭐';
+      case 'downstairs':
+        return '↘️';
+      case 'living':
+        return '🔥';
+      case 'sleeping':
+        return '💤';
+      case 'food':
+        return '🍷';
+      case 'outdoor':
+        return '🌳';
+      case 'corridor':
+        return '➖';
+      case 'utility':
+        return '🔨';
+      default:
+        throw new Error(`Unsupported room type ${type} to generate icon`);
+    }
   }
 
   private calculateRealEstate(sections: { x: number; y: number }[]) {

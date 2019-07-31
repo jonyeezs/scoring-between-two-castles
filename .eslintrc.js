@@ -14,10 +14,13 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    indent: ['error', 4],
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
+    quotes: [
+      'error',
+      'single',
+      { avoidEscape: true, allowTemplateLiterals: true },
+    ],
     semi: ['error', 'always'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': [
@@ -33,5 +36,6 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/no-parameter-properties': 'off',
   },
 };

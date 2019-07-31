@@ -14,7 +14,7 @@ export const rooms: RoomDefinition[] = [
   },
   {
     name: 'armory',
-    type: 'basement',
+    type: 'downstairs',
     hanging: 'painting',
     rule: '2 per throne all above and below',
   },
@@ -66,11 +66,12 @@ export const rooms: RoomDefinition[] = [
     hanging: 'mirror',
     rule: '2 per living a / b',
   },
-  {
-    name: 'broom closet',
-    type: 'utility',
-    rule: '1 per connected sleeping',
-  },
+  // {
+  //   name: 'broom closet',
+  //   type: 'utility',
+  //   hanging: 'none',
+  //   rule: '1 per connected sleeping',
+  // },
   {
     name: 'bunk room',
     type: 'sleeping',
@@ -102,7 +103,7 @@ export const rooms: RoomDefinition[] = [
     rule: '1 per utility',
   },
   {
-    name: "children's room",
+    name: `children's room`,
     type: 'sleeping',
     hanging: 'swords',
     rule: '4 if all colors or 1',
@@ -116,7 +117,8 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'chocolate room',
     type: 'food',
-    rule: 'painting } 2 per downstairs b / b',
+    hanging: 'painting',
+    rule: '2 per downstairs b / b',
   },
   {
     name: 'coat room',
@@ -228,7 +230,7 @@ export const rooms: RoomDefinition[] = [
   },
   {
     name: 'fountain',
-    type: 'outdoor throne',
+    type: 'outdoor special',
     hanging: 'none',
     rule: '5',
   },
@@ -270,7 +272,7 @@ export const rooms: RoomDefinition[] = [
   },
   {
     name: 'grand foyer',
-    type: 'outdoor throne',
+    type: 'outdoor special',
     hanging: 'none',
     rule: '1 per around',
   },
@@ -431,7 +433,7 @@ export const rooms: RoomDefinition[] = [
     rule: '1 per connected corridor',
   },
   {
-    name: "king's chamber",
+    name: `king's chamber`,
     type: 'sleeping',
     hanging: 'torch',
     rule: '4 if all colors or 1',
@@ -512,7 +514,7 @@ export const rooms: RoomDefinition[] = [
     name: 'morning tea room',
     type: 'food',
     hanging: 'swords',
-    rule: '2 per living a                 / b',
+    rule: '2 per living a / b',
   },
   {
     name: 'mud room',
@@ -587,7 +589,7 @@ export const rooms: RoomDefinition[] = [
     rule: '1 per connected food',
   },
   {
-    name: "prince's chambers",
+    name: `prince's chambers`,
     type: 'sleeping',
     hanging: 'mirror',
     rule: '4 if all colors or 1',
@@ -822,7 +824,7 @@ export const rooms: RoomDefinition[] = [
   },
   {
     name: 'tower',
-    type: 'outdoor throne',
+    type: 'outdoor special',
     hanging: 'none',
     rule: '1 per all below',
   },
