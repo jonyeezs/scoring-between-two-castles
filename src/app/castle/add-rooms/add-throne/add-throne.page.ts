@@ -10,9 +10,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-throne.page.scss'],
 })
 export class AddThronePage implements OnInit {
-  public castleName: string;
-  public selectedThrone: Partial<Room>;
-  public thrones = thrones;
+  castleName: string;
+  selectedThrone: Partial<Room>;
+  thrones = thrones;
+
   constructor(
     private router: ActivatedRoute,
     private roomRepo: RoomRepositoryService,

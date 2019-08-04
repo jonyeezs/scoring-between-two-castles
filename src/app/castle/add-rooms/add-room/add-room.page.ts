@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RoomRepositoryService } from 'src/app/core/room-repository.service';
 import { ActivatedRoute } from '@angular/router';
+import { rooms as RoomsAvailable } from 'src/app/rooms/rooms';
 import { Room } from 'src/app/models/rooms/room.type';
 import { Subscription } from 'rxjs';
 import {
@@ -14,13 +15,15 @@ import {
   styleUrls: ['./add-room.page.scss'],
 })
 export class AddRoomPage implements OnInit, OnDestroy {
-  public castleName: string;
-  public rooms: Room[];
-  private subscription: Subscription;
-  public selectedSpace: {
+  protected castleName: string;
+  protected rooms: Room[];
+  protected availableRooms = RoomsAvailable;
+  selectedSpace: {
     x: number;
     y: number;
   }[];
+
+  private subscription: Subscription;
 
   constructor(
     private router: ActivatedRoute,
@@ -46,9 +49,9 @@ export class AddRoomPage implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  onSubmit() {
-    this.roomRepo.add(
-      new Room('some room', '🎉', this.selectedSpace, { description: 'ok' })
-    );
+  protected compareWith(o1, o2) {
+    return o1.name === o2.name;
   }
+
+  onSubmit() {}
 }

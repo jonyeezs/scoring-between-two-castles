@@ -1,12 +1,14 @@
 export type RoomType =
   | 'outdoor special'
+  | 'throne'
   | 'downstairs'
   | 'living'
   | 'sleeping'
   | 'food'
   | 'corridor'
   | 'outdoor'
-  | 'utility';
+  | 'utility'
+  | 'none';
 
 export type RoomHanging = 'painting' | 'mirror' | 'torch' | 'swords' | 'none';
 
@@ -23,7 +25,7 @@ export class Room implements RoomDefinition {
     y: number;
   }[];
 
-  public get sections() {
+  get sections() {
     const room = this;
     const arrayChangeHandler = {
       set: function(target, property, value) {
@@ -35,7 +37,7 @@ export class Room implements RoomDefinition {
     return new Proxy(this._sections, arrayChangeHandler);
   }
 
-  public set sections(value) {
+  set sections(value) {
     this._sections = value;
     this.calculateRealEstate(this._sections);
   }
@@ -45,18 +47,16 @@ export class Room implements RoomDefinition {
     height: number;
   };
 
-  public get width() {
+  get width() {
     return this._realEstate.width;
   }
-  public get height() {
+  get height() {
     return this._realEstate.height;
   }
 
-  public hanging: RoomHanging;
+  hanging: RoomHanging;
 
-  public rule: string;
-
-  public icon: string;
+  icon: string;
 
   /**
    *
@@ -65,10 +65,9 @@ export class Room implements RoomDefinition {
     public name: string,
     public type: RoomType,
     sections: { x: number; y: number }[],
-    rule: string
+    public rule: string
   ) {
     this.icon = this.setIcon(type);
-    this.rule = rule;
     this.sections = sections;
 
     this.calculateRealEstate(sections);
@@ -78,6 +77,8 @@ export class Room implements RoomDefinition {
     switch (type) {
       case 'outdoor special':
         return '⭐';
+      case 'throne':
+        return '👑';
       case 'downstairs':
         return '↘️';
       case 'living':
@@ -92,6 +93,8 @@ export class Room implements RoomDefinition {
         return '➖';
       case 'utility':
         return '🔨';
+      case 'none':
+        return '';
       default:
         throw new Error(`Unsupported room type ${type} to generate icon`);
     }

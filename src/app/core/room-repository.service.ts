@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Room, RoomDefinition } from '../models/rooms/room.type';
+import {
+  Room,
+  RoomDefinition,
+  RoomHanging,
+  RoomType,
+} from '../models/rooms/room.type';
 import * as _cloneDeep from 'lodash.clonedeep';
 import {
   GridLinkedList,
@@ -12,7 +17,9 @@ export class GridRoom implements RoomDefinition, GridableGridNodeType {
     public x: number,
     public y: number,
     public icon: string,
-    public ruleDescription: string
+    public rule: string,
+    public type: RoomType,
+    public hanging: RoomHanging
   ) {}
 }
 
@@ -32,7 +39,15 @@ export class RoomRepositoryService {
     this.rooms.push(room);
     room.sections.forEach(s => {
       this.gridRooms.add(
-        new GridRoom(room.name, s.x, s.y, room.icon, room.ruleDescription)
+        new GridRoom(
+          room.name,
+          s.x,
+          s.y,
+          room.icon,
+          room.rule,
+          room.type,
+          room.hanging
+        )
       );
     });
   }
@@ -44,9 +59,7 @@ export class RoomRepositoryService {
   getAllFreeSpace(): Room[] {
     return _cloneDeep(this.gridRooms.getAllAvailableSpace()).map(
       location =>
-        new Room('available construction space', ' ', [location], {
-          description: '',
-        })
+        new Room('available construction space', 'none', [location], '')
     );
   }
 }

@@ -17,7 +17,22 @@
           [isEditable]="true"
         ></app-castle-layout>
       </ion-row>
-      <ion-row> </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label>Select the room to build</ion-label>
+          <ion-select
+            placeholder="Select one from list"
+            [compareWith]="compareWith"
+          >
+            <ion-select-option
+              *ngFor="let room of availableRooms"
+              [value]="room"
+            >
+              {{ room.name }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
     </form>
   </ion-grid>
 </ion-content>

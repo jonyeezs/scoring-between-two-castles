@@ -2,45 +2,45 @@ import { Room } from '../rooms/room.type';
 
 export const thrones = [
   new Room(
-    'Throne Room: living and corridor',
-    '👑',
+    'living and corridor',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per 🔥➖ at ← →' }
+    '2 per 🔥➖ at ← →'
   ),
   new Room(
-    'Throne Room: living and sleep',
-    '👑',
+    'living and sleep',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per 🔥💤 at ↑ ↑' }
+    '2 per 🔥💤 at ↑ ↑'
   ),
   new Room(
-    'Throne Room: corridor and downstairs',
-    '👑',
+    'corridor and downstairs',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per ➖️↘️ at ↓ ↓' }
+    '2 per ➖️↘️ at ↓ ↓'
   ),
   new Room(
-    'Throne Room: food and sleep',
-    '👑',
+    'food and sleep',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per 🍷💤 at ← ↑' }
+    '2 per 🍷💤 at ← ↑'
   ),
   new Room(
-    'Throne Room: utility and sleep',
-    '👑',
+    'utility and sleep',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per 🔨💤 at ↑ →' }
+    '2 per 🔨💤 at ↑ →'
   ),
   new Room(
-    'Throne Room: corridor and food',
-    '👑',
+    'corridor and food',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per ➖🍷 at ↑ ↑' }
+    '2 per ➖🍷 at ↑ ↑'
   ),
   new Room(
-    'Throne Room: utility and food',
-    '👑',
+    'utility and food',
+    'throne',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    { description: '2 per 🔨🍷 at ← →' }
+    '2 per 🔨🍷 at ← →'
   ),
 ];

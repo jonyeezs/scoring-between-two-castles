@@ -1,11 +1,9 @@
-  <ion-header>
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-        <ion-back-button icon="arrow-back"></ion-back-button> 
+      <ion-back-button icon="arrow-back"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Add Throne Room for {{ castleName }}
-    </ion-title>
+    <ion-title> Add Throne Room for {{ castleName }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,34 +12,47 @@
     <ion-row class="ion-align-items-center">
       <ion-col class="ion-align-self-center">
         <ion-item>
-          <app-room [name]="selectedThrone.name" [icon]="selectedThrone.icon"></app-room>
+          <app-room
+            [name]="selectedThrone.name"
+            [icon]="selectedThrone.icon"
+          ></app-room>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="ion-align-self-stretch">
         <form>
-         <ion-list>
-           <ion-radio-group ngModel (ngModelChange)="onSelect($event)" name="type">
-             <ion-list-header>
-               <ion-label>Type</ion-label>
-             </ion-list-header>
-             <ion-item *ngFor="let throne of thrones">
-               <ion-label>{{ throne.ruleDescription }}</ion-label>
-               <ion-radio slot="end" value="{{ throne.name }}"></ion-radio>
-             </ion-item>
-           </ion-radio-group>
+          <ion-list>
+            <ion-radio-group
+              ngModel
+              (ngModelChange)="onSelect($event)"
+              name="type"
+            >
+              <ion-list-header>
+                <ion-label>Type</ion-label>
+              </ion-list-header>
+              <ion-item *ngFor="let throne of thrones">
+                <ion-label>{{ throne.rule }}</ion-label>
+                <ion-radio slot="end" value="{{ throne.name }}"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
           </ion-list>
         </form>
       </ion-col>
     </ion-row>
     <ion-row align-items-end justify-content-end>
       <ion-col align-self-end>
-        <ion-button (click)="onSubmit()" color="primary" expand="block" size="large" class="bottom-button">
+        <ion-button
+          (click)="onSubmit()"
+          color="primary"
+          expand="block"
+          size="large"
+          class="bottom-button"
+        >
           <ion-icon slot="start" name="save"></ion-icon>
           Save
         </ion-button>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 </ion-content>

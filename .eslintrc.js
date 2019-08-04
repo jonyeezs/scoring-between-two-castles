@@ -26,14 +26,8 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': [
       'warn',
       {
-        accessibility: 'explicit',
-        overrides: {
-          accessors: 'explicit',
-          constructors: 'no-public',
-          methods: 'explicit',
-          properties: 'off',
-          parameterProperties: 'explicit',
-        },
+        accessibility: 'no-public',
+        overrides: { parameterProperties: 'explicit' },
       },
     ],
     '@typescript-eslint/no-parameter-properties': 'off',
