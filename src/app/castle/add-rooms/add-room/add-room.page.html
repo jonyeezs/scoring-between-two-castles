@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-grid>
-    <form>
+    <form [formGroup]="form">
       <ion-row class="ion-align-items-center">
         <ion-label>Select a space to build your room</ion-label>
         <app-castle-layout
@@ -21,17 +21,29 @@
         <ion-item>
           <ion-label>Select the room to build</ion-label>
           <ion-select
+            formControlName="room"
             placeholder="Select one from list"
             [compareWith]="compareWith"
           >
-            <ion-select-option
-              *ngFor="let room of availableRooms"
-              [value]="room"
-            >
+            <ion-select-option *ngFor="let room of roomMenu" [value]="room">
               {{ room.name }}
             </ion-select-option>
           </ion-select>
         </ion-item>
+      </ion-row>
+      <ion-row align-items-end justify-content-end>
+        <ion-col align-self-end>
+          <ion-button
+            (click)="onSubmit()"
+            color="primary"
+            expand="block"
+            size="large"
+            class="bottom-button"
+          >
+            <ion-icon slot="start" name="add"></ion-icon>
+            Add
+          </ion-button>
+        </ion-col>
       </ion-row>
     </form>
   </ion-grid>
