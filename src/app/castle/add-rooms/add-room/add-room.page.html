@@ -18,18 +18,15 @@
         ></app-castle-layout>
       </ion-row>
       <ion-row>
-        <ion-item>
+        <ion-col>
           <ion-label>Select the room to build</ion-label>
-          <ion-select
+          <ion-auto-complete
+            class="ion-margin-top"
+            [dataProvider]="roomSelectionCompletion"
             formControlName="room"
-            placeholder="Select one from list"
-            [compareWith]="compareWith"
-          >
-            <ion-select-option *ngFor="let room of roomMenu" [value]="room">
-              {{ room.name }}
-            </ion-select-option>
-          </ion-select>
-        </ion-item>
+            [options]="{ placeholder: 'Search by room name' }"
+          ></ion-auto-complete>
+        </ion-col>
       </ion-row>
       <ion-row align-items-end justify-content-end>
         <ion-col align-self-end>

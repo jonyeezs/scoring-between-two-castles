@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RoomRepositoryService } from 'src/app/core/room-repository.service';
 import { ActivatedRoute } from '@angular/router';
-import { rooms as RoomSelection } from 'src/app/rooms/rooms';
 import { Room, RoomDefinition } from 'src/app/models/rooms/room.type';
 import { Subscription } from 'rxjs';
 import {
@@ -10,6 +9,7 @@ import {
 } from '../../rooms/selectable-mini-room/services/select-room-manager.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { RoomSelectionAutocompleteService } from '../services/room-selection-autocomplete/room-selection-autocomplete.service';
 
 @Component({
   selector: 'app-add-room',
@@ -19,7 +19,6 @@ import { NavController } from '@ionic/angular';
 export class AddRoomPage implements OnInit, OnDestroy {
   protected castleName: string;
   protected rooms: Room[];
-  protected roomMenu = RoomSelection;
   protected form = new FormGroup({
     coordinates: new FormControl([]),
     room: new FormControl(''),
@@ -31,6 +30,7 @@ export class AddRoomPage implements OnInit, OnDestroy {
     private router: ActivatedRoute,
     private roomRepo: RoomRepositoryService,
     private roomSelection: SelectRoomManagerService,
+    public roomSelectionCompletion: RoomSelectionAutocompleteService,
     private navCtrl: NavController
   ) {}
 
@@ -50,10 +50,6 @@ export class AddRoomPage implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  protected compareWith(o1, o2) {
-    return o1.name === o2.name;
   }
 
   onSubmit() {
