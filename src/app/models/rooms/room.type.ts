@@ -1,3 +1,5 @@
+import { Rule } from '@app/rules/rules.abstract';
+
 export type RoomType =
   | 'outdoor special'
   | 'throne'
@@ -16,7 +18,7 @@ export interface RoomDefinition {
   name: string;
   type: RoomType;
   hanging: RoomHanging;
-  rule: string;
+  rule: Rule;
 }
 
 export class Room implements RoomDefinition {
@@ -65,7 +67,7 @@ export class Room implements RoomDefinition {
     public name: string,
     public type: RoomType,
     sections: { x: number; y: number }[],
-    public rule: string
+    public rule: Rule
   ) {
     this.icon = this.setIcon(type);
     this.sections = sections;

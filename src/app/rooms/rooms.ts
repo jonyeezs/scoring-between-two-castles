@@ -1,4 +1,5 @@
 import { RoomDefinition } from '../models/rooms/room.type';
+import { ImmediatePointsRule } from '@app/rules/immediate-points';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -232,7 +233,7 @@ export const rooms: RoomDefinition[] = [
     name: 'fountain',
     type: 'outdoor special',
     hanging: 'none',
-    rule: '5',
+    rule: new ImmediatePointsRule(5),
   },
   {
     name: 'french gazebo',

@@ -10,6 +10,8 @@ import {
   GridLinkedList,
   GridableGridNodeType,
 } from '../models/grid-linked-list/grid-linked-list';
+import { Rule } from '@app/rules/rules.abstract';
+import { MootRule } from '@app/rules/moot-rule';
 
 export class GridRoom implements RoomDefinition, GridableGridNodeType {
   constructor(
@@ -17,7 +19,7 @@ export class GridRoom implements RoomDefinition, GridableGridNodeType {
     public x: number,
     public y: number,
     public icon: string,
-    public rule: string,
+    public rule: Rule,
     public type: RoomType,
     public hanging: RoomHanging
   ) {}
@@ -52,6 +54,15 @@ export class RoomRepositoryService {
     });
   }
 
+  calculatePoints(gridCoordinate: GridableGridNodeType) {
+    if (gridCoordinate) {
+      const room = this.gridRooms.get(gridCoordinate);
+      return room.data.rule.calculatePoints(room);
+    } else {
+      throw new Error(`have not implemented calculate all`);
+    }
+  }
+
   getAllOccupied(): Room[] {
     return _cloneDeep(this.rooms);
   }
@@ -59,7 +70,12 @@ export class RoomRepositoryService {
   getAllFreeSpace(): Room[] {
     return _cloneDeep(this.gridRooms.getAllAvailableSpace()).map(
       location =>
-        new Room('available construction space', 'none', [location], '')
+        new Room(
+          'available construction space',
+          'none',
+          [location],
+          new MootRule()
+        )
     );
   }
 }

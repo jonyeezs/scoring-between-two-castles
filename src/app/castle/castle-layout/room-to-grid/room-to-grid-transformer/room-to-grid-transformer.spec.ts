@@ -6,6 +6,7 @@ import {
   expectedStartupConversion,
 } from './room-to-grid-transformer.test-case.spec';
 import { Room } from '../../../../models/rooms/room.type';
+import { MootRule } from '@app/rules/moot-rule';
 
 describe('RoomToGridTransformer', () => {
   describe('transform', () => {
@@ -20,16 +21,22 @@ describe('RoomToGridTransformer', () => {
 
       it('should center a lone throne room on a 3 x 4 grid', () => {
         const singleThroneTransfomerSubject = new RoomToGridTransformer([
-          new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
-            description: '',
-          }),
+          new Room(
+            'n',
+            'throne',
+            [{ x: 0, y: 0 }, { x: 1, y: 0 }],
+            new MootRule()
+          ),
         ]);
 
         const result = singleThroneTransfomerSubject.getTransformer();
         const converted = result(
-          new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
-            description: '',
-          })
+          new Room(
+            'n',
+            'throne',
+            [{ x: 0, y: 0 }, { x: 1, y: 0 }],
+            new MootRule()
+          )
         );
 
         expect(converted.position.left).toBe(3);

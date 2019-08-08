@@ -1,19 +1,24 @@
 import { Room } from '../../../../models/rooms/room.type';
 import { Widget } from '../../models/WidgetPosition';
+import { MootRule } from '@app/rules/moot-rule';
+import { ThroneRule } from '@app/rules/thrones/throne.temp';
 
 export const rooms: Partial<Room>[] = [
-  new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
-    description: '',
-  }),
-  new Room('n', 'i', [{ x: -1, y: 0 }], { description: '' }), //                         [2,3]
-  new Room('n', 'i', [{ x: 2, y: 0 }], { description: '' }), //                          [2,2]
-  new Room('n', 'i', [{ x: 2, y: 1 }], { description: '' }), //                 [0,1]    [2,1]
-  new Room('n', 'i', [{ x: 2, y: 3 }], { description: '' }), //     [-2,0][-1,0][0,0|1,0][2,0]
-  new Room('n', 'i', [{ x: 0, y: 1 }], { description: '' }), //    [-2,-1][-1,-1]
-  new Room('n', 'i', [{ x: 2, y: 2 }], { description: '' }), //    [-2,-2]
-  new Room('n', 'i', [{ x: -2, y: -1 }], { description: '' }),
-  new Room('n', 'i', [{ x: -2, y: -2 }], { description: '' }),
-  new Room('n', 'i', [{ x: -1, y: -1 }], { description: '' }),
+  new Room(
+    'n',
+    'throne',
+    [{ x: 0, y: 0 }, { x: 1, y: 0 }],
+    new ThroneRule('hi!')
+  ),
+  new Room('n', 'food', [{ x: -1, y: 0 }], new MootRule()), //                         [2,3]
+  new Room('n', 'food', [{ x: 2, y: 0 }], new MootRule()), //                          [2,2]
+  new Room('n', 'food', [{ x: 2, y: 1 }], new MootRule()), //                 [0,1]    [2,1]
+  new Room('n', 'food', [{ x: 2, y: 3 }], new MootRule()), //     [-2,0][-1,0][0,0|1,0][2,0]
+  new Room('n', 'food', [{ x: 0, y: 1 }], new MootRule()), //    [-2,-1][-1,-1]
+  new Room('n', 'food', [{ x: 2, y: 2 }], new MootRule()), //    [-2,-2]
+  new Room('n', 'food', [{ x: -2, y: -1 }], new MootRule()),
+  new Room('n', 'food', [{ x: -2, y: -2 }], new MootRule()),
+  new Room('n', 'food', [{ x: -1, y: -1 }], new MootRule()),
 ];
 
 export const expectedConversion: Widget[] = [
@@ -30,14 +35,17 @@ export const expectedConversion: Widget[] = [
 ];
 
 export const startupRooms: Partial<Room>[] = [
-  new Room('n', 'i', [{ x: 0, y: 0 }, { x: 1, y: 0 }], {
-    description: '',
-  }), //                                                                                [0,1]
-  new Room('n', 'i', [{ x: 0, y: 1 }], { description: '' }), //                   [-1,0][0,0|1,0][2,0]
-  new Room('n', 'i', [{ x: -1, y: 0 }], { description: '' }), //                        [0,-1][1,-1]
-  new Room('n', 'i', [{ x: 0, y: -1 }], { description: '' }),
-  new Room('n', 'i', [{ x: 1, y: -1 }], { description: '' }),
-  new Room('n', 'i', [{ x: 2, y: 0 }], { description: '' }),
+  new Room(
+    'n',
+    'throne',
+    [{ x: 0, y: 0 }, { x: 1, y: 0 }],
+    new ThroneRule('👑')
+  ), //                                                                                [0,1]
+  new Room('n', 'food', [{ x: 0, y: 1 }], new MootRule()), //                   [-1,0][0,0|1,0][2,0]
+  new Room('n', 'food', [{ x: -1, y: 0 }], new MootRule()), //                        [0,-1][1,-1]
+  new Room('n', 'food', [{ x: 0, y: -1 }], new MootRule()),
+  new Room('n', 'food', [{ x: 1, y: -1 }], new MootRule()),
+  new Room('n', 'food', [{ x: 2, y: 0 }], new MootRule()),
 ];
 
 export const expectedStartupConversion: Widget[] = [

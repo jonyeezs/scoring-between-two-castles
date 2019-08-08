@@ -1,5 +1,4 @@
 import { GridNode } from './grid-node';
-import { GridNodeTraverser } from './grid-node-traverser';
 
 export interface GridableGridNodeType {
   x: number;
@@ -8,7 +7,6 @@ export interface GridableGridNodeType {
 
 export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
   private grid: GridNode<GridNodeType>[];
-  private currentTravel: GridNodeTraverser<GridNodeType>;
   private availableGridSpace: Set<string>;
   private equalifier: (
     nodeA: GridNodeType,
@@ -19,7 +17,6 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
   // Set is save as string of a concatenation of x y.
 
   constructor() {
-    this.currentTravel = null;
     this.grid = [];
     this.availableGridSpace = new Set();
   }
@@ -32,8 +29,7 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
       return this.addAsLoner(node);
     }
 
-    const nodeGrid = { x: node.x, y: node.y } as GridNodeType;
-    if (this.grid.some(n => n.equals(nodeGrid))) {
+    if (this.grid.some(n => n.equals(node))) {
       throw new Error('Node already exist on the grid');
     }
 
@@ -73,7 +69,7 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
     });
   }
 
-  updateGridAvailability(
+  private updateGridAvailability(
     newNode: GridNode<GridNodeType>,
     availableNodes: GridableGridNodeType[]
   ) {
@@ -89,10 +85,10 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
   private findLinkableNodes(target: GridNodeType): GridNode<GridNodeType>[] {
     return this.grid.filter(n => {
       return (
-        n.equals({ x: target.x - 1, y: target.y } as GridNodeType) ||
-        n.equals({ x: target.x + 1, y: target.y } as GridNodeType) ||
-        n.equals({ x: target.x, y: target.y - 1 } as GridNodeType) ||
-        n.equals({ x: target.x, y: target.y + 1 } as GridNodeType)
+        n.equals({ ...target, x: target.x - 1, y: target.y }) ||
+        n.equals({ ...target, x: target.x + 1, y: target.y }) ||
+        n.equals({ ...target, x: target.x, y: target.y - 1 }) ||
+        n.equals({ ...target, x: target.x, y: target.y + 1 })
       );
     });
   }

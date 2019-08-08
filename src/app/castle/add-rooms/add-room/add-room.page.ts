@@ -10,6 +10,7 @@ import {
 import { FormGroup, FormControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { RoomSelectionAutocompleteService } from '../services/room-selection-autocomplete/room-selection-autocomplete.service';
+import { MootRule } from '@app/rules/moot-rule';
 
 @Component({
   selector: 'app-add-room',
@@ -55,7 +56,12 @@ export class AddRoomPage implements OnInit, OnDestroy {
   onSubmit() {
     const room: RoomDefinition = this.form.value.room;
     this.roomRepo.add(
-      new Room(room.name, room.type, this.form.value.coordinates, room.rule)
+      new Room(
+        room.name,
+        room.type,
+        this.form.value.coordinates,
+        new MootRule()
+      )
     );
 
     this.navCtrl.navigateBack(['castle', this.castleName]);
