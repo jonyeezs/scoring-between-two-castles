@@ -12,7 +12,10 @@ export class GridNodeTraverser<GridNodeType> {
     return this.current.links.length > 0;
   }
 
-  get available(): GridNode<GridNodeType>[] {
+  get availableNodes(): GridNode<GridNodeType>[] {
+    if (!this.previous) {
+      return this.current.links;
+    }
     return this.current.links.filter(node => !node.equals(this.previous.data));
   }
 
@@ -27,5 +30,30 @@ export class GridNodeTraverser<GridNodeType> {
         'Target does not exist in the list. Use `.available` property to see what is available'
       );
     }
+  }
+
+  /**
+   * Gives a bird eye of all unique nodes in the grid.
+   */
+  birdsEye(): GridNode<GridNodeType>[] {
+    const recurser = function(
+      nodes: GridNode<GridNodeType>[],
+      uniques: GridNode<GridNodeType>[]
+    ) {
+      return nodes.reduce((acc, node) => {
+        if (!acc.some((n: GridNode<GridNodeType>) => n.equals(node.data))) {
+          acc = [...acc, node];
+
+          if (node.links.length > 0) {
+            return recurser(node.links, acc);
+          }
+          return acc;
+        } else {
+          return acc;
+        }
+      }, uniques);
+    };
+
+    return recurser(this.availableNodes, []);
   }
 }
