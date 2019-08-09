@@ -1,5 +1,6 @@
 import { RoomDefinition } from '../models/rooms/room.type';
 import { ImmediatePointsRule } from '@app/rules/immediate-points';
+import { AnywhereRule } from '@app/rules/anywhere';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -11,7 +12,7 @@ export const rooms: RoomDefinition[] = [
     name: 'archery range',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per corridor',
+    rule: new AnywhereRule(1, 'corridor'),
   },
   {
     name: 'armory',
@@ -23,7 +24,7 @@ export const rooms: RoomDefinition[] = [
     name: 'aviary',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per utility',
+    rule: new AnywhereRule(1, 'utility'),
   },
   {
     name: 'bakery',
@@ -41,7 +42,7 @@ export const rooms: RoomDefinition[] = [
     name: 'biegarten',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per throne',
+    rule: new AnywhereRule(1, 'outdoor special'), //?
   },
   {
     name: 'blanket room',
@@ -83,7 +84,7 @@ export const rooms: RoomDefinition[] = [
     name: 'butterfly garden',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per corridor',
+    rule: new AnywhereRule(1, 'corridor'),
   },
   {
     name: 'buttery',
@@ -101,7 +102,7 @@ export const rooms: RoomDefinition[] = [
     name: 'chicken coop',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per utility',
+    rule: new AnywhereRule(1, 'utility'),
   },
   {
     name: `children's room`,
@@ -215,19 +216,19 @@ export const rooms: RoomDefinition[] = [
     name: 'firewood storage',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per living',
+    rule: new AnywhereRule(1, 'living'),
   },
   {
     name: 'fish pond',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per food',
+    rule: new AnywhereRule(1, 'food'),
   },
   {
     name: 'flower garden',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per throne',
+    rule: new AnywhereRule(1, 'outdoor special'), //?
   },
   {
     name: 'fountain',
@@ -239,7 +240,7 @@ export const rooms: RoomDefinition[] = [
     name: 'french gazebo',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per throne',
+    rule: new AnywhereRule(1, 'outdoor special'),
   },
   {
     name: 'fungus room',
@@ -275,7 +276,7 @@ export const rooms: RoomDefinition[] = [
     name: 'grand foyer',
     type: 'outdoor special',
     hanging: 'none',
-    rule: '1 per around',
+    rule: '1 per around', // ?
   },
   {
     name: 'great hall',
@@ -287,7 +288,7 @@ export const rooms: RoomDefinition[] = [
     name: 'guardhouse',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per downstairs',
+    rule: new AnywhereRule(1, 'downstairs'),
   },
   {
     name: 'guest room',
@@ -611,7 +612,7 @@ export const rooms: RoomDefinition[] = [
     name: 'pumpkin garden',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per food',
+    rule: new AnywhereRule(1, 'food'),
   },
   {
     name: 'puppy room',
@@ -755,7 +756,7 @@ export const rooms: RoomDefinition[] = [
     name: 'stables',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per downstairs',
+    rule: new AnywhereRule(1, 'downstairs'),
   },
   {
     name: 'study',
@@ -767,7 +768,7 @@ export const rooms: RoomDefinition[] = [
     name: 'sty',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per downstairs',
+    rule: new AnywhereRule(1, 'downstairs'),
   },
   {
     name: 'subterranean tunnel',
@@ -779,7 +780,7 @@ export const rooms: RoomDefinition[] = [
     name: 'swimming hole',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per living',
+    rule: new AnywhereRule(1, 'living'),
   },
   {
     name: 'tapestry room',
@@ -803,7 +804,7 @@ export const rooms: RoomDefinition[] = [
     name: 'terrace',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per sleeping',
+    rule: new AnywhereRule(1, 'sleeping'),
   },
   {
     name: 'the hole',
@@ -839,13 +840,13 @@ export const rooms: RoomDefinition[] = [
     name: 'turtle pond',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per sleeping',
+    rule: new AnywhereRule(1, 'sleeping'),
   },
   {
     name: 'vegetable garden',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per food',
+    rule: new AnywhereRule(1, 'food'),
   },
   {
     name: 'venus grotto',
@@ -863,7 +864,7 @@ export const rooms: RoomDefinition[] = [
     name: 'vineyard',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per living',
+    rule: new AnywhereRule(1, 'living'),
   },
   {
     name: 'waiting room',
@@ -875,7 +876,7 @@ export const rooms: RoomDefinition[] = [
     name: 'walking path',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per corridor',
+    rule: new AnywhereRule(1, 'corridor'),
   },
   {
     name: 'washroom',
@@ -899,6 +900,6 @@ export const rooms: RoomDefinition[] = [
     name: 'winter garden',
     type: 'outdoor',
     hanging: 'none',
-    rule: '1 per utility',
+    rule: new AnywhereRule(1, 'utility'),
   },
 ];
