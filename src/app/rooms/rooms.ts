@@ -1,6 +1,7 @@
 import { RoomDefinition } from '../models/rooms/room.type';
 import { ImmediatePointsRule } from '@app/rules/immediate-points';
 import { AnywhereRule } from '@app/rules/anywhere';
+import { AllTypesRule } from '@app/rules/all-types';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -48,7 +49,12 @@ export const rooms: RoomDefinition[] = [
     name: 'blanket room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'brandy room',
@@ -78,7 +84,12 @@ export const rooms: RoomDefinition[] = [
     name: 'bunk room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'butterfly garden',
@@ -108,7 +119,12 @@ export const rooms: RoomDefinition[] = [
     name: `children's room`,
     type: 'sleeping',
     hanging: 'swords',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'china room',
@@ -174,13 +190,23 @@ export const rooms: RoomDefinition[] = [
     name: 'dreaming room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: ' 4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'dressing room',
     type: 'sleeping',
     hanging: 'torch',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'dumbwaiter',
@@ -294,7 +320,12 @@ export const rooms: RoomDefinition[] = [
     name: 'guest room',
     type: 'sleeping',
     hanging: 'swords',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'gunpowder room',
@@ -384,7 +415,12 @@ export const rooms: RoomDefinition[] = [
     name: 'hibernation chamber',
     type: 'sleeping',
     hanging: 'painting',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'hidden lair',
@@ -414,7 +450,12 @@ export const rooms: RoomDefinition[] = [
     name: 'in-law suite',
     type: 'sleeping',
     hanging: 'swords',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'jewel room',
@@ -438,7 +479,12 @@ export const rooms: RoomDefinition[] = [
     name: `king's chamber`,
     type: 'sleeping',
     hanging: 'torch',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'kitchen',
@@ -504,7 +550,12 @@ export const rooms: RoomDefinition[] = [
     name: 'midnight room',
     type: 'sleeping',
     hanging: 'swords',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'mold room',
@@ -528,13 +579,23 @@ export const rooms: RoomDefinition[] = [
     name: 'nap room',
     type: 'sleeping',
     hanging: 'torch',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'nursery',
     type: 'sleeping',
     hanging: 'torch',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'observatory',
@@ -576,7 +637,12 @@ export const rooms: RoomDefinition[] = [
     name: 'pillow room',
     type: 'sleeping',
     hanging: 'torch',
-    rule: ' 4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'pit of despair',
@@ -594,13 +660,23 @@ export const rooms: RoomDefinition[] = [
     name: `prince's chambers`,
     type: 'sleeping',
     hanging: 'mirror',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'princess chambers',
     type: 'sleeping',
     hanging: 'mirror',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'promenade',
@@ -618,7 +694,12 @@ export const rooms: RoomDefinition[] = [
     name: 'puppy room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'purgatory',
@@ -642,7 +723,12 @@ export const rooms: RoomDefinition[] = [
     name: 'rabbit room',
     type: 'sleeping',
     hanging: 'swords',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'reading room',
@@ -738,7 +824,12 @@ export const rooms: RoomDefinition[] = [
     name: 'solar',
     type: 'sleeping',
     hanging: 'mirror',
-    rule: ' 4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'spice room',
@@ -792,7 +883,12 @@ export const rooms: RoomDefinition[] = [
     name: 'tasso room',
     type: 'sleeping',
     hanging: 'mirror',
-    rule: '4 if all colors or 1',
+    rule: new AllTypesRule(4, 2, 6, [
+      'throne',
+      'sleeping',
+      'outdoor special',
+      'none',
+    ]),
   },
   {
     name: 'taxidermy showroom',

@@ -36,7 +36,7 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
     const linkableNodes = this.findLinkableNodes(node);
     if (linkableNodes.length === 0) {
       throw new Error(
-        'Unable to link your node to any available linkable nodes'
+        `Unable to link your node (x: ${node.x}, y: ${node.y}) to any available linkable nodes`
       );
     }
 

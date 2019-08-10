@@ -7,7 +7,7 @@
 
 1pts per room type anywhere - D
 
-4pts if all 6 types else 1
+4pts if all 6 types else 1 - D
 
 1pts per connected room type
  
@@ -17,10 +17,9 @@
 
 2pts per room type on left and right
 2pts per room type on above and below
+2 per room type on 2 immediate below
 
 2pts per room type below immediate and its left and right
-
-2 per room type on 2 immediate below
 
 ------------------------
 
