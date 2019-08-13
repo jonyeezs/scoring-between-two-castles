@@ -31,6 +31,7 @@
     "core-js": "^2.5.4",
     "ionic4-auto-complete": "^1.8.0",
     "lodash.clonedeep": "^4.5.0",
+    "lodash.findkey": "^4.6.0",
     "lodash.flatmap": "^4.5.0",
     "ngx-pipes": "^2.4.6",
     "ngx-widget-grid": "^6.0.2",

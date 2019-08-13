@@ -2,6 +2,7 @@ import { RoomDefinition } from '../models/rooms/room.type';
 import { ImmediatePointsRule } from '@app/rules/immediate-points';
 import { AnywhereRule } from '@app/rules/anywhere';
 import { AllTypesRule } from '@app/rules/all-types';
+import { AllVerticalRule } from '@app/rules/all-vertical';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -19,7 +20,7 @@ export const rooms: RoomDefinition[] = [
     name: 'armory',
     type: 'downstairs',
     hanging: 'painting',
-    rule: '2 per throne all above and below',
+    rule: new AllVerticalRule(2, ['below', 'above'], ['outdoor special']),
   },
   {
     name: 'aviary',
@@ -160,7 +161,7 @@ export const rooms: RoomDefinition[] = [
     name: 'crypt',
     type: 'downstairs',
     hanging: 'painting',
-    rule: '1 per downstairs all above and below',
+    rule: new AllVerticalRule(1, ['below', 'above'], ['downstairs']),
   },
   {
     name: 'cutlery room',
@@ -218,7 +219,7 @@ export const rooms: RoomDefinition[] = [
     name: 'dungeon',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: '1 per corridor all above and below',
+    rule: new AllVerticalRule(1, ['above', 'below'], ['corridor']),
   },
   {
     name: 'echo chamber',
@@ -272,7 +273,7 @@ export const rooms: RoomDefinition[] = [
     name: 'fungus room',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: '1 per food all above',
+    rule: new AllVerticalRule(1, ['above'], ['food']),
   },
   {
     name: 'gallery',
@@ -331,7 +332,7 @@ export const rooms: RoomDefinition[] = [
     name: 'gunpowder room',
     type: 'downstairs',
     hanging: 'painting',
-    rule: '1 per corridor all above and below',
+    rule: new AllVerticalRule(1, ['above', 'below'], ['corridor']),
   },
   {
     name: 'hall of creaking floors',
@@ -426,7 +427,7 @@ export const rooms: RoomDefinition[] = [
     name: 'hidden lair',
     type: 'downstairs',
     hanging: 'torch',
-    rule: '1 per utility all above',
+    rule: new AllVerticalRule(1, ['above'], ['utility']),
   },
   {
     name: 'hidden passage',
@@ -438,7 +439,7 @@ export const rooms: RoomDefinition[] = [
     name: 'hidden terrace',
     type: 'downstairs',
     hanging: 'swords',
-    rule: '1 per corridor all above and below',
+    rule: new AllVerticalRule(1, ['above', 'below'], ['corridor']),
   },
   {
     name: 'ice house',
@@ -461,7 +462,7 @@ export const rooms: RoomDefinition[] = [
     name: 'jewel room',
     type: 'downstairs',
     hanging: 'swords',
-    rule: '1 per living all above',
+    rule: new AllVerticalRule(1, ['above'], ['living']),
   },
   {
     name: 'kennel',
@@ -502,13 +503,13 @@ export const rooms: RoomDefinition[] = [
     name: 'knight room',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: '2 per throne all above and below',
+    rule: new AllVerticalRule(2, ['above', 'below'], ['outdoor special']),
   },
   {
     name: 'laboratory',
     type: 'downstairs',
     hanging: 'swords',
-    rule: '2 per utility above',
+    rule: new AllVerticalRule(2, ['above'], ['utility']),
   },
   {
     name: 'laundry room',
@@ -561,7 +562,7 @@ export const rooms: RoomDefinition[] = [
     name: 'mold room',
     type: 'downstairs',
     hanging: 'swords',
-    rule: '1 per food all above',
+    rule: new AllVerticalRule(1, ['below'], ['food']),
   },
   {
     name: 'morning tea room',
@@ -613,7 +614,7 @@ export const rooms: RoomDefinition[] = [
     name: 'padded room',
     type: 'downstairs',
     hanging: 'torch',
-    rule: '1 per living all above',
+    rule: new AllVerticalRule(1, ['above'], ['living']),
   },
   {
     name: 'panic room',
@@ -648,7 +649,7 @@ export const rooms: RoomDefinition[] = [
     name: 'pit of despair',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: '1 per downstairs    all above and below',
+    rule: new AllVerticalRule(1, ['above', 'below'], ['downstairs']),
   },
   {
     name: 'powder room',
@@ -717,7 +718,7 @@ export const rooms: RoomDefinition[] = [
     name: 'quiet room',
     type: 'downstairs',
     hanging: 'torch',
-    rule: '1 per sleeping all above',
+    rule: new AllVerticalRule(1, ['above'], ['sleeping']),
   },
   {
     name: 'rabbit room',
@@ -818,7 +819,7 @@ export const rooms: RoomDefinition[] = [
     name: 'snake pit',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: '1 per living all above',
+    rule: new AllVerticalRule(1, ['below'], ['living']),
   },
   {
     name: 'solar',
@@ -841,7 +842,7 @@ export const rooms: RoomDefinition[] = [
     name: 'spy room',
     type: 'downstairs',
     hanging: 'torch',
-    rule: '1 per downstairs all above and below',
+    rule: new AllVerticalRule(1, ['below', 'above'], ['downstairs']),
   },
   {
     name: 'stables',
@@ -865,7 +866,7 @@ export const rooms: RoomDefinition[] = [
     name: 'subterranean tunnel',
     type: 'downstairs',
     hanging: 'painting',
-    rule: '1 per utility all above',
+    rule: new AllVerticalRule(1, ['above'], ['utility']),
   },
   {
     name: 'swimming hole',
@@ -906,7 +907,7 @@ export const rooms: RoomDefinition[] = [
     name: 'the hole',
     type: 'downstairs',
     hanging: 'painting',
-    rule: '1 per sleeping all above',
+    rule: new AllVerticalRule(1, ['above'], ['sleeping']),
   },
   {
     name: 'tool room',
@@ -924,13 +925,26 @@ export const rooms: RoomDefinition[] = [
     name: 'tower',
     type: 'outdoor special',
     hanging: 'none',
-    rule: '1 per all below',
+    rule: new AllVerticalRule(
+      1,
+      ['below'],
+      [
+        'corridor',
+        'downstairs',
+        'food',
+        'living',
+        'outdoor',
+        'sleeping',
+        'throne',
+        'utility',
+      ]
+    ),
   },
   {
     name: 'treasure room',
     type: 'downstairs',
     hanging: 'swords',
-    rule: '1 per sleeping all above',
+    rule: new AllVerticalRule(1, ['above'], ['sleeping']),
   },
   {
     name: 'turtle pond',
@@ -948,7 +962,7 @@ export const rooms: RoomDefinition[] = [
     name: 'venus grotto',
     type: 'downstairs',
     hanging: 'torch',
-    rule: '2 per throne all above and below',
+    rule: new AllVerticalRule(2, ['above', 'below'], ['sleeping']),
   },
   {
     name: 'vestibule',
@@ -984,7 +998,7 @@ export const rooms: RoomDefinition[] = [
     name: 'wine cellar',
     type: 'downstairs',
     hanging: 'torch',
-    rule: '1 per food all above',
+    rule: new AllVerticalRule(1, ['above'], ['food']),
   },
   {
     name: 'wine room',
