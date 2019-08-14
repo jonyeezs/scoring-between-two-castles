@@ -12,7 +12,7 @@ describe('AllVerticalRule', () => {
   let repo: RoomRepositoryService;
 
   describe('any below', () => {
-    let subject: AllVerticalRule<GridRoom>;
+    let subject: AllVerticalRule;
     beforeEach(() => {
       subject = new AllVerticalRule(
         1,

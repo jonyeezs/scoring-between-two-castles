@@ -3,7 +3,7 @@
 1pts per any all below
 1pts per room type all above
 1pts per room type all above and all below
-2pts per room type all above and all below
+2pts per room type all above and all below - D
 
 1pts per room type anywhere - D
 
@@ -11,15 +11,16 @@
 
 1pts per connected room type
  
-1pts per any around
+
 1pt per room type / hanging around
 2pts per room type around except immediate below
-
+1pts per any around
 2pts per room type on left and right
 2pts per room type on above and below
+2pts per room type below immediate and its left and right
+
 2 per room type on 2 immediate below
 
-2pts per room type below immediate and its left and right
 
 ------------------------
 

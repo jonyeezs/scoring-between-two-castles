@@ -3,6 +3,10 @@ import { ImmediatePointsRule } from '@app/rules/immediate-points';
 import { AnywhereRule } from '@app/rules/anywhere';
 import { AllTypesRule } from '@app/rules/all-types';
 import { AllVerticalRule } from '@app/rules/all-vertical';
+import {
+  SpecialRoomTypes,
+  VerticalDirections,
+} from '@app/helpers/room-combinations';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -20,7 +24,7 @@ export const rooms: RoomDefinition[] = [
     name: 'armory',
     type: 'downstairs',
     hanging: 'painting',
-    rule: new AllVerticalRule(2, ['below', 'above'], ['outdoor special']),
+    rule: new AllVerticalRule(2, VerticalDirections, ['outdoor special']),
   },
   {
     name: 'aviary',
@@ -50,12 +54,7 @@ export const rooms: RoomDefinition[] = [
     name: 'blanket room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'brandy room',
@@ -85,12 +84,7 @@ export const rooms: RoomDefinition[] = [
     name: 'bunk room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'butterfly garden',
@@ -120,12 +114,7 @@ export const rooms: RoomDefinition[] = [
     name: `children's room`,
     type: 'sleeping',
     hanging: 'swords',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'china room',
@@ -161,7 +150,7 @@ export const rooms: RoomDefinition[] = [
     name: 'crypt',
     type: 'downstairs',
     hanging: 'painting',
-    rule: new AllVerticalRule(1, ['below', 'above'], ['downstairs']),
+    rule: new AllVerticalRule(1, VerticalDirections, ['downstairs']),
   },
   {
     name: 'cutlery room',
@@ -191,23 +180,13 @@ export const rooms: RoomDefinition[] = [
     name: 'dreaming room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'dressing room',
     type: 'sleeping',
     hanging: 'torch',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'dumbwaiter',
@@ -219,7 +198,7 @@ export const rooms: RoomDefinition[] = [
     name: 'dungeon',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: new AllVerticalRule(1, ['above', 'below'], ['corridor']),
+    rule: new AllVerticalRule(1, VerticalDirections, ['corridor']),
   },
   {
     name: 'echo chamber',
@@ -321,18 +300,13 @@ export const rooms: RoomDefinition[] = [
     name: 'guest room',
     type: 'sleeping',
     hanging: 'swords',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'gunpowder room',
     type: 'downstairs',
     hanging: 'painting',
-    rule: new AllVerticalRule(1, ['above', 'below'], ['corridor']),
+    rule: new AllVerticalRule(1, VerticalDirections, ['corridor']),
   },
   {
     name: 'hall of creaking floors',
@@ -416,12 +390,7 @@ export const rooms: RoomDefinition[] = [
     name: 'hibernation chamber',
     type: 'sleeping',
     hanging: 'painting',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'hidden lair',
@@ -439,7 +408,7 @@ export const rooms: RoomDefinition[] = [
     name: 'hidden terrace',
     type: 'downstairs',
     hanging: 'swords',
-    rule: new AllVerticalRule(1, ['above', 'below'], ['corridor']),
+    rule: new AllVerticalRule(1, VerticalDirections, ['corridor']),
   },
   {
     name: 'ice house',
@@ -451,12 +420,7 @@ export const rooms: RoomDefinition[] = [
     name: 'in-law suite',
     type: 'sleeping',
     hanging: 'swords',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'jewel room',
@@ -480,12 +444,7 @@ export const rooms: RoomDefinition[] = [
     name: `king's chamber`,
     type: 'sleeping',
     hanging: 'torch',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'kitchen',
@@ -503,7 +462,7 @@ export const rooms: RoomDefinition[] = [
     name: 'knight room',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: new AllVerticalRule(2, ['above', 'below'], ['outdoor special']),
+    rule: new AllVerticalRule(2, VerticalDirections, ['outdoor special']),
   },
   {
     name: 'laboratory',
@@ -551,12 +510,7 @@ export const rooms: RoomDefinition[] = [
     name: 'midnight room',
     type: 'sleeping',
     hanging: 'swords',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'mold room',
@@ -580,23 +534,13 @@ export const rooms: RoomDefinition[] = [
     name: 'nap room',
     type: 'sleeping',
     hanging: 'torch',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'nursery',
     type: 'sleeping',
     hanging: 'torch',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'observatory',
@@ -638,18 +582,13 @@ export const rooms: RoomDefinition[] = [
     name: 'pillow room',
     type: 'sleeping',
     hanging: 'torch',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'pit of despair',
     type: 'downstairs',
     hanging: 'mirror',
-    rule: new AllVerticalRule(1, ['above', 'below'], ['downstairs']),
+    rule: new AllVerticalRule(1, VerticalDirections, ['downstairs']),
   },
   {
     name: 'powder room',
@@ -661,23 +600,13 @@ export const rooms: RoomDefinition[] = [
     name: `prince's chambers`,
     type: 'sleeping',
     hanging: 'mirror',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'princess chambers',
     type: 'sleeping',
     hanging: 'mirror',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'promenade',
@@ -695,12 +624,7 @@ export const rooms: RoomDefinition[] = [
     name: 'puppy room',
     type: 'sleeping',
     hanging: 'painting',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'purgatory',
@@ -724,12 +648,7 @@ export const rooms: RoomDefinition[] = [
     name: 'rabbit room',
     type: 'sleeping',
     hanging: 'swords',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'reading room',
@@ -825,12 +744,7 @@ export const rooms: RoomDefinition[] = [
     name: 'solar',
     type: 'sleeping',
     hanging: 'mirror',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'spice room',
@@ -842,7 +756,7 @@ export const rooms: RoomDefinition[] = [
     name: 'spy room',
     type: 'downstairs',
     hanging: 'torch',
-    rule: new AllVerticalRule(1, ['below', 'above'], ['downstairs']),
+    rule: new AllVerticalRule(1, VerticalDirections, ['downstairs']),
   },
   {
     name: 'stables',
@@ -884,12 +798,7 @@ export const rooms: RoomDefinition[] = [
     name: 'tasso room',
     type: 'sleeping',
     hanging: 'mirror',
-    rule: new AllTypesRule(4, 2, 6, [
-      'throne',
-      'sleeping',
-      'outdoor special',
-      'none',
-    ]),
+    rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'taxidermy showroom',
@@ -962,7 +871,7 @@ export const rooms: RoomDefinition[] = [
     name: 'venus grotto',
     type: 'downstairs',
     hanging: 'torch',
-    rule: new AllVerticalRule(2, ['above', 'below'], ['sleeping']),
+    rule: new AllVerticalRule(2, VerticalDirections, ['sleeping']),
   },
   {
     name: 'vestibule',

@@ -2,6 +2,7 @@ import { Rule } from '../rules.abstract';
 import { RoomType } from '@app/models/rooms/room.type';
 import { GridNodeTraverser } from '@app/models/grid-linked-list/grid-node-traverser';
 import { GridRoom } from '@app/core/room-repository.service';
+import { sentencize } from '@app/helpers/sentencize';
 
 export class AllTypesRule<T extends GridRoom> extends Rule {
   constructor(
@@ -11,8 +12,8 @@ export class AllTypesRule<T extends GridRoom> extends Rule {
     private excludedRooms: RoomType[]
   ) {
     super(
-      `${points} pts for all other ${expectedNumberOfRooms} rooms other than 
-      ${excludedRooms.join('/')} found anywhere in the castle, 
+      `${points} pts for all ${expectedNumberOfRooms} room types other than 
+      ${sentencize(excludedRooms, 'and')} found anywhere in the castle, 
       else ${alternativePoints} pts.`
     );
   }

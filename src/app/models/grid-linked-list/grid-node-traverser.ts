@@ -44,21 +44,36 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
     return this.current.links.length > 0;
   }
 
-  get availableNodes(): GridNode<GridNodeType>[] {
+  getAvailableNodes(
+    ofDirections: Direction[] = null
+  ): GridNode<GridNodeType>[] {
+    const byDirection = ofDirections
+      ? this.filterByDirection(ofDirections)
+      : () => true;
     if (!this.previous) {
-      return this.current.links;
+      return this.current.links.filter(node => byDirection(node));
     }
-    return this.current.links.filter(node => !node.equals(this.previous.data));
+
+    return this.current.links.filter(node => {
+      return !node.equals(this.previous.data) && (node => byDirection(node));
+    });
   }
 
-  get availableDirections(): Direction[] {
+  getAvailableDirections(ofDirections: Direction[] = null): Direction[] {
     if (!this.previous) {
-      return this.current.links.map(this.nodeToDirection);
+      return this.current.links
+        .map(l => this.nodeToDirection(l))
+        .filter(d => {
+          return ofDirections ? ofDirections.some(od => od === d) : true;
+        });
     }
 
     return this.current.links
       .filter(node => !node.equals(this.previous.data))
-      .map(this.nodeToDirection);
+      .map(l => this.nodeToDirection(l))
+      .filter(d => {
+        return ofDirections ? ofDirections.some(od => od === d) : true;
+      });
   }
 
   moveTo(target: GridNodeType | Direction): GridNode<GridNodeType> | undefined {
@@ -117,14 +132,17 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
       }, uniques);
     };
 
-    return recurser(this.availableNodes, []);
+    return recurser(this.getAvailableNodes(), []);
   }
 
   private nodeToDirection({ data }) {
     const { x: currentX, y: currentY } = this.current.data;
     const xDiff = data.x - currentX;
     const yDiff = data.y - currentY;
-
     return directionMap[`${xDiff}|${yDiff}`];
+  }
+
+  private filterByDirection(directions: Direction[]) {
+    return node => directions.some(d => d === this.nodeToDirection(node));
   }
 }

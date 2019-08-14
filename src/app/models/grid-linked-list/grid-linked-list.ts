@@ -88,7 +88,11 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
         n.equals({ ...target, x: target.x - 1, y: target.y }) ||
         n.equals({ ...target, x: target.x + 1, y: target.y }) ||
         n.equals({ ...target, x: target.x, y: target.y - 1 }) ||
-        n.equals({ ...target, x: target.x, y: target.y + 1 })
+        n.equals({ ...target, x: target.x - 1, y: target.y - 1 }) ||
+        n.equals({ ...target, x: target.x + 1, y: target.y - 1 }) ||
+        n.equals({ ...target, x: target.x, y: target.y + 1 }) ||
+        n.equals({ ...target, x: target.x - 1, y: target.y + 1 }) ||
+        n.equals({ ...target, x: target.x + 1, y: target.y + 1 })
       );
     });
   }
@@ -113,11 +117,6 @@ export class GridLinkedList<GridNodeType extends GridableGridNodeType> {
       { x: node.x, y: node.y + 1 },
     ];
     this.updateGridAvailability(new GridNode(node, this.equalifier), nodes);
-    return [
-      { x: node.x - 1, y: node.y },
-      { x: node.x + 1, y: node.y },
-      { x: node.x, y: node.y - 1 },
-      { x: node.x, y: node.y + 1 },
-    ];
+    return nodes;
   }
 }

@@ -5,6 +5,7 @@ import {
   VerticalDirection,
 } from '@app/models/grid-linked-list/grid-node-traverser';
 import { GridRoom } from '@app/core/room-repository.service';
+import { sentencize } from '@app/helpers/sentencize';
 
 export class AllVerticalRule extends Rule {
   constructor(
@@ -13,8 +14,8 @@ export class AllVerticalRule extends Rule {
     private wantedTypes: RoomType[]
   ) {
     super(
-      `${points} pts each ${wantedTypes.reduce((acc, t) => `${acc}, ${t}`, '')} 
-      ${directions.reduce((acc, t) => `${acc}, ${t}`, '')} this room.`
+      `${points} pts for each ${sentencize(wantedTypes, 'or')} 
+      ${sentencize(directions, 'and')} this room.`
     );
   }
   protected runRule<T extends GridRoom>(

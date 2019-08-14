@@ -54,39 +54,45 @@ describe('GridLinkedList', () => {
 
   describe('links', () => {
     it('should link only its neighbours', () => {
-      subject.add(new TestGridNode(2, 3));
-      subject.add(new TestGridNode(4, 3));
-      subject.add(new TestGridNode(2, 2));
-      subject.add(new TestGridNode(3, 2));
-      subject.add(new TestGridNode(1, 2));
+      subject.add(new TestGridNode(2, 3)); //
+      subject.add(new TestGridNode(4, 3)); //
+      subject.add(new TestGridNode(2, 2)); //       [2,3][3,3][4,3]
+      subject.add(new TestGridNode(3, 2)); //  [1,2][2,2][3,2]
+      subject.add(new TestGridNode(1, 2)); //
 
       const result = subject.get({ x: 3, y: 3 });
-      expect(result.links.length).toBe(3);
+      expect(result.links.length).toBe(4);
       expect(result.links.some(l => l.equals(new TestGridNode(4, 3)))).toBe(
         true
       );
       expect(result.links.some(l => l.equals(new TestGridNode(2, 2)))).toBe(
+        true
+      );
+      expect(result.links.some(l => l.equals(new TestGridNode(1, 2)))).toBe(
         false
       );
 
       const testNode32 = result.links.find(l =>
         l.equals(new TestGridNode(3, 2))
       );
-      expect(testNode32.links.length).toBe(2);
+      expect(testNode32.links.length).toBe(4);
       expect(testNode32.links.some(l => l.equals(new TestGridNode(2, 2)))).toBe(
         true
       );
       expect(testNode32.links.some(l => l.equals(new TestGridNode(3, 3)))).toBe(
         true
       );
-      expect(testNode32.links.some(l => l.equals(new TestGridNode(2, 3)))).toBe(
+      expect(testNode32.links.some(l => l.equals(new TestGridNode(4, 3)))).toBe(
+        true
+      );
+      expect(testNode32.links.some(l => l.equals(new TestGridNode(1, 2)))).toBe(
         false
       );
 
       const testNode12 = testNode32.links
         .find(l => l.equals(new TestGridNode(2, 2)))
         .links.find(l => l.equals(new TestGridNode(1, 2)));
-      expect(testNode12.links.length).toBe(1);
+      expect(testNode12.links.length).toBe(2);
       expect(testNode12.links.some(l => l.equals(new TestGridNode(2, 2)))).toBe(
         true
       );
