@@ -12,7 +12,7 @@ export class AdjacentRule extends Rule {
     public points: number,
     private directions: Direction[],
     private roomProperty: 'type' | 'hanging', // follow property of room.type
-    private wantedTypes: RoomType[] | RoomHanging[]
+    private wantedTypes: (RoomType | RoomHanging)[]
   ) {
     super(
       `${points} pts for each room ${roomProperty} 
@@ -28,10 +28,7 @@ export class AdjacentRule extends Rule {
       .getAvailableNodes(this.directions)
       .reduce((total, n) => {
         // eslint-disable-next-line
-        return this.wantedTypes.some(
-          // eslint-disable-next-line
-          (t: RoomType | RoomHanging) => t === n.data[this.roomProperty]
-        )
+        return this.wantedTypes.some(t => t === n.data[this.roomProperty])
           ? total + 1
           : total;
       }, 0);
