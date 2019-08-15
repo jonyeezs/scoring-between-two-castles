@@ -17,7 +17,7 @@
 1pts per any around
 2pts per room type on left and right
 2pts per room type on above and below
-2pts per room type below immediate and its left and right
+2pts per room type below immediate and its left and right - D
 
 2 per room type on 2 immediate below
 
