@@ -73,6 +73,7 @@ export class RoomRepositoryService {
         new Room(
           'available construction space',
           'none',
+          'none',
           [location],
           new MootRule()
         )

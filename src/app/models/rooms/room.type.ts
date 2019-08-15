@@ -12,7 +12,7 @@ export type RoomType =
   | 'utility'
   | 'none';
 
-export type RoomHanging = 'painting' | 'mirror' | 'torch' | 'swords' | 'none';
+export type RoomHanging = 'painting' | 'mirror' | 'torch' | 'crest' | 'none';
 
 export interface RoomDefinition {
   name: string;
@@ -56,8 +56,6 @@ export class Room implements RoomDefinition {
     return this._realEstate.height;
   }
 
-  hanging: RoomHanging;
-
   icon: string;
 
   /**
@@ -66,6 +64,7 @@ export class Room implements RoomDefinition {
   constructor(
     public name: string,
     public type: RoomType,
+    public hanging: RoomHanging,
     sections: { x: number; y: number }[],
     public rule: Rule
   ) {

@@ -59,6 +59,7 @@ export class AddRoomPage implements OnInit, OnDestroy {
       new Room(
         room.name,
         room.type,
+        room.hanging,
         this.form.value.coordinates,
         new MootRule()
       )

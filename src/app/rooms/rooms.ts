@@ -35,7 +35,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'bakery',
     type: 'food',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per utility l / r',
   },
   {
@@ -113,7 +113,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: `children's room`,
     type: 'sleeping',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
@@ -137,7 +137,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'crepery',
     type: 'food',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per sleeping a / b',
   },
   {
@@ -161,8 +161,8 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'dead end',
     type: 'corridor',
-    hanging: 'swords',
-    rule: '1 per swords around',
+    hanging: 'crest',
+    rule: '1 per crest around',
   },
   {
     name: 'dining room',
@@ -191,7 +191,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'dumbwaiter',
     type: 'utility',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per connected food',
   },
   {
@@ -257,13 +257,13 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'gallery',
     type: 'living',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per utility around',
   },
   {
     name: 'game storage',
     type: 'utility',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per connected living',
   },
   {
@@ -287,8 +287,8 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'great hall',
     type: 'corridor',
-    hanging: 'swords',
-    rule: '1 per swords around',
+    hanging: 'crest',
+    rule: '1 per crest around',
   },
   {
     name: 'guardhouse',
@@ -299,7 +299,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'guest room',
     type: 'sleeping',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
@@ -323,7 +323,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'hall of ever-closing walls',
     type: 'corridor',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per sword around',
   },
   {
@@ -407,7 +407,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'hidden terrace',
     type: 'downstairs',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllVerticalRule(1, VerticalDirections, ['corridor']),
   },
   {
@@ -419,13 +419,13 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'in-law suite',
     type: 'sleeping',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'jewel room',
     type: 'downstairs',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllVerticalRule(1, ['above'], ['living']),
   },
   {
@@ -467,7 +467,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'laboratory',
     type: 'downstairs',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllVerticalRule(2, ['above'], ['utility']),
   },
   {
@@ -479,14 +479,14 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'library',
     type: 'living',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per throne around',
   },
   {
     name: 'lockdown room',
     type: 'corridor',
-    hanging: 'swords',
-    rule: '1 per swords around',
+    hanging: 'crest',
+    rule: '1 per crest around',
   },
   {
     name: 'map room',
@@ -497,31 +497,31 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'meat locker',
     type: 'food',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per outdoor l / r',
   },
   {
     name: 'meditation room',
     type: 'living',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per outdoor around except below',
   },
   {
     name: 'midnight room',
     type: 'sleeping',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
     name: 'mold room',
     type: 'downstairs',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllVerticalRule(1, ['below'], ['food']),
   },
   {
     name: 'morning tea room',
     type: 'food',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per living a / b',
   },
   {
@@ -563,13 +563,13 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'panic room',
     type: 'utility',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per connected throne',
   },
   {
     name: 'pantry',
     type: 'food',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per corridor l / r',
   },
   {
@@ -611,8 +611,8 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'promenade',
     type: 'corridor',
-    hanging: 'swords',
-    rule: '1 per swords around',
+    hanging: 'crest',
+    rule: '1 per crest around',
   },
   {
     name: 'pumpkin garden',
@@ -647,7 +647,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'rabbit room',
     type: 'sleeping',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllTypesRule(4, 2, 6, SpecialRoomTypes),
   },
   {
@@ -665,7 +665,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'repair shop',
     type: 'utility',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per connected utility',
   },
   {
@@ -689,7 +689,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'sauna',
     type: 'utility',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per connected sleeping',
   },
   {
@@ -725,7 +725,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'siege food storage',
     type: 'food',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '2 per throne a / b',
   },
   {
@@ -791,7 +791,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'tapestry room',
     type: 'living',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per sleeping around',
   },
   {
@@ -852,7 +852,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'treasure room',
     type: 'downstairs',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: new AllVerticalRule(1, ['above'], ['sleeping']),
   },
   {
@@ -876,7 +876,7 @@ export const rooms: RoomDefinition[] = [
   {
     name: 'vestibule',
     type: 'living',
-    hanging: 'swords',
+    hanging: 'crest',
     rule: '1 per food around',
   },
   {

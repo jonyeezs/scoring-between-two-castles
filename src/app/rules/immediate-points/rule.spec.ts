@@ -13,10 +13,12 @@ describe('ImmediatePointsRule', () => {
       new Room(
         'n',
         'throne',
+        'none',
         [{ x: 0, y: 0 }, { x: 1, y: 0 }],
         new ThroneRule('some rule')
       ),
-      new Room('some other room', 'corridor', [{ x: 1, y: 1 }], new MootRule()),
+      // prettier-ignore
+      new Room('some other room', 'corridor', 'painting', [{ x: 1, y: 1 }], new MootRule()),
     ];
     repo = new RoomRepositoryService();
     testCase.forEach(v => repo.add(v));
@@ -27,6 +29,7 @@ describe('ImmediatePointsRule', () => {
       new Room(
         '5 pt room',
         'living',
+        'crest',
         [{ x: -1, y: 0 }],
         new ImmediatePointsRule(5)
       )

@@ -35,7 +35,7 @@ export class AllVerticalRule extends Rule {
     let total = 0;
     let n = traveller.moveTo(direction);
     while (n !== undefined) {
-      total++;
+      if (this.wantedTypes.some(t => t === n.data.type)) total++;
       n = traveller.moveTo(direction);
     }
     return total;

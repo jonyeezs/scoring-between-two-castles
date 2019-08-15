@@ -27,9 +27,9 @@ export class AdjacentRule extends Rule {
     return startingNode
       .getAvailableNodes(this.directions)
       .reduce((total, n) => {
-        // tslint:disable-next-line
+        // eslint-disable-next-line
         return this.wantedTypes.some(
-          // tslint:disable-next-line
+          // eslint-disable-next-line
           (t: RoomType | RoomHanging) => t === n.data[this.roomProperty]
         )
           ? total + 1

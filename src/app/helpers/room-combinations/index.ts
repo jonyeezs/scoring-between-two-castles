@@ -31,7 +31,7 @@ export const SpecialRoomTypes: RoomType[] = ['throne', 'outdoor special'];
 export const AllHangingTypes: RoomHanging[] = [
   'mirror',
   'painting',
-  'swords',
+  'crest',
   'torch',
 ];
 

@@ -28,17 +28,31 @@ storiesOf('Castle layout', module)
           new Room(
             'Throne Room',
             'throne',
+            'none',
             [{ x: 0, y: 0 }, { x: 1, y: 0 }],
             new MootRule()
           ),
           new Room(
             'Room to left',
             'sleeping',
+            'mirror',
             [{ x: -1, y: 0 }],
             new MootRule()
           ),
-          new Room('Room to right', 'food', [{ x: 2, y: 0 }], new MootRule()),
-          new Room('Basement', 'downstairs', [{ x: 0, y: -1 }], new MootRule()),
+          new Room(
+            'Room to right',
+            'food',
+            'crest',
+            [{ x: 2, y: 0 }],
+            new MootRule()
+          ),
+          new Room(
+            'Basement',
+            'downstairs',
+            'painting',
+            [{ x: 0, y: -1 }],
+            new MootRule()
+          ),
         ],
       },
     }),
