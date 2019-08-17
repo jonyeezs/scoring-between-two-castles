@@ -48,14 +48,15 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
     ofDirections: Direction[] = null
   ): GridNode<GridNodeType>[] {
     const byDirection = ofDirections
-      ? this.filterByDirection(ofDirections)
+      ? node => ofDirections.some(d => d === this.nodeToDirection(node))
       : () => true;
+
     if (!this.previous) {
       return this.current.links.filter(node => byDirection(node));
     }
 
     return this.current.links.filter(node => {
-      return !node.equals(this.previous.data) && (node => byDirection(node));
+      return !node.equals(this.previous.data) && byDirection(node);
     });
   }
 
@@ -76,7 +77,9 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
       });
   }
 
-  moveTo(target: GridNodeType | Direction): GridNode<GridNodeType> | undefined {
+  moveTo(
+    target: GridNodeType | Direction
+  ): GridNodeTraverser<GridNodeType> | undefined {
     if (typeof target === 'string' || target instanceof String) {
       const movementCoord = _findkey(directionMap, v => v === target);
       if (!movementCoord) throw new Error(`${target} not a valid Direction`);
@@ -92,9 +95,10 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
     );
     if (!found) return undefined;
 
-    this.previous = Object.assign({}, this.previous, this.current);
+    this.previous = this.current;
     this.current = found;
-    return found;
+    debugger;
+    return this;
   }
 
   /**
@@ -140,9 +144,5 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
     const xDiff = data.x - currentX;
     const yDiff = data.y - currentY;
     return directionMap[`${xDiff}|${yDiff}`];
-  }
-
-  private filterByDirection(directions: Direction[]) {
-    return node => directions.some(d => d === this.nodeToDirection(node));
   }
 }

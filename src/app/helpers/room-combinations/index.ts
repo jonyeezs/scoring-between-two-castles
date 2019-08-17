@@ -37,6 +37,12 @@ export const AllHangingTypes: RoomHanging[] = [
 
 export const VerticalDirections: VerticalDirection[] = ['above', 'below'];
 export const HorizontalDirections: HorizontalDirection[] = ['left', 'right'];
+export const MovementDirections: Direction[] = [
+  'above',
+  'below',
+  'left',
+  'right',
+];
 export const AllDirections: Direction[] = [
   ...VerticalDirections,
   ...HorizontalDirections,

@@ -11,6 +11,7 @@ import {
 } from '@app/helpers/room-combinations';
 import { AdjacentRule } from '@app/rules/adjacent';
 import { exclude } from '@app/helpers/exclude-list';
+import { ConnectedRule } from '@app/rules/connected';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -82,7 +83,7 @@ export const rooms: RoomDefinition[] = [
   //   name: 'broom closet',
   //   type: 'utility',
   //   hanging: 'none',
-  //   rule: '1 per connected sleeping',
+  //   rule: new ConnectedRule(1, 'sleeping'),
   // },
   {
     name: 'bunk room',
@@ -138,7 +139,7 @@ export const rooms: RoomDefinition[] = [
     name: 'coat room',
     type: 'utility',
     hanging: 'mirror',
-    rule: '1 per connected outdoor',
+    rule: new ConnectedRule(1, 'outdoor'),
   },
   {
     name: 'crepery',
@@ -150,7 +151,7 @@ export const rooms: RoomDefinition[] = [
     name: 'crown storage',
     type: 'utility',
     hanging: 'painting',
-    rule: '1 per connected throne',
+    rule: new ConnectedRule(1, 'throne'),
   },
   {
     name: 'crypt',
@@ -198,7 +199,7 @@ export const rooms: RoomDefinition[] = [
     name: 'dumbwaiter',
     type: 'utility',
     hanging: 'crest',
-    rule: '1 per connected food',
+    rule: new ConnectedRule(1, 'food'),
   },
   {
     name: 'dungeon',
@@ -270,13 +271,13 @@ export const rooms: RoomDefinition[] = [
     name: 'game storage',
     type: 'utility',
     hanging: 'crest',
-    rule: '1 per connected living',
+    rule: new ConnectedRule(1, 'living'),
   },
   {
     name: 'glassmaking room',
     type: 'utility',
     hanging: 'painting',
-    rule: '1 per connected utility',
+    rule: new ConnectedRule(1, 'utility'),
   },
   {
     name: 'grand balcony',
@@ -438,13 +439,13 @@ export const rooms: RoomDefinition[] = [
     name: 'kennel',
     type: 'utility',
     hanging: 'painting',
-    rule: '1 per connected sleeping',
+    rule: new ConnectedRule(1, 'sleeping'),
   },
   {
     name: 'key room ',
     type: 'utility',
     hanging: 'mirror',
-    rule: '1 per connected corridor',
+    rule: new ConnectedRule(1, 'corridor'),
   },
   {
     name: `king's chamber`,
@@ -462,7 +463,7 @@ export const rooms: RoomDefinition[] = [
     name: 'kittery',
     type: 'utility',
     hanging: 'painting',
-    rule: '1 per connected corridor',
+    rule: new ConnectedRule(1, 'corridor'),
   },
   {
     name: 'knight room',
@@ -480,7 +481,7 @@ export const rooms: RoomDefinition[] = [
     name: 'laundry room',
     type: 'utility',
     hanging: 'torch',
-    rule: '1 per connected food',
+    rule: new ConnectedRule(1, 'food'),
   },
   {
     name: 'library',
@@ -536,7 +537,7 @@ export const rooms: RoomDefinition[] = [
     name: 'mud room',
     type: 'utility',
     hanging: 'painting',
-    rule: '1 per connected outdoor',
+    rule: new ConnectedRule(1, 'outdoor'),
   },
   {
     name: 'nap room',
@@ -572,7 +573,7 @@ export const rooms: RoomDefinition[] = [
     name: 'panic room',
     type: 'utility',
     hanging: 'crest',
-    rule: '1 per connected throne',
+    rule: new ConnectedRule(1, 'throne'),
   },
   {
     name: 'pantry',
@@ -602,7 +603,7 @@ export const rooms: RoomDefinition[] = [
     name: 'powder room',
     type: 'utility',
     hanging: 'mirror',
-    rule: '1 per connected food',
+    rule: new ConnectedRule(1, 'food'),
   },
   {
     name: `prince's chambers`,
@@ -676,7 +677,7 @@ export const rooms: RoomDefinition[] = [
     name: 'repair shop',
     type: 'utility',
     hanging: 'crest',
-    rule: '1 per connected utility',
+    rule: new ConnectedRule(1, 'utility'),
   },
   {
     name: 'rug room',
@@ -700,13 +701,13 @@ export const rooms: RoomDefinition[] = [
     name: 'sauna',
     type: 'utility',
     hanging: 'crest',
-    rule: '1 per connected sleeping',
+    rule: new ConnectedRule(1, 'sleeping'),
   },
   {
     name: 'schoolhouse',
     type: 'utility',
     hanging: 'torch',
-    rule: '1 per connected corridor',
+    rule: new ConnectedRule(1, 'corridor'),
   },
   {
     name: 'scullery',
@@ -718,7 +719,7 @@ export const rooms: RoomDefinition[] = [
     name: 'scythe room',
     type: 'utility',
     hanging: 'painting',
-    rule: '1 per connected downstairs',
+    rule: new ConnectedRule(1, 'downstairs'),
   },
   {
     name: "servant's quaters",
@@ -730,7 +731,7 @@ export const rooms: RoomDefinition[] = [
     name: 'shield room',
     type: 'utility',
     hanging: 'torch',
-    rule: '1 per connected downstairs',
+    rule: new ConnectedRule(1, 'downstairs'),
   },
   {
     name: 'siege food storage',
@@ -836,13 +837,13 @@ export const rooms: RoomDefinition[] = [
     name: 'tool room',
     type: 'utility',
     hanging: 'mirror',
-    rule: '1 per connected utility',
+    rule: new ConnectedRule(1, 'utility'),
   },
   {
     name: 'torch storage',
     type: 'utility',
     hanging: 'torch',
-    rule: '1 per connected living',
+    rule: new ConnectedRule(1, 'living'),
   },
   {
     name: 'tower',
@@ -915,7 +916,7 @@ export const rooms: RoomDefinition[] = [
     name: 'washroom',
     type: 'utility',
     hanging: 'mirror',
-    rule: '1 per connected living',
+    rule: new ConnectedRule(1, 'living'),
   },
   {
     name: 'wine cellar',

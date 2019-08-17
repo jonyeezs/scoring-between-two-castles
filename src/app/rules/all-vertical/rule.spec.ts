@@ -3,7 +3,6 @@ import { RoomRepositoryService } from '@app/core/room-repository.service';
 import { Room } from '@app/models/rooms/room.type';
 import { ThroneRule } from '../thrones/throne.temp';
 import { MootRule } from '../moot-rule';
-import { AllTypesRule } from '../all-types';
 import {
   VerticalDirections,
   AllRoomTypes,
