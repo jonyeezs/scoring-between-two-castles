@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { thrones } from '../../../models/thrones/thrones.class';
 import { Room } from 'src/app/models/rooms/room.type';
 import { RoomRepositoryService } from 'src/app/core/room-repository.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { thrones } from '@app/rooms/thrones';
 @Component({
   selector: 'app-add-throne',
   templateUrl: './add-throne.page.html',

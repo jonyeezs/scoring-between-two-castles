@@ -32,7 +32,9 @@
                 <ion-label>Type</ion-label>
               </ion-list-header>
               <ion-item *ngFor="let throne of thrones">
-                <ion-label>{{ throne.rule }}</ion-label>
+                <ion-label class="ion-text-wrap">{{
+                  throne.rule.description
+                }}</ion-label>
                 <ion-radio slot="end" value="{{ throne.name }}"></ion-radio>
               </ion-item>
             </ion-radio-group>
