@@ -12,6 +12,7 @@ import {
 import { AdjacentRule } from '@app/rules/adjacent';
 import { exclude } from '@app/helpers/exclude-list';
 import { ConnectedRule } from '@app/rules/connected';
+import { ConsecutiveRule } from '@app/rules/consecutive';
 export const rooms: RoomDefinition[] = [
   {
     name: 'afternoon tea room',
@@ -79,12 +80,12 @@ export const rooms: RoomDefinition[] = [
     hanging: 'mirror',
     rule: new AdjacentRule(2, ['above', 'below'], 'type', ['living']),
   },
-  // {
-  //   name: 'broom closet',
-  //   type: 'utility',
-  //   hanging: 'none',
-  //   rule: new ConnectedRule(1, 'sleeping'),
-  // },
+  {
+    name: 'broom closet',
+    type: 'utility',
+    hanging: 'none',
+    rule: new ConnectedRule(1, 'sleeping'),
+  },
   {
     name: 'bunk room',
     type: 'sleeping',
@@ -133,7 +134,7 @@ export const rooms: RoomDefinition[] = [
     name: 'chocolate room',
     type: 'food',
     hanging: 'painting',
-    rule: '2 per downstairs b / b',
+    rule: new ConsecutiveRule(2, 'below', 2, 'type', 'downstairs'),
   },
   {
     name: 'coat room',
@@ -763,7 +764,7 @@ export const rooms: RoomDefinition[] = [
     name: 'spice room',
     type: 'food',
     hanging: 'mirror',
-    rule: '2 per downstairs 2 below',
+    rule: new ConsecutiveRule(2, 'below', 2, 'type', 'downstairs'),
   },
   {
     name: 'spy room',
