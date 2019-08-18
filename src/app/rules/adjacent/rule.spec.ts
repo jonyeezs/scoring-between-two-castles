@@ -31,13 +31,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'mirror', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'mirror', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], subject),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'mirror', [{ x: 3, y: 1 }], new MootRule()),
@@ -71,13 +71,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'mirror', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'mirror', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'mirror', [{ x: 3, y: 1 }], subject),
@@ -127,13 +127,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'mirror', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'mirror', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], subject),
         // prettier-ignore
-        new Room('', 'outdoor special', 'mirror', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'mirror', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 3, y: -1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 3, y: -2 }], new MootRule()),
@@ -173,13 +173,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'mirror', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 1, y: -1 }], subject),
         new Room('', 'corridor', 'mirror', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'mirror', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'mirror', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 3, y: -1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 3, y: -2 }], new MootRule()),
@@ -214,13 +214,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'mirror', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'mirror', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], subject),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'mirror', [{ x: 3, y: 1 }], new MootRule()),
@@ -254,13 +254,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'mirror', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'mirror', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'mirror', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], subject),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], subject),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'mirror', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'mirror', [{ x: 3, y: 1 }], new MootRule()),
@@ -298,13 +298,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'none', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'painting', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'painting', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'painting', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'painting', [{ x: 2, y: -1 }], subject),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         // prettier-ignore
         new Room('', 'downstairs', 'crest', [{ x: 2, y: -3 }], new MootRule()
         ),
@@ -342,13 +342,13 @@ describe('AdjacentRule', () => {
         new Room('', 'sleeping', 'mirror', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'none', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'mirror', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'painting', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'painting', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'painting', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'mirror', [{ x: 2, y: -1 }], subject),
         // prettier-ignore
-        new Room('', 'outdoor special', 'painting', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'painting', [{ x: 2, y: -2 }], new MootRule()),
         new Room(
           '',
           'downstairs',

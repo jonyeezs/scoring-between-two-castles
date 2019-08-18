@@ -1,7 +1,7 @@
 import { Rule } from '@app/rules/rules.abstract';
 
 export type RoomType =
-  | 'outdoor special'
+  | 'specialty'
   | 'throne'
   | 'downstairs'
   | 'living'
@@ -76,7 +76,7 @@ export class Room implements RoomDefinition {
 
   private setIcon(type: RoomType) {
     switch (type) {
-      case 'outdoor special':
+      case 'specialty':
         return '⭐';
       case 'throne':
         return '👑';

@@ -45,13 +45,13 @@ describe('AllVerticalRule', () => {
         new Room('', 'sleeping', 'none', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'none', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'none', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'none', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'none', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'none', [{ x: 2, y: -1 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'none', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'none', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'none', [{ x: 3, y: 1 }], subject),
@@ -105,13 +105,13 @@ describe('AllVerticalRule', () => {
         new Room('', 'sleeping', 'none', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'none', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'none', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'none', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'none', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'none', [{ x: 2, y: -1 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'none', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'none', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'none', [{ x: 3, y: 1 }], new MootRule()),
@@ -152,13 +152,13 @@ describe('AllVerticalRule', () => {
         new Room('', 'sleeping', 'none', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'none', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'food', 'none', [{ x: 1, y: -1 }], subject),
         new Room('', 'corridor', 'none', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'sleeping', 'none', [{ x: 2, y: 0 }], new MootRule()),
         new Room('', 'downstairs', 'none', [{ x: 2, y: -1 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 2, y: -2 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 2, y: -2 }], new MootRule()),
         new Room('', 'downstairs', 'none', [{ x: 2, y: -3 }], new MootRule()),
         new Room('', 'sleeping', 'none', [{ x: 3, y: 0 }], new MootRule()),
         new Room('', 'living', 'none', [{ x: 3, y: 1 }], new MootRule()),
@@ -232,7 +232,7 @@ describe('AllVerticalRule', () => {
       ),
       new Room('', 'sleeping', 'none', [{ x: -1, y: 0 }], new MootRule()),
       // prettier-ignore
-      new Room('', 'outdoor special', 'none', [{ x: -1, y: 1 }], new MootRule()),
+      new Room('', 'specialty', 'none', [{ x: -1, y: 1 }], new MootRule()),
       new Room('', 'sleeping', 'none', [{ x: 0, y: 1 }], new MootRule()),
       new Room('', 'sleeping', 'none', [{ x: 1, y: 1 }], new MootRule()),
       new Room('', 'sleeping', 'none', [{ x: 2, y: 0 }], new MootRule()),

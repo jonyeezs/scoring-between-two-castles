@@ -30,6 +30,7 @@ export class ConnectedRule extends Rule {
         n => !uniqConnections.some(c => n.equals(c.data))
       );
 
+      // @ts-ignore
       uniqConnections = [...uniqConnections, ...nextNodes];
 
       if (nextNodes.length === 0) {

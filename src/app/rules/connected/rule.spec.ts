@@ -28,7 +28,7 @@ describe('ConnectedRule', () => {
         new Room('', 'sleeping', 'none', [{ x: 0, y: 1 }], new MootRule()),
         new Room('', 'outdoor', 'none', [{ x: 0, y: 2 }], new MootRule()),
         // prettier-ignore
-        new Room('', 'outdoor special', 'none', [{ x: 1, y: 1 }], new MootRule()),
+        new Room('', 'specialty', 'none', [{ x: 1, y: 1 }], new MootRule()),
         new Room('', 'corridor', 'none', [{ x: 1, y: -1 }], new MootRule()),
         new Room('', 'corridor', 'none', [{ x: 1, y: -2 }], new MootRule()),
         new Room('', 'corridor', 'none', [{ x: 2, y: 0 }], new MootRule()),

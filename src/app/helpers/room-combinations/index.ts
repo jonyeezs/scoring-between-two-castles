@@ -6,7 +6,7 @@ import {
 } from '@app/models/grid-linked-list/grid-node-traverser';
 
 export const AllRoomTypes: RoomType[] = [
-  'outdoor special',
+  'specialty',
   'throne',
   'downstairs',
   'living',
@@ -26,7 +26,7 @@ export const AllRegularRoomTypes: RoomType[] = [
   'utility',
 ];
 
-export const SpecialRoomTypes: RoomType[] = ['throne', 'outdoor special'];
+export const SpecialRoomTypes: RoomType[] = ['throne', 'specialty'];
 
 export const AllHangingTypes: RoomHanging[] = [
   'mirror',
