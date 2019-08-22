@@ -8,6 +8,7 @@ import { CastlePageComponent } from './castle-page/castle-page.component';
 import { CastleLayoutModule } from './castle-layout/castle-layout.module';
 import { RoomsModule } from './rooms/rooms.module';
 import { FabbyComponent } from '../components/fabby/fabby.component';
+import { ScoreCardComponent } from './score-card/score-card.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,6 @@ import { FabbyComponent } from '../components/fabby/fabby.component';
     CastleLayoutModule,
     RoomsModule,
   ],
-  declarations: [CastlePageComponent, FabbyComponent],
+  declarations: [CastlePageComponent, FabbyComponent, ScoreCardComponent],
 })
 export class CastleModule {}

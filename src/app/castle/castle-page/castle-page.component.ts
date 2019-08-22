@@ -6,14 +6,18 @@ import { RoomRepositoryService } from 'src/app/core/room-repository.service';
 
 import { Room } from 'src/app/models/rooms/room.type';
 
+import { Subject } from 'rxjs';
+
 @Component({
   selector: 'app-castle-page',
   templateUrl: './castle-page.component.html',
   styleUrls: ['./castle-page.component.scss'],
 })
 export class CastlePageComponent implements OnInit {
-  public name: string;
-  public rooms: Room[] = [];
+  name: string;
+  rooms: Room[] = [];
+  scoreCardCalculate$ = new Subject();
+
   constructor(
     private route: ActivatedRoute,
     private fabby: FabbyConnectorService,
@@ -28,6 +32,8 @@ export class CastlePageComponent implements OnInit {
 
   ionViewWillEnter() {
     this.rooms = this.roomRepo.getAllOccupied();
+
+    this.scoreCardCalculate$.next();
 
     if (this.rooms.length === 0) {
       this.fabby.hide();
