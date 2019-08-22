@@ -29,7 +29,7 @@ export class AdjacentRule extends Rule {
       .reduce((total, n) => {
         // eslint-disable-next-line
         return this.wantedTypes.some(t => t === n.data[this.roomProperty])
-          ? total + 1
+          ? total + this.points
           : total;
       }, 0);
   }

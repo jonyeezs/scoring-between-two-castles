@@ -1,7 +1,6 @@
 import { ImmediatePointsRule } from './index';
 import { RoomRepositoryService } from '@app/core/room-repository.service';
 import { Room } from '@app/models/rooms/room.type';
-import { ThroneRule } from '../thrones/throne.temp';
 import { MootRule } from '../moot-rule';
 
 describe('ImmediatePointsRule', () => {
@@ -15,7 +14,7 @@ describe('ImmediatePointsRule', () => {
         'throne',
         'none',
         [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-        new ThroneRule('some rule')
+        new MootRule()
       ),
       // prettier-ignore
       new Room('some other room', 'corridor', 'painting', [{ x: 1, y: 1 }], new MootRule()),

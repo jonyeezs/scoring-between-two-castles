@@ -11,6 +11,7 @@ export class AnywhereRule<T extends GridRoom> extends Rule {
     startingNode: GridNodeTraverser<T>
   ): number {
     const allNodes = startingNode.birdsEye();
-    return allNodes.filter(n => n.data.type === this.roomType).length;
+    const count = allNodes.filter(n => n.data.type === this.roomType).length;
+    return count * this.points;
   }
 }

@@ -14,7 +14,7 @@ export class ConnectedRule extends Rule {
     startingNode: GridNodeTraverser<T>
   ): number {
     const connectedRooms = this.travelThrough([startingNode]);
-    return connectedRooms.length;
+    return connectedRooms.length * this.points;
   }
 
   private travelThrough<T extends GridRoom>(

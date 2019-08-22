@@ -28,7 +28,7 @@ export class ConsecutiveRule extends Rule {
     let traveller = startingNode.moveTo(this.direction);
     while (traveller !== undefined && consecutives <= this.consecutiveRooms) {
       if (traveller.current.data[this.roomProperty] === this.wantedType) {
-        total++;
+        total += this.points;
       }
       consecutives++;
       traveller = traveller.moveTo(this.direction);

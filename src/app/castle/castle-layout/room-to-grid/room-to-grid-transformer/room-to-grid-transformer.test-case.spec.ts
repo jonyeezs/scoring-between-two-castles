@@ -1,7 +1,6 @@
 import { Room } from '../../../../models/rooms/room.type';
 import { Widget } from '../../models/WidgetPosition';
 import { MootRule } from '@app/rules/moot-rule';
-import { ThroneRule } from '@app/rules/thrones/throne.temp';
 
 export const rooms: Partial<Room>[] = [
   new Room(
@@ -9,7 +8,7 @@ export const rooms: Partial<Room>[] = [
     'throne',
     'none',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    new ThroneRule('hi!')
+    new MootRule()
   ),
   new Room('n', 'food', 'mirror', [{ x: -1, y: 0 }], new MootRule()), //                         [2,3]
   new Room('n', 'food', 'mirror', [{ x: 2, y: 0 }], new MootRule()), //                          [2,2]
@@ -41,7 +40,7 @@ export const startupRooms: Partial<Room>[] = [
     'throne',
     'none',
     [{ x: 0, y: 0 }, { x: 1, y: 0 }],
-    new ThroneRule('👑')
+    new MootRule()
   ), //                                                                                [0,1]
   new Room('n', 'food', 'none', [{ x: 0, y: 1 }], new MootRule()), //                   [-1,0][0,0|1,0][2,0]
   new Room('n', 'food', 'none', [{ x: -1, y: 0 }], new MootRule()), //                        [0,-1][1,-1]
