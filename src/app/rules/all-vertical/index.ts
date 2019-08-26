@@ -14,7 +14,7 @@ export class AllVerticalRule extends Rule {
     private wantedTypes: RoomType[]
   ) {
     super(
-      `${points} pts for each ${sentencize(wantedTypes, 'or')} 
+      `${points} pts for each ${sentencize(wantedTypes, 'or')}
       ${sentencize(directions, 'and')} this room.`
     );
   }

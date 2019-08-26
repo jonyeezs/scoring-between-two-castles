@@ -82,7 +82,9 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
   ): GridNodeTraverser<GridNodeType> | undefined {
     if (typeof target === 'string' || target instanceof String) {
       const movementCoord = _findkey(directionMap, v => v === target);
-      if (!movementCoord) throw new Error(`${target} not a valid Direction`);
+      if (!movementCoord) {
+        throw new Error(`${target} not a valid Direction`);
+      }
 
       // @ts-ignore
       target = {
@@ -93,11 +95,12 @@ export class GridNodeTraverser<GridNodeType extends GridableGridNodeType> {
     const found = this.current.links.find(n =>
       n.equals(target as GridNodeType)
     );
-    if (!found) return undefined;
+    if (!found) {
+      return undefined;
+    }
 
     this.previous = this.current;
     this.current = found;
-    debugger;
     return this;
   }
 

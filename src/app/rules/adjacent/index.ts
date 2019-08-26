@@ -15,7 +15,7 @@ export class AdjacentRule extends Rule {
     private wantedTypes: (RoomType | RoomHanging)[]
   ) {
     super(
-      `${points} pts for each room ${roomProperty} 
+      `${points} pts for each room ${roomProperty}
       of ${sentencize(wantedTypes, 'or')} directly
        ${sentencize(directions, 'and')} to this room.`
     );
@@ -23,7 +23,9 @@ export class AdjacentRule extends Rule {
   protected runRule<T extends GridRoom>(
     startingNode: GridNodeTraverser<T>
   ): number {
-    if (!startingNode.hasLinks()) return 0;
+    if (!startingNode.hasLinks()) {
+      return 0;
+    }
     return startingNode
       .getAvailableNodes(this.directions)
       .reduce((total, n) => {

@@ -21,6 +21,10 @@ module.exports = {
       'single',
       { avoidEscape: true, allowTemplateLiterals: true },
     ],
+    'no-unused-expressions': [
+      2,
+      { allowShortCircuit: true, allowTernary: true },
+    ],
     semi: ['error', 'always'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': [

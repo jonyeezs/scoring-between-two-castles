@@ -12,14 +12,12 @@ export class AllTypesRule<T extends GridRoom> extends Rule {
     private excludedRooms: RoomType[]
   ) {
     super(
-      `${points} pts for all ${expectedNumberOfRooms} room types other than 
-      ${sentencize(excludedRooms, 'and')} found anywhere in the castle, 
+      `${points} pts for all ${expectedNumberOfRooms} room types other than
+      ${sentencize(excludedRooms, 'and')} found anywhere in the castle,
       else ${alternativePoints} pts.`
     );
   }
-  protected runRule<T extends GridRoom>(
-    startingNode: GridNodeTraverser<T>
-  ): number {
+  protected runRule(startingNode: GridNodeTraverser<GridRoom>): number {
     const existingTypes = startingNode.birdsEye().map(n => n.data.type);
     const uniques = new Set(existingTypes);
     this.excludedRooms.forEach(e => uniques.delete(e));

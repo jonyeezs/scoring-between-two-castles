@@ -9,6 +9,7 @@
     "build": "ionic build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:js": "eslint --ext .ts,.js src/",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -39,6 +40,7 @@
     "ngx-pipes": "^2.4.6",
     "ngx-widget-grid": "^6.0.2",
     "rxjs": "~6.3.3",
+    "tslib": "^1.10.0",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {

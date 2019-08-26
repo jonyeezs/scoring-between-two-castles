@@ -15,7 +15,7 @@ export class ConsecutiveRule extends Rule {
     private wantedType: RoomType | RoomHanging
   ) {
     super(
-      `${points} pts for each ${consecutiveRooms} rooms ${roomProperty} 
+      `${points} pts for each ${consecutiveRooms} rooms ${roomProperty}
       of ${wantedType} directly
        ${direction} to this room.`
     );

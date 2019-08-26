@@ -7,9 +7,7 @@ export class AnywhereRule<T extends GridRoom> extends Rule {
   constructor(public points: number, public roomType: RoomType) {
     super(`${points} pts for each ${roomType} found anywhere in the castle`);
   }
-  protected runRule<T extends GridRoom>(
-    startingNode: GridNodeTraverser<T>
-  ): number {
+  protected runRule(startingNode: GridNodeTraverser<GridRoom>): number {
     const allNodes = startingNode.birdsEye();
     const count = allNodes.filter(n => n.data.type === this.roomType).length;
     return count * this.points;

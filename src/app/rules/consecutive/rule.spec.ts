@@ -181,7 +181,7 @@ describe('ConsecutiveRule', () => {
   });
 
   it('should calculate when no available rooms', () => {
-    let subject = new ConsecutiveRule(1, 'below', 2, 'type', 'food');
+    const subject = new ConsecutiveRule(1, 'below', 2, 'type', 'food');
     const testCase = [
       //                                               [0,2]          [3,2]
       new Room( //                               [-1,1][0,1][1,1]     [3,1]     [5,1]
