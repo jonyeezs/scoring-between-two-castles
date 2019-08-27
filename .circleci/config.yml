@@ -3,7 +3,7 @@ jobs:
   prepare:
     working_directory: ~/workspace
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:10.16.3
     steps:
       - checkout
       - run:
@@ -27,7 +27,7 @@ jobs:
   test:
     working_directory: ~/workspace
     docker:
-      - image: circleci/node:latest-browsers
+      - image: circleci/node:10.16.3-browsers
     steps:
       - checkout
       - restore_cache:
@@ -38,7 +38,7 @@ jobs:
           command: npm run lint
       - run:
           name: Unit test
-          command: npm test
+          command: npm test -- --configuration=ci
       # TODO soon
       #      - run:
       #        name: E2E
@@ -46,7 +46,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:10.16.3
     steps:
       - checkout
       - restore_cache:
