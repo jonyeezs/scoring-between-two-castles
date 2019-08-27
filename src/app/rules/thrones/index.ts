@@ -2,7 +2,7 @@ import { Rule } from '../rules.abstract';
 import { RoomType } from '@app/models/rooms/room.type';
 import { sentencize } from '@app/helpers/sentencize';
 import { AdjacentRule } from '../adjacent';
-import { GridRoom } from '@app/core/room-repository.service';
+import { GridRoom } from '@app/core/room-repo/room-repository.service';
 import { GridNodeTraverser } from '@app/models/grid-linked-list/grid-node-traverser';
 
 export class ThroneAboveRule extends Rule {

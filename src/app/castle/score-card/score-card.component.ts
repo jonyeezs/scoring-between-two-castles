@@ -7,7 +7,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { RoomRepositoryService } from '@app/core/room-repository.service';
+import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
 import { CountUp } from 'countup.js';
 
 @Component({

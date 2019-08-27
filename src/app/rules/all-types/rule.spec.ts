@@ -1,5 +1,5 @@
 import { AllTypesRule } from './index';
-import { RoomRepositoryService } from '@app/core/room-repository.service';
+import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
 import { Room } from '@app/models/rooms/room.type';
 import { MootRule } from '../moot-rule';
 

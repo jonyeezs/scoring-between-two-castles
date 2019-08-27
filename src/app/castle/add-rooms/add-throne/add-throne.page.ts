@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from 'src/app/models/rooms/room.type';
-import { RoomRepositoryService } from 'src/app/core/room-repository.service';
+import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { thrones } from '@app/rooms/thrones';

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RoomRepositoryService } from 'src/app/core/room-repository.service';
+import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
 import { ActivatedRoute } from '@angular/router';
 import { Room, RoomDefinition } from 'src/app/models/rooms/room.type';
 import { Subscription } from 'rxjs';
