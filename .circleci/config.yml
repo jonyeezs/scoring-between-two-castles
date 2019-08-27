@@ -82,10 +82,25 @@ workflows:
   version: 2
   pull-request:
     jobs:
-      - prepare
+      - prepare:
+          filters:
+            branches:
+              only:
+                - /bug(|fix)\/.*/
+                - /feat(|ure)\/.*/
       - test:
+          filters:
+            branches:
+              only:
+                - /bug(|fix)\/.*/
+                - /feat(|ure)\/.*/
           requires:
             - prepare
       - build:
+          filters:
+            branches:
+              only:
+                - /bug(|fix)\/.*/
+                - /feat(|ure)\/.*/
           requires:
             - prepare
