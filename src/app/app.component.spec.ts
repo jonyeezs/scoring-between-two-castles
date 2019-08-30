@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
+import { AppUpdateService } from './core/app-update/app-update.service';
 
 describe('AppComponent', () => {
   let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
@@ -23,6 +24,12 @@ describe('AppComponent', () => {
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
         { provide: Platform, useValue: platformSpy },
+        {
+          provide: AppUpdateService,
+          useValue: jasmine.createSpyObj('AppUpdateService', {
+            runCheck: () => {},
+          }),
+        },
       ],
     }).compileComponents();
   }));

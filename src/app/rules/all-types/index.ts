@@ -1,7 +1,7 @@
 import { Rule } from '../rules.abstract';
 import { RoomType } from '@app/models/rooms/room.type';
 import { GridNodeTraverser } from '@app/models/grid-linked-list/grid-node-traverser';
-import { GridRoom } from '@app/core/room-repository.service';
+import { GridRoom } from '@app/core/room-repo/room-repository.service';
 import { sentencize } from '@app/helpers/sentencize';
 
 export class AllTypesRule<T extends GridRoom> extends Rule {

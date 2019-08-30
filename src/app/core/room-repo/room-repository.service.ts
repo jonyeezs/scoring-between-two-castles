@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {
-  Room,
-  RoomDefinition,
-  RoomHanging,
-  RoomType,
-} from '../models/rooms/room.type';
 import * as _cloneDeep from 'lodash.clonedeep';
 import {
-  GridLinkedList,
+  RoomDefinition,
+  RoomType,
+  RoomHanging,
+  Room,
+} from '@app/models/rooms/room.type';
+import {
   GridableGridNodeType,
-} from '../models/grid-linked-list/grid-linked-list';
+  GridLinkedList,
+} from '@app/models/grid-linked-list/grid-linked-list';
 import { Rule } from '@app/rules/rules.abstract';
 import { MootRule } from '@app/rules/moot-rule';
 

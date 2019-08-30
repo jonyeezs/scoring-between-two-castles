@@ -4,7 +4,7 @@ import {
   GridNodeTraverser,
   VerticalDirection,
 } from '@app/models/grid-linked-list/grid-node-traverser';
-import { GridRoom } from '@app/core/room-repository.service';
+import { GridRoom } from '@app/core/room-repo/room-repository.service';
 import { sentencize } from '@app/helpers/sentencize';
 
 export class AllVerticalRule extends Rule {

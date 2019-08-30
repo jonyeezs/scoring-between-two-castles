@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FabbyConnectorService } from '../../components/fabby/fabby-connector.service';
 import { NavController } from '@ionic/angular';
-import { RoomRepositoryService } from 'src/app/core/room-repository.service';
+import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
 
 import { Room } from 'src/app/models/rooms/room.type';
 

@@ -1,6 +1,6 @@
 import { GridNode } from '@app/models/grid-linked-list/grid-node';
 import { GridNodeTraverser } from '@app/models/grid-linked-list/grid-node-traverser';
-import { GridRoom } from '@app/core/room-repository.service';
+import { GridRoom } from '@app/core/room-repo/room-repository.service';
 
 export abstract class Rule {
   description: string;
