@@ -107,3 +107,30 @@ workflows:
                 - /feat(|ure)\/.*/
           requires:
             - prepare
+  build-deploy:
+    jobs:
+      - prepare:
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              only: /^v.*/
+      - build:
+          requires:
+            - prepare
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              only: /^v.*/
