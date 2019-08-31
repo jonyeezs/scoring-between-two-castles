@@ -1,5 +1,8 @@
 {
   "index": "/index.html",
+  "appData": {
+    "version": "0.1.0"
+  },
   "assetGroups": [
     {
       "name": "app",
