@@ -1,8 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Castle
-    </ion-title>
+    <ion-buttons slot="start"
+      ><ion-button
+        style="visibility: hidden; min-width: 48px; height: 48px;"
+        aria-hidden="true"
+      ></ion-button>
+    </ion-buttons>
+    <ion-title>Castle layout</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +14,7 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title
-        ><h1>{{ name }}</h1></ion-card-title
+        ><h1 title="castle's name">{{ name }}</h1></ion-card-title
       >
     </ion-card-header>
 
