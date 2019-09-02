@@ -1,11 +1,11 @@
 {
   "header": "What's new",
   "types": [
-    { "type": "feat", "section": "You'll love this new updates!" },
+    { "type": "feat", "section": "You'll love this new features!" },
     { "type": "fix", "section": "We've fix these issues 👍" },
+    { "type": "style", "section": "We've made some visual changes 💅" },
     { "type": "ci", "hidden": true },
     { "type": "refactor", "hidden": true },    
-    { "type": "style", "hidden": true },
     { "type": "build", "hidden": true },
     { "type": "test", "hidden": true },
     { "type": "revert", "hidden": true },
