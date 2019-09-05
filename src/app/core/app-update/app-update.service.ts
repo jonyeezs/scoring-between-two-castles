@@ -25,7 +25,9 @@ export class AppUpdateService {
   }
 
   runCheck() {
-    this.updater.checkForUpdate().then();
+    if (this.updater.isEnabled) {
+      this.updater.checkForUpdate().then();
+    }
   }
 
   private async presentUpdate() {
