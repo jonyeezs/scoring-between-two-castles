@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from 'src/app/models/rooms/room.type';
 import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
-import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { thrones } from '@app/rooms/thrones';
 @Component({
   selector: 'app-add-throne',
@@ -15,13 +14,13 @@ export class AddThronePage implements OnInit {
   thrones = thrones;
 
   constructor(
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
     private roomRepo: RoomRepositoryService,
-    private navCtrl: NavController
+    private router: Router,
   ) {}
 
   ngOnInit() {
-    this.castleName = this.router.snapshot.paramMap.get('castleName');
+    this.castleName = this.route.snapshot.paramMap.get('castleName');
     this.selectedThrone = { name: 'Throne Room', icon: '👑' };
   }
 
@@ -32,6 +31,8 @@ export class AddThronePage implements OnInit {
   onSubmit() {
     this.roomRepo.add(this.selectedThrone as Room);
 
-    this.navCtrl.navigateBack(['castle', this.castleName]);
+    this.router.navigate(['castle', this.castleName], {
+      skipLocationChange: true,
+    });
   }
 }
