@@ -111,20 +111,29 @@ workflows:
           requires:
             - prepare
   build-deploy:
+    # ignore any commit on any branch by default
+    # Deploy only on version tags
     jobs:
       - prepare:
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /^v.*/
+              only: /^v[0-9]+(\.[0-9]+){1,2}(|-\w+)$/
       - build:
           requires:
             - prepare
           filters:
+            branches:
+              ignore: /.*/
             tags:
-              only: /^v.*/
+              only: /^v[0-9]+(\.[0-9]+){1,2}(|-\w+)$/
       - deploy:
           requires:
             - build
           filters:
+            # ignore any commit on any branch by default
+            branches:
+              ignore: /.*/
             tags:
-              only: /^v.*/
+              only: /^v[0-9]+(\.[0-9]+){1,2}(|-\w+)$/
