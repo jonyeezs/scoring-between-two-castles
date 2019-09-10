@@ -75,3 +75,20 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+.md {
+  /* Use the primary color as the background for the toolbar */
+  --ion-toolbar-background: var(--ion-color-primary);
+
+  /* Change the color of the toolbar components */
+  --ion-toolbar-color: #fff;
+
+  /* Change the color of the activated toolbar components */
+  --ion-toolbar-color-activated: #fff;
+
+  /* Change the color of the unchecked segment buttons */
+  --ion-toolbar-color-unchecked: rgba(255, 255, 255, 0.6);
+
+  /* Change the color of the checked segment button */
+  --ion-toolbar-color-checked: #fff;
+}

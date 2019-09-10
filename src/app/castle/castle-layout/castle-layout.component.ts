@@ -21,9 +21,9 @@ import { SelectableMiniRoomComponent } from '../rooms/selectable-mini-room/selec
 export class CastleLayoutComponent implements OnInit, OnChanges {
   @Input() rooms: Room[];
   @Input() isEditable: boolean;
-  public numOfRows: number;
-  public numOfCols: number;
-  public widgetRooms: RoomWidget<any>[];
+  numOfRows: number;
+  numOfCols: number;
+  widgetRooms: RoomWidget<any>[];
   constructor(private roomGridFactory: RoomGridFactoryService) {}
 
   ngOnInit() {}
@@ -85,5 +85,5 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
     }
   }
 
-  onWidgetChange(event) {}
+  onWidgetChange() {}
 }

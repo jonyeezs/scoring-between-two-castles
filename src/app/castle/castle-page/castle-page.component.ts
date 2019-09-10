@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FabbyConnectorService } from '../../components/fabby/fabby-connector.service';
-import { NavController } from '@ionic/angular';
 import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
 
 import { Room } from 'src/app/models/rooms/room.type';
@@ -21,8 +20,8 @@ export class CastlePageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fabby: FabbyConnectorService,
-    private navCtrl: NavController,
-    private roomRepo: RoomRepositoryService
+    private router: Router,
+    private roomRepo: RoomRepositoryService,
   ) {}
 
   ngOnInit() {
@@ -43,8 +42,9 @@ export class CastlePageComponent implements OnInit {
   }
 
   goToAddThrone() {
-    this.navCtrl.navigateForward(['add', 'throne', { castleName: this.name }], {
+    this.router.navigate(['add', 'throne', { castleName: this.name }], {
       relativeTo: this.route,
+      skipLocationChange: true,
     });
   }
 }

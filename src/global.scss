@@ -11,9 +11,4 @@
 @import '~@ionic/angular/css/flex-utils.css';
 @import '~ionic4-auto-complete/auto-complete';
 
-.bottom-button {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 10px;
-}
+@import './assets/styles/elements.scss';

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FabbyConnectorService } from './fabby-connector.service';
 import { Observable } from 'rxjs';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-fabby',
@@ -10,13 +9,13 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./fabby.component.scss'],
 })
 export class FabbyComponent implements OnInit {
-  public canShow$: Observable<boolean>;
-  public name: string;
+  canShow$: Observable<boolean>;
+  name: string;
 
   constructor(
     private route: ActivatedRoute,
     private fabbyConnector: FabbyConnectorService,
-    private navCtrl: NavController
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -24,9 +23,10 @@ export class FabbyComponent implements OnInit {
     this.name = this.fabbyConnector.currentCastle;
   }
 
-  public navigateToAddRoom() {
-    this.navCtrl.navigateForward(['add', 'room', { castleName: this.name }], {
+  navigateToAddRoom() {
+    this.router.navigate(['add', 'room', { castleName: this.name }], {
       relativeTo: this.route,
+      skipLocationChange: true,
     });
   }
 }

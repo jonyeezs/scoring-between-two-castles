@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RoomRepositoryService } from '@app/core/room-repo/room-repository.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Room, RoomDefinition } from 'src/app/models/rooms/room.type';
 import { Subscription } from 'rxjs';
 import {
@@ -8,7 +8,6 @@ import {
   ChosenSelectableMiniRoom,
 } from '../../rooms/selectable-mini-room/services/select-room-manager.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { NavController } from '@ionic/angular';
 import { RoomSelectionAutocompleteService } from '../services/room-selection-autocomplete/room-selection-autocomplete.service';
 import { MootRule } from '@app/rules/moot-rule';
 
@@ -28,20 +27,15 @@ export class AddRoomPage implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
     private roomRepo: RoomRepositoryService,
     private roomSelection: SelectRoomManagerService,
     public roomSelectionCompletion: RoomSelectionAutocompleteService,
-    private navCtrl: NavController
+    private router: Router,
   ) {}
 
   ngOnInit() {
-    this.castleName = this.router.snapshot.paramMap.get('castleName');
-
-    this.rooms = [
-      ...this.roomRepo.getAllOccupied(),
-      ...this.roomRepo.getAllFreeSpace(),
-    ];
+    this.castleName = this.route.snapshot.paramMap.get('castleName');
 
     this.subscription = this.roomSelection.selectedChange.subscribe(
       (e: ChosenSelectableMiniRoom) => {
@@ -49,6 +43,14 @@ export class AddRoomPage implements OnInit, OnDestroy {
       }
     );
   }
+
+  ionViewWillEnter() {
+    this.rooms = [
+      ...this.roomRepo.getAllOccupied(),
+      ...this.roomRepo.getAllFreeSpace(),
+    ];
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -64,7 +66,8 @@ export class AddRoomPage implements OnInit, OnDestroy {
         new MootRule()
       )
     );
-
-    this.navCtrl.navigateBack(['castle', this.castleName]);
+    this.router.navigate(['castle', this.castleName], {
+      skipLocationChange: true,
+    });
   }
 }
