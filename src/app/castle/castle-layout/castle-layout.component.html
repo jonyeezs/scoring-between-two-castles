@@ -1,14 +1,26 @@
 <div class="container">
-  <div class="frame" [appDynamicHeight]="numOfRows">
+  <ion-radio-group *ngIf="isEditable">
+    <ng-container *ngTemplateOutlet="widgetGrid; context: { $implicit: setup }">
+    </ng-container>
+  </ion-radio-group>
+
+  <ng-container *ngIf="!isEditable">
+    <ng-container *ngTemplateOutlet="widgetGrid; context: { $implicit: setup }">
+    </ng-container>
+  </ng-container>
+</div>
+
+<!-- The grid view -->
+<ng-template #widgetGrid let-default>
+  <div class="frame" [appDynamicHeight]="default.numOfRows">
     <ngx-widget-grid
-      [rows]="numOfRows"
-      [columns]="numOfCols"
+      [rows]="default.numOfRows"
+      [columns]="default.numOfCols"
       [highlightNextPosition]="false"
-      [showGrid]="isEditable"
-      (widgetPositionChange)="onWidgetChange($event)"
+      [showGrid]="default.isEditable"
     >
       <ngx-widget
-        *ngFor="let room of widgetRooms"
+        *ngFor="let room of default.widgetRooms"
         [(position)]="room.position"
         [resizable]="false"
       >
@@ -18,4 +30,4 @@
       </ngx-widget>
     </ngx-widget-grid>
   </div>
-</div>
+</ng-template>
