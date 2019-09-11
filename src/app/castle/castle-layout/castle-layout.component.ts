@@ -21,16 +21,21 @@ import { SelectableMiniRoomComponent } from '../rooms/selectable-mini-room/selec
 export class CastleLayoutComponent implements OnInit, OnChanges {
   @Input() rooms: Room[];
   @Input() isEditable: boolean;
-  numOfRows: number;
-  numOfCols: number;
-  widgetRooms: RoomWidget<any>[];
+
+  setup: {
+    numOfRows: number;
+    numOfCols: number;
+    isEditable: boolean;
+    // @eslint-disable-next-line
+    widgetRooms: RoomWidget<any>[];
+  } = { numOfRows: 0, numOfCols: 0, isEditable: false, widgetRooms: [] };
   constructor(private roomGridFactory: RoomGridFactoryService) {}
 
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (!changes.isEditable) {
-      this.isEditable = false;
+      this.setup.isEditable = false;
     }
 
     if (
@@ -40,7 +45,7 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
     ) {
       this.roomGridFactory.buildTransformer(changes.rooms.currentValue);
 
-      this.widgetRooms = changes.rooms.currentValue.map((r: Room) => {
+      this.setup.widgetRooms = changes.rooms.currentValue.map((r: Room) => {
         const roomWidget = this.roomGridFactory.createRoomWidget<
           SelectableMiniRoomComponent | MiniRoomComponent
         >(
@@ -65,14 +70,14 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
         return roomWidget;
       });
 
-      this.numOfCols = this.widgetRooms.reduce(
+      this.setup.numOfCols = this.setup.widgetRooms.reduce(
         (highestValue: number, currTile: RoomWidget<any>) =>
           highestValue > currTile.position.left
             ? highestValue
             : currTile.position.left,
         0
       );
-      this.numOfRows = this.widgetRooms.reduce(
+      this.setup.numOfRows = this.setup.widgetRooms.reduce(
         (highestValue: number, currTile: RoomWidget<any>) =>
           highestValue > currTile.position.top
             ? highestValue
@@ -80,10 +85,8 @@ export class CastleLayoutComponent implements OnInit, OnChanges {
         0
       );
     } else {
-      this.numOfCols = 1;
-      this.numOfRows = 1;
+      this.setup.numOfCols = 1;
+      this.setup.numOfRows = 1;
     }
   }
-
-  onWidgetChange() {}
 }

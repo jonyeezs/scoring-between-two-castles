@@ -5,6 +5,7 @@ import { CastleLayoutComponent } from './castle-layout.component';
 import { WidgetComponentDirective } from './widget-component/widget-component.directive';
 import { RoomGridFactoryService } from './room-to-grid/room-grid-factory/room-grid-factory.service';
 import { DynamicHeightDirective } from './layout-frame-height/dynamic-height.directive';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { DynamicHeightDirective } from './layout-frame-height/dynamic-height.dir
     WidgetComponentDirective,
     DynamicHeightDirective,
   ],
-  imports: [CommonModule, NgxWidgetGridModule],
+  imports: [CommonModule, NgxWidgetGridModule, IonicModule],
   providers: [RoomGridFactoryService],
   exports: [CastleLayoutComponent],
 })

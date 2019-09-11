@@ -12,6 +12,7 @@ import {
 } from '@app/models/grid-linked-list/grid-linked-list';
 import { Rule } from '@app/rules/rules.abstract';
 import { MootRule } from '@app/rules/moot-rule';
+import { BehaviorSubject } from 'rxjs';
 
 export class GridRoom implements RoomDefinition, GridableGridNodeType {
   constructor(
@@ -29,12 +30,15 @@ export class GridRoom implements RoomDefinition, GridableGridNodeType {
   providedIn: 'root',
 })
 export class RoomRepositoryService {
-  private readonly gridRooms: GridLinkedList<GridRoom>;
+  private gridRooms: GridLinkedList<GridRoom>;
   private rooms: Room[];
+
+  private rooms$: BehaviorSubject<Room[]>;
 
   constructor() {
     this.gridRooms = new GridLinkedList();
     this.rooms = [];
+    this.rooms$ = new BehaviorSubject([]);
   }
 
   add(room: Room) {
@@ -52,6 +56,14 @@ export class RoomRepositoryService {
         )
       );
     });
+
+    this.rooms$.next(_cloneDeep(this.rooms));
+  }
+
+  clear() {
+    this.gridRooms = new GridLinkedList();
+    this.rooms = [];
+    this.rooms$.next([]);
   }
 
   calculatePoints(gridCoordinate: GridableGridNodeType) {
@@ -78,5 +90,9 @@ export class RoomRepositoryService {
           new MootRule()
         )
     );
+  }
+
+  get occupiedChanges() {
+    return this.rooms$.asObservable();
   }
 }

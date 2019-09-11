@@ -44,8 +44,8 @@
   ></app-score-card>
 
   <ion-grid class="bottom-button">
-    <ion-row *ngIf="rooms.length === 0" align-items-end justify-content-end>
-      <ion-col align-self-end>
+    <ion-row align-items-end justify-content-end>
+      <ion-col *ngIf="rooms.length === 0; else castleOptions" align-self-center>
         <ion-button
           (click)="goToAddThrone()"
           color="primary"
@@ -56,6 +56,14 @@
           Add Throne Room
         </ion-button>
       </ion-col>
+      <ng-template #castleOptions>
+        <ion-col>
+          <ion-chip color="secondary" (click)="onReset()">
+            <ion-icon name="flame"></ion-icon>
+            <ion-label color="dark">Reset</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ng-template>
     </ion-row>
   </ion-grid>
   <app-fabby></app-fabby>
