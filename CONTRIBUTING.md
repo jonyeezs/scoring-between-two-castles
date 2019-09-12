@@ -14,7 +14,9 @@
    * `style` for visual changes that don't impact UX. eg: heading size.
    * _Any other commit types will not be added into the change log._
 6. Create PR.
-7. When merge, merge all commits. So please do keep your commit messages user friendly.
+7. For merging use: 
+   1. Squash and merge - when there is only one feature. Ensure the merge commit has your commitzen styled message 
+   2. Merge PR - use this if you have multiple. But don't have a commitzen styled merge commit message, as this may add duplicate entries to the changelog.
 
 ## Deploying
 
