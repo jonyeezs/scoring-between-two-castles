@@ -7,11 +7,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./help-support.page.scss'],
 })
 export class HelpSupportPage implements OnInit {
-  params: Params;
+  constructor() {}
 
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.params = this.route.snapshot.params;
-  }
+  ngOnInit() {}
 }
