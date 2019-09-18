@@ -5,4 +5,4 @@ Supplement app to help calculate scores for the board game Between Two Castles o
 https://scoring-between-two-castles.web.app
 
 [![CircleCI](https://circleci.com/gh/jonyeezs/scoring-between-two-castles.svg?style=svg)](https://circleci.com/gh/jonyeezs/scoring-between-two-castles) 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Greenkeeper badge](https://badges.greenkeeper.io/jonyeezs/scoring-between-two-castles.svg)](https://greenkeeper.io/)
