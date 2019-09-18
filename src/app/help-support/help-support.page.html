@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Help and Support</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- scripts for freshdesk the help and support plugin -->
+  <script
+    type="text/javascript"
+    src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"
+  ></script>
+  <iframe
+    title="Feedback Form"
+    class="freshwidget-embedded-form"
+    id="freshwidget-embedded-form"
+    src="https://between2castles.freshdesk.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=How+can+we+help%3F&submitTitle=Send&submitThanks=Thank+you.+We+will+try+to+get+back+to+you+as+soon+as+we+can&screenshot=No&attachFile=no&searchArea=no&captcha=yes"
+    scrolling="no"
+    height="98%"
+    width="100%"
+    frameborder="0"
+  >
+  </iframe>
+</ion-content>

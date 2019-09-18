@@ -4,6 +4,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'castle', loadChildren: './castle/castle.module#CastleModule' },
   { path: '', redirectTo: '/castle/default', pathMatch: 'full' },
+  {
+    path: 'support',
+    loadChildren: './help-support/help-support.module#HelpSupportPageModule',
+  },
 ];
 
 @NgModule({

@@ -4,3 +4,7 @@
   right: 0;
   bottom: 10px;
 }
+
+ion-item.active-link {
+  --background: var(--ion-color-light-shade);
+}
