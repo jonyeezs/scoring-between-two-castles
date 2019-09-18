@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/jonyeezs/scoring-between-two-castles/compare/v0.1.6...v0.1.7) (2019-09-18)
+
+
+### You'll love this new features!
+
+* **support:** add a page for users to ask questions and give feedback ([a6e2027](https://github.com/jonyeezs/scoring-between-two-castles/commit/a6e2027))
+
 ### [0.1.6](https://github.com/jonyeezs/scoring-between-two-castles/compare/v0.1.5...v0.1.6) (2019-09-12)
 
 
