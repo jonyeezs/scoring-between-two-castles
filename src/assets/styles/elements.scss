@@ -1,10 +1,15 @@
 .bottom-button {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 10px;
+  position: sticky;
+  bottom: 0px;
 }
 
 ion-item.active-link {
   --background: var(--ion-color-light-shade);
+}
+
+.select-alert {
+  .alert-radio-label {
+    text-overflow: unset;
+    white-space: normal;
+  }
 }
