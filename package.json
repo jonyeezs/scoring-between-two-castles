@@ -34,6 +34,7 @@
     "countup.js": "^2.0.4",
     "fuzzy-search": "^3.0.1",
     "hammerjs": "^2.0.8",
+    "idb-keyval": "^3.2.0",
     "ionic4-auto-complete": "^1.8.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.differencewith": "^4.5.0",
