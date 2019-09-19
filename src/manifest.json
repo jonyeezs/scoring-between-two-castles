@@ -5,7 +5,7 @@
   "background_color": "#a1d37e",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/?utm_source=itnext_pwa_a2hs",
+  "start_url": "/?utm_source=pwa_a2hs",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

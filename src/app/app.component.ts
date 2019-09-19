@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { get, set } from 'idb-keyval';
 
-import { Platform } from '@ionic/angular';
+import { Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppUpdateService } from './core/app-update/app-update.service';
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private appUpdater: AppUpdateService
+    private appUpdater: AppUpdateService,
+    private toastController: ToastController
   ) {
     this.initializeApp();
   }
@@ -28,4 +30,37 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  showIosInstallBanner() {
+    // Detects if device is on iOS
+    const isIos = () => {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      return /iphone|ipad|ipod/.test(userAgent);
+    };
+    // Detects if device is in standalone mode
+    const isInStandaloneMode = () =>
+      'standalone' in window.navigator && window.navigator['standalone'];
+
+    // Show the banner once
+    return get<boolean>('isIosa2hs')
+      .then(isBannerShown => {
+        // Checks if it should display install popup notification
+        if (isIos() && !isInStandaloneMode() && isBannerShown === undefined) {
+          return this.toastController.create({
+            showCloseButton: true,
+            closeButtonText: 'OK',
+            position: 'bottom',
+            message: `To install the app, tap "Share" icon below and select "Add to Home Screen".`,
+          });
+        } else {
+          return undefined;
+        }
+      })
+      .then((toaster: HTMLIonToastElement) => {
+        if (!!toaster) {
+          set('isIosa2hs', true);
+          return (toaster as HTMLIonToastElement).present();
+        }
+      });
+  }
 }
