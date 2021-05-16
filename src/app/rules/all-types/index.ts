@@ -12,8 +12,8 @@ export class AllTypesRule<T extends GridRoom> extends Rule {
     private excludedRooms: RoomType[]
   ) {
     super(
-      `${points} pts for all ${expectedNumberOfRooms} room types other than
-      ${sentencize(excludedRooms, 'and')} found anywhere in the castle,
+      `${points} pts for all ${expectedNumberOfRooms} room types 
+      ${ excludedRooms.length > 0 ? 'other than ' + sentencize(excludedRooms, 'and')  : '' } found anywhere in the castle,
       else ${alternativePoints} pts.`
     );
   }
