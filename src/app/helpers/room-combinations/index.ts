@@ -26,7 +26,7 @@ export const AllRegularRoomTypes: RoomType[] = [
   'utility',
 ];
 
-export const SpecialRoomTypes: RoomType[] = ['throne', 'specialty'];
+export const AllSpecialRoomTypes: RoomType[] = ['throne', 'specialty'];
 
 export const AllHangingTypes: RoomHanging[] = [
   'mirror',
