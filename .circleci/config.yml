@@ -67,7 +67,7 @@ jobs:
             - .firebaserc
   deploy:
     docker:
-      - image: circleci/node:latest-browsers
+      - image: circleci/node:10.16.3
     working_directory: ~/workspace
     steps:
       - run:
@@ -75,6 +75,9 @@ jobs:
           command: echo ${CIRCLE_BRANCH}
       - restore_cache:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+      - run:
+          name: change user npm privilege
+          command: npm set prefix=/home/circleci/npm && echo 'export PATH=$HOME/circleci/npm/bin:$PATH' >> /home/circleci/.bashrc
       - run:
           name: Install Firebase
           command: npm install -g firebase-tools@7.3.1
