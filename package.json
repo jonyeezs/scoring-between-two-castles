@@ -1,7 +1,7 @@
 {
   "name": "scoring-between-two-castles",
   "description": "Calculate scores for the board game Between Two Castles of Mad King Ludwig",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "author": "jonyeezs",
   "scripts": {
     "ng": "ng",
