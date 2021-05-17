@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/jonyeezs/scoring-between-two-castles/compare/v0.1.15...v0.1.16) (2021-05-17)
+
+
+### We've fix these issues 👍
+
+* **rules:** now rooms should apply their points ([#17](https://github.com/jonyeezs/scoring-between-two-castles/issues/17)) ([6495ed7](https://github.com/jonyeezs/scoring-between-two-castles/commit/6495ed7)), closes [#14](https://github.com/jonyeezs/scoring-between-two-castles/issues/14)
+
 ### [0.1.15](https://github.com/jonyeezs/scoring-between-two-castles/compare/v0.1.14...v0.1.15) (2021-05-16)
 
 ### [0.1.14](https://github.com/jonyeezs/scoring-between-two-castles/compare/v0.1.13...v0.1.14) (2021-05-16)
