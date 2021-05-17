@@ -63,7 +63,7 @@ export class AddRoomPage implements OnInit, OnDestroy {
         room.type,
         room.hanging,
         this.form.value.coordinates,
-        new MootRule()
+        room.rule,
       )
     );
     this.router.navigate(['castle', this.castleName], {
